@@ -60,7 +60,7 @@ func RegisterOptimismIdMethod(ctx context.Context) error {
 		Network:     core.Main,
 		NetworkFlag: 0b1000_0000 | 0b0000_0001, // chain | network (0b0000_0001 used for main usually)
 	}
-	if err := core.RegisterDIDMethodNetwork(mainnetParams, core.WithChainID(OptimismSepoliaChainID)); err != nil {
+	if err := core.RegisterDIDMethodNetwork(mainnetParams, core.WithChainID(OptimismChainID)); err != nil {
 		log.Error(ctx, "cannot register opid network", "err", err)
 		return err
 	}
