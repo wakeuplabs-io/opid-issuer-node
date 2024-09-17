@@ -9,11 +9,16 @@ import (
 	"github.com/polygonid/sh-id-platform/internal/log"
 )
 
+const (
+	DIDMethodOptimismID   = "opid"
+	DIDMethodOptimismByte = 0b01000011
+)
+
 // RegisterCustomDIDMethods registers custom DID methods
 func RegisterCustomDIDMethods(ctx context.Context, customsDis []config.CustomDIDMethods) error {
 	for _, cdid := range customsDis {
 		params := core.DIDMethodNetworkParams{
-			Method:      core.DIDMethodPolygonID,
+			Method:      DIDMethodOptimismID,
 			Blockchain:  core.Blockchain(cdid.Blockchain),
 			Network:     core.NetworkID(cdid.Network),
 			NetworkFlag: cdid.NetworkFlag,
@@ -24,4 +29,8 @@ func RegisterCustomDIDMethods(ctx context.Context, customsDis []config.CustomDID
 		}
 	}
 	return nil
+}
+
+func RegisterOptimismIdMethod(ctx context.Context) error {
+	return core.RegisterDIDMethod(DIDMethodOptimismID, DIDMethodOptimismByte)
 }
