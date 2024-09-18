@@ -35,7 +35,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
 
 ## Quick Start Installation
 > [!NOTE]
-> The provided installation guide is **non-production** ready. For production deployments please refer to  [Standalone Mode Guide](https://devs.polygonid.com/docs/issuer/setup-issuer-core/).
+> The provided installation guide is **non-production** ready. For production deployments please refer to  [Standalone Mode Guide](https://docs.privado.id/docs/issuer/setup-issuer-core/).
 >
 > There is no compatibility with Windows environments at this time. While using WSL should be ok, it's not officially supported.
 
@@ -123,7 +123,7 @@ make private_key=<YOUR_WALLET_PRIVATE_KEY> add-private-key    // Stores the priv
 ----
 #### Run Issuer Node API
 
-The issuer node is extensively configurable, for a detailed list of the configuration, please visit our [detailed configuration guide](https://devs.polygonid.com/docs/issuer/issuer-configuration/).
+The issuer node is extensively configurable, for a detailed list of the configuration, please visit our [detailed configuration guide](https://docs.privado.id/docs/issuer/issuer-configuration/).
 
 1. Fill the .env-issuer config file with the proper variables:
 
@@ -213,19 +213,19 @@ make restart-ui
 
 ## Quick Start Demo
 
-This [Quick Start Demo](https://devs.polygonid.com/docs/quick-start-demo/) will walk you through the process of **issuing** and **verifying** your **first credential**.
+This [Quick Start Demo](https://docs.privado.id/docs/quick-start-demo/) will walk you through the process of **issuing** and **verifying** your **first credential**.
 
 ## Documentation
 
-* [Issuer Node resources](https://devs.polygonid.com/docs/category/issuer/)
-* [Privado ID core concepts](https://devs.polygonid.com/docs/introduction/)
+* [Issuer Node resources](https://docs.privado.id/docs/category/issuer/)
+* [Privado ID core concepts](https://docs.privado.id/docs/introduction/)
 
 ## Tools
 > [!WARNING]
 > **Demo Issuer** and **Verifier Demo** are for **testing** purposes **only**.
 
 
-* [Schema Builder](https://schema-builder.polygonid.me/) - Create your custom schemas to issue VC.
+* [Schema Builder](https://tools.privado.id/) - Create your custom schemas to issue VC.
 * [Demo Issuer UI](https://user-ui:password-ui@issuer-ui.polygonid.me/) - Test our Issuer Node UI.
 * [Verifier Demo](https://verifier-demo.polygonid.me/) - Verify your VCs.
 * [Polygon ID Android Mobile App](https://play.google.com/store/apps/details?id=com.polygonid.wallet&hl=en&gl=US)
