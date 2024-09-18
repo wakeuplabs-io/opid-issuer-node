@@ -801,8 +801,8 @@ func TestServer_ImportSchemaIPFS(t *testing.T) {
 func TestServer_DeleteConnection(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -828,7 +828,7 @@ func TestServer_DeleteConnection(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	issuerDID, err := w3c.ParseDID(iden.Identifier)
@@ -1060,8 +1060,8 @@ func TestServer_DeleteConnectionCredentials(t *testing.T) {
 func TestServer_RevokeConnectionCredentials(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -1087,7 +1087,7 @@ func TestServer_RevokeConnectionCredentials(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, "http://localhost", pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	issuerDID, err := w3c.ParseDID(iden.Identifier)
@@ -1180,8 +1180,8 @@ func TestServer_RevokeConnectionCredentials(t *testing.T) {
 func TestServer_CreateCredential(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -1207,7 +1207,7 @@ func TestServer_CreateCredential(t *testing.T) {
 
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubSub, ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -1478,8 +1478,8 @@ func TestServer_DeleteCredential(t *testing.T) {
 func TestServer_GetCredential(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -1504,7 +1504,7 @@ func TestServer_GetCredential(t *testing.T) {
 
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -1694,8 +1694,8 @@ func TestServer_GetCredential(t *testing.T) {
 func TestServer_GetCredentials(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -1722,7 +1722,7 @@ func TestServer_GetCredentials(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	schemaService := services.NewSchema(schemaRepository, schemaLoader)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -2174,8 +2174,8 @@ func TestServer_GetCredentials(t *testing.T) {
 func TestServer_GetCredentialQrCode(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -2201,7 +2201,7 @@ func TestServer_GetCredentialQrCode(t *testing.T) {
 
 	claimsService := services.NewClaim(claimsRepo, identityService, qrService, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -2349,8 +2349,8 @@ func TestServer_GetCredentialQrCode(t *testing.T) {
 func TestServer_GetConnection(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -2376,7 +2376,7 @@ func TestServer_GetConnection(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -2543,8 +2543,8 @@ func TestServer_GetConnection(t *testing.T) {
 func TestServer_GetConnections(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -2570,7 +2570,7 @@ func TestServer_GetConnections(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -2947,7 +2947,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("did:polygon:myhouse:ZZZZZZ birthday"),
+					Query:       common.ToPointer("did:optimism:myhouse:ZZZZZZ birthday"),
 				},
 			},
 			expected: expected{
@@ -3230,8 +3230,8 @@ func validateCredential(t *testing.T, tc Credential, response Credential) {
 func TestServer_RevokeCredential(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -3258,7 +3258,7 @@ func TestServer_RevokeCredential(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -3374,8 +3374,8 @@ func TestServer_RevokeCredential(t *testing.T) {
 func TestServer_CreateLink(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -3407,7 +3407,7 @@ func TestServer_CreateLink(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubSub, ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, nil, claimsRepo, linkRepository, schemaRespository, schemaLoader, sessionRepository, pubSub, ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -3609,8 +3609,8 @@ func TestServer_CreateLink(t *testing.T) {
 func TestServer_ActivateLink(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -3641,7 +3641,7 @@ func TestServer_ActivateLink(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, nil, claimsRepo, linkRepository, schemaRepository, schemaLoader, sessionRepository, pubsub.NewMock(), ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -3767,8 +3767,8 @@ func TestServer_ActivateLink(t *testing.T) {
 func TestServer_GetLink(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -3799,7 +3799,7 @@ func TestServer_GetLink(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, nil, claimsRepo, linkRepository, schemaRepository, schemaLoader, sessionRepository, pubsub.NewMock(), ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -3952,8 +3952,8 @@ func TestServer_GetLink(t *testing.T) {
 func TestServer_GetAllLinks(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		sUrl       = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -3984,7 +3984,7 @@ func TestServer_GetAllLinks(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, nil, claimsRepo, linkRepository, schemaRepository, schemaLoader, sessionRepository, pubsub.NewMock(), ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -4195,8 +4195,8 @@ func TestServer_GetAllLinks(t *testing.T) {
 func TestServer_DeleteLink(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -4227,7 +4227,7 @@ func TestServer_DeleteLink(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, nil, claimsRepo, linkRepository, schemaRepository, schemaLoader, sessionRepository, pubsub.NewMock(), ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -4319,8 +4319,8 @@ func TestServer_DeleteLink(t *testing.T) {
 func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -4351,10 +4351,10 @@ func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, nil, claimsRepo, linkRepository, schemaRepository, schemaLoader, sessionRepository, pubsub.NewMock(), ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
-	iden2, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden2, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -4440,8 +4440,8 @@ func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 func TestServer_CreateLinkQRCode(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -4473,7 +4473,7 @@ func TestServer_CreateLinkQRCode(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, qrService, claimsRepo, linkRepository, schemaRepository, schemaLoader, sessionRepository, pubsub.NewMock(), ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -4602,8 +4602,8 @@ func TestServer_CreateLinkQRCode(t *testing.T) {
 func TestServer_GetLinkQRCode(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -4635,7 +4635,7 @@ func TestServer_GetLinkQRCode(t *testing.T) {
 	claimsService := services.NewClaim(claimsRepo, identityService, qrService, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	linkService := services.NewLinkService(storage, claimsService, qrService, claimsRepo, linkRepository, schemaRepository, schemaLoader, sessionRepository, pubsub.NewMock(), ipfsGatewayURL)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -4798,8 +4798,8 @@ func TestServer_GetLinkQRCode(t *testing.T) {
 func TestServer_GetStateStatus(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -4833,7 +4833,7 @@ func TestServer_GetStateStatus(t *testing.T) {
 	typeC := "KYCAgeCredential"
 	merklizedRootPosition := "index"
 
-	idenWithSignatureClaim, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	idenWithSignatureClaim, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	didSignatureClaim, err := w3c.ParseDID(idenWithSignatureClaim.Identifier)
@@ -4850,7 +4850,7 @@ func TestServer_GetStateStatus(t *testing.T) {
 	require.NoError(t, err)
 	handlerWithSignatureClaim := getHandler(ctx, serverWithSignatureClaim)
 
-	idenWithMTPClaim, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	idenWithMTPClaim, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	didWithMTPClaim, err := w3c.ParseDID(idenWithMTPClaim.Identifier)
@@ -4866,7 +4866,7 @@ func TestServer_GetStateStatus(t *testing.T) {
 	require.NoError(t, err)
 	handlerWithMTPClaim := getHandler(ctx, serverWithMTPClaim)
 
-	idenWithRevokedClaim, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	idenWithRevokedClaim, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	didWithRevokedClaim, err := w3c.ParseDID(idenWithRevokedClaim.Identifier)
@@ -4956,8 +4956,8 @@ func TestServer_GetStateStatus(t *testing.T) {
 func TestServer_GetStateTransactions(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -4982,7 +4982,7 @@ func TestServer_GetStateTransactions(t *testing.T) {
 
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)
@@ -5051,8 +5051,8 @@ func TestServer_GetStateTransactions(t *testing.T) {
 func TestServer_GetRevocationStatus(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -5078,7 +5078,7 @@ func TestServer_GetRevocationStatus(t *testing.T) {
 
 	claimsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, schemaLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubSub, ipfsGatewayURL, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)

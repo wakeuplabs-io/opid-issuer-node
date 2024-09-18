@@ -50,7 +50,7 @@ func TestMain(m *testing.M) {
 		},
 		KeyStore: config.VaultTest(),
 		Ethereum: config.Ethereum{
-			URL: "https://polygon-mumbai.g.alchemy.com/v2/xaP2_",
+			URL: "https://optimism-sepolia.g.alchemy.com/v2/xaP2_",
 		},
 	}
 	s, teardown, err := tests.NewTestStorage(&cfgForTesting)

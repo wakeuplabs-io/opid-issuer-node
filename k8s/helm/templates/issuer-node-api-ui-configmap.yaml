@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.apiUiIssuerNode.configMap.issuerApiName }}
   labels:
-    {{- include "polygon-id-issuer.staticLabel" . | nindent 4}}
-    {{- include "polygon-id-issuer.labels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.staticLabel" . | nindent 4}}
+    {{- include "optimism-id-issuer.labels" . | nindent 4 }}
 data:
   ISSUER_API_UI_SERVER_URL: {{ include "helpers.api-ui-server-url" . | nindent 4}}
   ISSUER_API_UI_SERVER_PORT: {{ .Values.apiUiIssuerNode.configMap.issuerApiUiServerPort | quote }}

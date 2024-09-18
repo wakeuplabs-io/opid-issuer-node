@@ -30,8 +30,8 @@ import (
 func TestNotification_SendNotification(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 	)
 	ctx := context.Background()
 	identityRepo := repositories.NewIdentity()
@@ -55,7 +55,7 @@ func TestNotification_SendNotification(t *testing.T) {
 
 	credentialsService := services.NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, docLoader, storage, cfg.CredentialStatus.Iden3CommAgentStatus.GetURL(), pubsub.NewMock(), ipfsGateway, revocationStatusResolver, mediaTypeManager)
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
-	iden, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	did, err := w3c.ParseDID(iden.Identifier)

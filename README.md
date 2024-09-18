@@ -45,7 +45,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
 - [Docker Engine](https://docs.docker.com/engine/) `1.27+`
 - Makefile toolchain `GNU Make 3.81`
 - Publicly accessible URL - The issuer node API must be publicly reachable. Please make sure you properly configure your proxy or use a tool like [Localtunnel](https://theboroer.github.io/localtunnel-www/) for testing purposes.
-- Polygon Amoy or Main RPC - You can get one in any of the providers of this list
+- Optimism Sepolia or Main RPC - You can get one in any of the providers of this list
     - [Chainstack](https://chainstack.com/)
     - [Ankr](https://ankr.com/)
     - [QuickNode](https://quicknode.com/)
@@ -57,7 +57,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
 In this section we will cover the installation of the Issuer Node API.
 
 > [!NOTE]
-> This Quick Installation Guide is prepared for Polygon Amoy (Testnet) both for the state contract and issuer dids. If you want to deploy the node with Polygon Main configuration, please visit our [advanced Issuer Node configuration guide](https://devs.polygonid.com/docs/issuer/issuer-configuration/)).
+> This Quick Installation Guide is prepared for Optimism Sepolia (Testnet) both for the state contract and issuer dids. If you want to deploy the node with Main configuration, please visit our [advanced Issuer Node configuration guide](https://docs.privado.id/docs/issuer/issuer-configuration/).
 
 
 #### Deploy Issuer Node Infrastructure
@@ -87,7 +87,7 @@ In this section we will cover the installation of the Issuer Node API.
     make add-vault-token
     ```
 
-5. Write the private key in the vault. This step is needed in order to be able to transit the issuer's state. To perform that action the given account has to be funded. For Amoy network you can request some testing Matic [here](https://www.alchemy.com/faucets/polygon-amoy).
+5. Write the private key in the vault. This step is needed in order to be able to transit the issuer's state. To perform that action the given account has to be funded. For Sepolia network you can request some testing Matic [here](https://www.alchemy.com/faucets/optimism-sepolia).
 
     ```bash
     make private_key=<YOUR_WALLET_PRIVATE_KEY> add-private-key

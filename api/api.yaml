@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Polygon ID - Issuer
+  title: Privado ID - Issuer
   description: |
     Documentation for the Issuer
   version: "1"
@@ -515,11 +515,11 @@ components:
             blockchain:
               type: string
               x-omitempty: false
-              example: "polygon"
+              example: "optimism"
             network:
               type: string
               x-omitempty: false
-              example: "amoy"
+              example: "sepolia"
             type:
               type: string
               x-omitempty: false

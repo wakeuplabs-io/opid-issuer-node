@@ -4,8 +4,8 @@ kind: Ingress
 metadata:
   name: app-ingress
   labels:
-    {{- include "polygon-id-issuer.staticLabel" . | nindent 4 }}
-    {{- include "polygon-id-issuer.labels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.staticLabel" . | nindent 4 }}
+    {{- include "optimism-id-issuer.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml $.Values.ingress.annotations | nindent 4 }}

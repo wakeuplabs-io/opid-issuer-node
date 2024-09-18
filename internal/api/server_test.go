@@ -38,8 +38,8 @@ import (
 func TestServer_CreateIdentity(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		ETH        = "ETH"
 	)
@@ -87,7 +87,7 @@ func TestServer_CreateIdentity(t *testing.T) {
 			},
 		},
 		{
-			name: "should create a BJJ identity for amoy network",
+			name: "should create a BJJ identity for sepolia network",
 			auth: authOk,
 			input: CreateIdentityRequest{
 				DidMetadata: struct {
@@ -95,7 +95,7 @@ func TestServer_CreateIdentity(t *testing.T) {
 					Method     string                               `json:"method"`
 					Network    string                               `json:"network"`
 					Type       CreateIdentityRequestDidMetadataType `json:"type"`
-				}{Blockchain: blockchain, Method: method, Network: string(core.Amoy), Type: BJJ},
+				}{Blockchain: blockchain, Method: method, Network: string(core.Sepolia), Type: BJJ},
 			},
 			expected: expected{
 				httpCode: 201,
@@ -103,7 +103,7 @@ func TestServer_CreateIdentity(t *testing.T) {
 			},
 		},
 		{
-			name: "should create a ETH identity for amoy network",
+			name: "should create a ETH identity for sepolia network",
 			auth: authOk,
 			input: CreateIdentityRequest{
 				DidMetadata: struct {
@@ -111,7 +111,7 @@ func TestServer_CreateIdentity(t *testing.T) {
 					Method     string                               `json:"method"`
 					Network    string                               `json:"network"`
 					Type       CreateIdentityRequestDidMetadataType `json:"type"`
-				}{Blockchain: blockchain, Method: method, Network: string(core.Amoy), Type: ETH},
+				}{Blockchain: blockchain, Method: method, Network: string(core.Sepolia), Type: ETH},
 			},
 			expected: expected{
 				httpCode: 201,
@@ -399,8 +399,8 @@ func TestServer_RevokeClaim(t *testing.T) {
 func TestServer_CreateClaim(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -430,7 +430,7 @@ func TestServer_CreateClaim(t *testing.T) {
 	server := NewServer(&cfg, identityService, accountService, claimsService, nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 	handler := getHandler(ctx, server)
 
-	iden, err := identityService.Create(ctx, "http://polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := identityService.Create(ctx, "http://optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did := iden.Identifier
 
@@ -1094,8 +1094,8 @@ func TestServer_GetClaim(t *testing.T) {
 func TestServer_GetClaims(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	identityRepo := repositories.NewIdentity()
@@ -1448,8 +1448,8 @@ func TestServer_GetClaims(t *testing.T) {
 func TestServer_GetRevocationStatus(t *testing.T) {
 	const (
 		method     = "opid"
-		blockchain = "polygon"
-		network    = "mumbai"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()

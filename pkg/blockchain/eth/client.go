@@ -400,7 +400,7 @@ func (c *Client) CreateRawTx(ctx context.Context, txParams TransactionParams) (*
 		}
 
 		if txParams.BaseFee == nil {
-			// since ETH and Polygon blockchain already supports London fork.
+			// since ETH and Optimism blockchain already supports London fork.
 			// no need set special block.
 			baseFee := eip1559.CalcBaseFee(&params.ChainConfig{LondonBlock: big.NewInt(1)}, latestBlockHeader)
 

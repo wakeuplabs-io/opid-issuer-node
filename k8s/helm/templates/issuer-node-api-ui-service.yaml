@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: {{ .Values.apiUiIssuerNode.service.name }}
   labels: 
-    {{- include "polygon-id-issuer.staticLabel" . | nindent 4 }}
-    {{- include "polygon-id-issuer.labels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.staticLabel" . | nindent 4 }}
+    {{- include "optimism-id-issuer.labels" . | nindent 4 }}
 spec:
   {{- if .Values.ingressEnabled }}
   type: ClusterIP
@@ -12,8 +12,8 @@ spec:
   type: NodePort
   {{- end }}
   selector:
-    {{- include "polygon-id-issuer.apiUiIssuerNode.Labels" . | nindent 4 }}
-    {{- include "polygon-id-issuer.selectorLabels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.apiUiIssuerNode.Labels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.selectorLabels" . | nindent 4 }}
   {{- with .Values.apiUiIssuerNode.service.ports }}
   ports: 
     {{-  toYaml . | nindent 2 }}
