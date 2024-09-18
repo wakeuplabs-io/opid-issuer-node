@@ -15,7 +15,7 @@ import (
 	uuid "github.com/google/uuid"
 	"github.com/oapi-codegen/runtime"
 	strictnethttp "github.com/oapi-codegen/runtime/strictmiddleware/nethttp"
-	timeapi "github.com/polygonid/sh-id-platform/internal/timeapi"
+	timeapi "github.com/wakeup-labs/issuer-node/internal/timeapi"
 )
 
 const (

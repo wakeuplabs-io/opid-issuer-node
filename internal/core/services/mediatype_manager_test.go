@@ -8,7 +8,7 @@ import (
 	"github.com/iden3/iden3comm/v2/protocol"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/core/services"
+	"github.com/wakeup-labs/issuer-node/internal/core/services"
 )
 
 func TestMediatypeManager_AllowList(t *testing.T) {

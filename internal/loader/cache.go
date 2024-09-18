@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/pkg/cache"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/pkg/cache"
 )
 
 type schemaData struct {

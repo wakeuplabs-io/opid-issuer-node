@@ -7,9 +7,9 @@ import (
 
 	"github.com/iden3/iden3comm/v2/protocol"
 
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/pkg/cache"
-	link_state "github.com/polygonid/sh-id-platform/pkg/link"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/pkg/cache"
+	link_state "github.com/wakeup-labs/issuer-node/pkg/link"
 )
 
 const (
