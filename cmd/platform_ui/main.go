@@ -69,6 +69,11 @@ func main() {
 		return
 	}
 
+	if err := services.RegisterOptimismIdMethod(ctx); err != nil {
+		log.Error(ctx, "cannot register opid method. Server cannot start", "err", err)
+		return
+	}
+
 	if err := services.RegisterCustomDIDMethods(ctx, cfg.CustomDIDMethods); err != nil {
 		log.Error(ctx, "cannot register custom DID methods. Server cannot start", "err", err)
 		return
