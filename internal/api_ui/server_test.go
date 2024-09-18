@@ -1099,7 +1099,7 @@ func TestServer_RevokeConnectionCredentials(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	userDID, err := w3c.ParseDID("did:opid:polygon:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{

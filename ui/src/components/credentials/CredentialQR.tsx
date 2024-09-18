@@ -3,7 +3,6 @@ import { QRCodeSVG } from "qrcode.react";
 import { ReactNode } from "react";
 
 import { useEnvContext } from "src/contexts/Env";
-import { WALLET_APP_STORE_URL, WALLET_PLAY_STORE_URL } from "src/utils/constants";
 
 export function CredentialQR({
   qrCodeLink,
@@ -79,15 +78,6 @@ export function CredentialQR({
         </Typography.Text>
       </Space>
 
-      <Space>
-        <Typography.Link href={WALLET_APP_STORE_URL} target="_blank">
-          <Image preview={false} src="/images/apple-store.svg" />
-        </Typography.Link>
-
-        <Typography.Link href={WALLET_PLAY_STORE_URL} target="_blank">
-          <Image preview={false} src="/images/google-play.svg" />
-        </Typography.Link>
-      </Space>
       <Tabs
         className="tab-responsive"
         destroyInactiveTabPane

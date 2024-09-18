@@ -228,8 +228,6 @@ This [Quick Start Demo](https://docs.privado.id/docs/quick-start-demo/) will wal
 * [Schema Builder](https://tools.privado.id/) - Create your custom schemas to issue VC.
 * [Demo Issuer UI](https://user-ui:password-ui@issuer-ui.polygonid.me/) - Test our Issuer Node UI.
 * [Verifier Demo](https://verifier-demo.polygonid.me/) - Verify your VCs.
-* [Polygon ID Android Mobile App](https://play.google.com/store/apps/details?id=com.polygonid.wallet&hl=en&gl=US)
-* [Polygon ID IOS Mobile App](https://apps.apple.com/us/app/polygon-id/id1629870183)
 * [Marketplace](https://marketplace.polygonid.me/) - Explore credentials submitted by trusted issuers.
 
 ## License
