@@ -262,7 +262,7 @@ paths:
           name: subject
           schema:
             type: string
-          description: Filter per subject. Example - did:polygonid:polygon:amoy:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ
+          description: Filter per subject. Example - did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ
         - in: query
           name: revoked
           schema:
@@ -511,7 +511,7 @@ components:
             method:
               type: string
               x-omitempty: false
-              example: "polygonid"
+              example: "opid"
             blockchain:
               type: string
               x-omitempty: false
@@ -754,7 +754,7 @@ components:
 
     QrCodeLinkShortResponse:
       type: string
-      example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.polygonid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
+      example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.opid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
 
     GetClaimQrCodeResponse:
       type: object

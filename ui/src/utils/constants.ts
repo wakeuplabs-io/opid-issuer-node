@@ -80,7 +80,7 @@ export const DOCS_URL = "https://docs.privado.id";
 export const WALLET_APP_STORE_URL = "https://apps.apple.com/us/app/polygon-id/id1629870183";
 
 export const WALLET_PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.polygonid.wallet";
+  "https://play.google.com/store/apps/details?id=com.opid.wallet";
 
 export const IPFS_PUBLIC_GATEWAY_CHECKER_URL = "https://ipfs.github.io/public-gateway-checker";
 

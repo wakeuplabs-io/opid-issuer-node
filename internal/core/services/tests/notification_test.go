@@ -29,7 +29,7 @@ import (
 
 func TestNotification_SendNotification(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 	)
@@ -61,7 +61,7 @@ func TestNotification_SendNotification(t *testing.T) {
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	notificationGateway := gateways.NewPushNotificationClient(http.DefaultHTTPClientWithRetry)

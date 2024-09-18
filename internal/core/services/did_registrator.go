@@ -13,7 +13,7 @@ const (
 	// DIDMethodOptimismID Optimism DID method
 	DIDMethodOptimismID core.DIDMethod = "opid"
 	// DIDMethodOptimismByte Optimism DID method byte
-	DIDMethodOptimismByte byte = 0b00000011
+	DIDMethodOptimismByte byte = opid1
 	// Optimism blockchain identifier
 	Optimism core.Blockchain = "optimism"
 	// OptimismChainID Optimism mainnet chain id

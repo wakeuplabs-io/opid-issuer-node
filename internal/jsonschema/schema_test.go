@@ -172,7 +172,7 @@ func TestValidateCredentialSubject(t *testing.T) {
 			schemaURL:  "ipfs://QmcoHYA1K1xiFPHTUbDtVkV6HoKRCentZetfv4yLbrjwfY",
 			schemaType: "TestDefaultValues",
 			credentialSubject: map[string]interface{}{
-				"id":      "did:polygonid:polygon:mumbai:2qLPX9XnujT2xhuiPMHrqXTUD96UCV87CtThRUZFQm",
+				"id":      "did:opid:optimism:sepolia:2qLPX9XnujT2xhuiPMHrqXTUD96UCV87CtThRUZFQm",
 				"integer": 100,
 				"boolean": false,
 				"string":  "foo",

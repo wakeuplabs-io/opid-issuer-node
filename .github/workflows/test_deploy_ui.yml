@@ -43,7 +43,7 @@ jobs:
         env:
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}
         run: |
-          docker build -t polygonid/issuernode_ui:${{ env.IMAGE_TAG }} .
+          docker build -t opid/issuernode_ui:${{ env.IMAGE_TAG }} .
 
       - name: Tag and push image
         env:
@@ -51,8 +51,8 @@ jobs:
           ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}
         run: |
-          docker tag polygonid/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+          docker tag opid/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
           docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
-          docker tag polygonid/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
+          docker tag opid/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
           docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest

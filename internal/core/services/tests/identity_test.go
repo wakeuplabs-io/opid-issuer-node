@@ -25,7 +25,7 @@ import (
 )
 
 const (
-	method     = "polygonid"
+	method     = "opid"
 	blockchain = "polygon"
 	network    = "mumbai"
 	BJJ        = "BJJ"
@@ -60,7 +60,7 @@ func Test_identity_UpdateState(t *testing.T) {
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	did, err := w3c.ParseDID(identity.Identifier)
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -238,7 +238,7 @@ func Test_identity_GetByDID(t *testing.T) {
 	did, err := w3c.ParseDID(identity.Identifier)
 	assert.NoError(t, err)
 
-	did2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
+	did2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
 	assert.NoError(t, err)
 
 	type testConfig struct {

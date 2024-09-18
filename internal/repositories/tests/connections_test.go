@@ -20,9 +20,9 @@ import (
 
 func TestSave(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qCp9Tx4x5hzchym1dZXtBpwRQsH7HXe7GcbvskoRn")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qCp9Tx4x5hzchym1dZXtBpwRQsH7HXe7GcbvskoRn")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm")
 	require.NoError(t, err)
 
 	conn := &domain.Connection{
@@ -49,23 +49,23 @@ func TestSave(t *testing.T) {
 
 func TestUpdatePushToken(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qDLHs1n3c9oHxEPkgCMGfDjY4V37Xv8KztkZcpG1i")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qDLHs1n3c9oHxEPkgCMGfDjY4V37Xv8KztkZcpG1i")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm")
 	require.NoError(t, err)
 
 	conn := &domain.Connection{
 		ID:        uuid.New(),
 		UserDID:   *userDID,
 		IssuerDID: *issuerDID,
-		UserDoc:   json.RawMessage(`{"id": "did:polygonid:polygon:mumbai:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm", "service": [{"id": "did:polygonid:polygon:mumbai:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm#push", "type": "push-notification", "metadata": {"devices": [{"alg": "RSA-OAEP-512", "ciphertext": "someToken"}]}, "serviceEndpoint": "https://someURL.com/api/v1"}], "@context": ["https://www.w3.org/ns/did/v1"]}`),
+		UserDoc:   json.RawMessage(`{"id": "did:opid:optimism:sepolia:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm", "service": [{"id": "did:opid:optimism:sepolia:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm#push", "type": "push-notification", "metadata": {"devices": [{"alg": "RSA-OAEP-512", "ciphertext": "someToken"}]}, "serviceEndpoint": "https://someURL.com/api/v1"}], "@context": ["https://www.w3.org/ns/did/v1"]}`),
 	}
 
 	conn2 := &domain.Connection{
 		ID:        conn.ID,
 		UserDID:   *userDID,
 		IssuerDID: *issuerDID,
-		UserDoc:   json.RawMessage(`{"id": "did:polygonid:polygon:mumbai:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm", "service": [{"id": "did:polygonid:polygon:mumbai:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm#push", "type": "push-notification", "metadata": {"devices": [{"alg": "RSA-OAEP-512", "ciphertext": "someToken2"}]}, "serviceEndpoint": "https://someURL.com/api/v1"}], "@context": ["https://www.w3.org/ns/did/v1"]}`),
+		UserDoc:   json.RawMessage(`{"id": "did:opid:optimism:sepolia:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm", "service": [{"id": "did:opid:optimism:sepolia:2qHgCmGW1wDH5ShTH94SssR4eN8XW4xyHLfop2Qoqm#push", "type": "push-notification", "metadata": {"devices": [{"alg": "RSA-OAEP-512", "ciphertext": "someToken2"}]}, "serviceEndpoint": "https://someURL.com/api/v1"}], "@context": ["https://www.w3.org/ns/did/v1"]}`),
 	}
 	t.Run("should save or update the connection", func(t *testing.T) {
 		ctx := context.Background()
@@ -86,9 +86,9 @@ func TestSaveUserAuthentication(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:polygonid:ethereum:main:2qKDJmySKNi4GD4vYdqfLb37MSTSijg77NoRZaKfDX")
+	issuerDID, err := w3c.ParseDID("did:opid:ethereum:main:2qKDJmySKNi4GD4vYdqfLb37MSTSijg77NoRZaKfDX")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:ethereum:main:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:ethereum:main:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	connID := fixture.CreateConnection(t, &domain.Connection{
@@ -115,9 +115,9 @@ func TestDelete(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -147,9 +147,9 @@ func TestConnectionsGetAllByIssuerID(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	_ = fixture.CreateConnection(t, &domain.Connection{
@@ -180,13 +180,13 @@ func TestConnectionsGetAllByIssuerID(t *testing.T) {
 	})
 
 	t.Run("should get 1 connection for a the given issuerDID and valid query, full did", func(t *testing.T) {
-		conns, _, err := connectionsRepo.GetAllWithCredentialsByIssuerID(ctx, storage.Pgx, *issuerDID, &ports.NewGetAllConnectionsRequest{Query: "did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5"})
+		conns, _, err := connectionsRepo.GetAllWithCredentialsByIssuerID(ctx, storage.Pgx, *issuerDID, &ports.NewGetAllConnectionsRequest{Query: "did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5"})
 		require.NoError(t, err)
 		assert.Equal(t, 1, len(conns))
 	})
 
 	t.Run("should get 1 connection for a the given issuerDID and valid query, part of did", func(t *testing.T) {
-		conns, _, err := connectionsRepo.GetAllWithCredentialsByIssuerID(ctx, storage.Pgx, *issuerDID, &ports.NewGetAllConnectionsRequest{Query: "did:polygonid:polygon:mumbai:2qH7XAw"})
+		conns, _, err := connectionsRepo.GetAllWithCredentialsByIssuerID(ctx, storage.Pgx, *issuerDID, &ports.NewGetAllConnectionsRequest{Query: "did:opid:optimism:sepolia:2qH7XAw"})
 		require.NoError(t, err)
 		assert.Equal(t, 1, len(conns))
 	})
@@ -204,7 +204,7 @@ func TestConnectionsGetAllByIssuerID(t *testing.T) {
 	})
 
 	t.Run("should get 0 connections for a the given issuerDID and non existing userDID", func(t *testing.T) {
-		conns, _, err := connectionsRepo.GetAllWithCredentialsByIssuerID(ctx, storage.Pgx, *issuerDID, &ports.NewGetAllConnectionsRequest{Query: "did:polygonid:polygon:mumbai:2qH7XAwnonexisting"})
+		conns, _, err := connectionsRepo.GetAllWithCredentialsByIssuerID(ctx, storage.Pgx, *issuerDID, &ports.NewGetAllConnectionsRequest{Query: "did:opid:optimism:sepolia:2qH7XAwnonexisting"})
 		require.NoError(t, err)
 		assert.Equal(t, 0, len(conns))
 	})
@@ -215,7 +215,7 @@ func TestGetAllWithCredentialsByIssuerID(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 
 	fixture := tests.NewFixture(storage)
-	idStr := "did:polygonid:polygon:mumbai:2qEinAT1jt9vfDfEwdjdD4B3vGJxMAVjgK2yvvKij4"
+	idStr := "did:opid:optimism:sepolia:2qEinAT1jt9vfDfEwdjdD4B3vGJxMAVjgK2yvvKij4"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -223,11 +223,11 @@ func TestGetAllWithCredentialsByIssuerID(t *testing.T) {
 	issuerDID, err := w3c.ParseDID(idStr)
 	require.NoError(t, err)
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qNtJm8v3c8b7XjQtAtSvAbudnUAfzsjHFqRnyYDq7")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qNtJm8v3c8b7XjQtAtSvAbudnUAfzsjHFqRnyYDq7")
 	require.NoError(t, err)
-	userDID2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qFjTM4kX3J6AYzHBY1Q3ztnxv1UfNaaNUGw8TKo4N")
+	userDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qFjTM4kX3J6AYzHBY1Q3ztnxv1UfNaaNUGw8TKo4N")
 	require.NoError(t, err)
-	userDID3, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qMTdi9CkqE8ihMn7qtp61QCdiKvfo2Ttx9a5TMDSt")
+	userDID3, err := w3c.ParseDID("did:opid:optimism:sepolia:2qMTdi9CkqE8ihMn7qtp61QCdiKvfo2Ttx9a5TMDSt")
 	require.NoError(t, err)
 
 	connNoCredentials := fixture.CreateConnection(t, &domain.Connection{
@@ -327,9 +327,9 @@ func TestDeleteConnectionCredentials(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -368,11 +368,11 @@ func TestGetByUserID(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
-	userDID2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr")
+	userDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr")
 	require.NoError(t, err)
 
 	_ = fixture.CreateConnection(t, &domain.Connection{

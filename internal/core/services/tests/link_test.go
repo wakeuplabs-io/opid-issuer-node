@@ -68,7 +68,7 @@ func Test_link_issueClaim(t *testing.T) {
 	did2, err := w3c.ParseDID(identity2.Identifier)
 	require.NoError(t, err)
 
-	userDID1, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	userDID1, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 
 	credentialSubject := map[string]any{

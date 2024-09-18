@@ -131,9 +131,9 @@ func TestServer_GetAuthenticationConnection(t *testing.T) {
 	qrService := services.NewQrStoreService(cachex)
 	connectionsService := services.NewConnection(connectionRepository, claimsRepository, storage)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), NewSchemaMock(), connectionsService, NewLinkMock(), qrService, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qKDJmySKNi4GD4vYdqfLb37MSTSijg77NoRZaKfDX")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qKDJmySKNi4GD4vYdqfLb37MSTSijg77NoRZaKfDX")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -243,7 +243,7 @@ func TestServer_AuthQRCode(t *testing.T) {
 	rhsFactory := reverse_hash.NewFactory(cfg.CredentialStatus.RHS.URL, nil, commonEth.HexToAddress(cfg.CredentialStatus.OnchainTreeStore.SupportedTreeStoreContract), reverse_hash.DefaultRHSTimeOut)
 	identityService := services.NewIdentity(&KMSMock{}, identityRepo, mtRepo, identityStateRepo, mtService, qrService, claimsRepo, revocationRepository, connectionsRepository, storage, nil, sessionRepository, pubsub.NewMock(), cfg.CredentialStatus, rhsFactory, revocationStatusResolver)
 	server := NewServer(&cfg, identityService, NewClaimsMock(), NewSchemaMock(), NewConnectionsMock(), NewLinkMock(), qrService, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -369,7 +369,7 @@ func TestServer_GetSchema(t *testing.T) {
 	ctx := context.Background()
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -489,7 +489,7 @@ func TestServer_GetSchemas(t *testing.T) {
 
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -612,7 +612,7 @@ func TestServer_ImportSchema(t *testing.T) {
 	ctx := context.Background()
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -709,7 +709,7 @@ func TestServer_ImportSchemaIPFS(t *testing.T) {
 	ctx := context.Background()
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -800,7 +800,7 @@ func TestServer_ImportSchemaIPFS(t *testing.T) {
 
 func TestServer_DeleteConnection(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -840,10 +840,10 @@ func TestServer_DeleteConnection(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
-	userDID2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R64")
+	userDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R64")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -977,9 +977,9 @@ func TestServer_DeleteConnectionCredentials(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -1059,7 +1059,7 @@ func TestServer_DeleteConnectionCredentials(t *testing.T) {
 
 func TestServer_RevokeConnectionCredentials(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -1099,7 +1099,7 @@ func TestServer_RevokeConnectionCredentials(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opidgon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -1179,7 +1179,7 @@ func TestServer_RevokeConnectionCredentials(t *testing.T) {
 
 func TestServer_CreateCredential(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -1245,7 +1245,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1266,7 +1266,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "ipfs://QmQVeb5dkz5ekDqBrYVVxBFQZoCbzamnmMUn9B8twCEgDL",
 				Type:             "testNewType",
 				CredentialSubject: map[string]any{
-					"id":             "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":             "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"testNewTypeInt": 1,
 				},
 				Expiration:     common.ToPointer(time.Now()),
@@ -1285,7 +1285,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1303,7 +1303,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "wrong url",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1322,7 +1322,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "http://www.wrong.url/cannot/get/the/credential",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1397,7 +1397,7 @@ func TestServer_DeleteCredential(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 
 	cred := fixture.NewClaim(t, issuerDID.String())
@@ -1477,7 +1477,7 @@ func TestServer_DeleteCredential(t *testing.T) {
 
 func TestServer_GetCredential(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -1513,7 +1513,7 @@ func TestServer_GetCredential(t *testing.T) {
 	server := NewServer(&cfg, NewIdentityMock(), claimsService, NewSchemaMock(), connectionsService, NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -1589,7 +1589,7 @@ func TestServer_GetCredential(t *testing.T) {
 			expected: expected{
 				response: Credential{
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opidgon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 						"birthday":     19960424,
 						"documentType": 2,
 					},
@@ -1617,7 +1617,7 @@ func TestServer_GetCredential(t *testing.T) {
 			expected: expected{
 				response: Credential{
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 						"birthday":     19960424,
 						"documentType": 2,
 					},
@@ -1645,7 +1645,7 @@ func TestServer_GetCredential(t *testing.T) {
 			expected: expected{
 				response: Credential{
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 						"birthday":     19960424,
 						"documentType": 2,
 					},
@@ -1693,7 +1693,7 @@ func TestServer_GetCredential(t *testing.T) {
 
 func TestServer_GetCredentials(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -1731,7 +1731,7 @@ func TestServer_GetCredentials(t *testing.T) {
 	server := NewServer(&cfg, NewIdentityMock(), claimsService, NewSchemaMock(), connectionsService, NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -2173,7 +2173,7 @@ func TestServer_GetCredentials(t *testing.T) {
 
 func TestServer_GetCredentialQrCode(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -2211,7 +2211,7 @@ func TestServer_GetCredentialQrCode(t *testing.T) {
 	handler := getHandler(ctx, server)
 
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -2348,7 +2348,7 @@ func TestServer_GetCredentialQrCode(t *testing.T) {
 
 func TestServer_GetConnection(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -2388,10 +2388,10 @@ func TestServer_GetConnection(t *testing.T) {
 	claim := fixture.NewClaim(t, did.String())
 	fixture.CreateClaim(t, claim)
 
-	usrDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	usrDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 
-	usrDID2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qFBp1sRF1bFbTybVHHZQRgSWE2nKrdWeAxyZ67PdG")
+	usrDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qFBp1sRF1bFbTybVHHZQRgSWE2nKrdWeAxyZ67PdG")
 	require.NoError(t, err)
 
 	connID := fixture.CreateConnection(t, &domain.Connection{
@@ -2465,7 +2465,7 @@ func TestServer_GetConnection(t *testing.T) {
 					Credentials: []Credential{
 						{
 							CredentialSubject: map[string]interface{}{
-								"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+								"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 								"birthday":     19960424,
 								"documentType": 2,
 							},
@@ -2542,7 +2542,7 @@ func TestServer_GetConnection(t *testing.T) {
 
 func TestServer_GetConnections(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -2595,12 +2595,12 @@ func TestServer_GetConnections(t *testing.T) {
 	fixture.CreateSchema(t, ctx, s)
 
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
 	credentialSubject2 := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960423,
 		"documentType": 2,
 	}
@@ -2611,10 +2611,10 @@ func TestServer_GetConnections(t *testing.T) {
 	_, err = claimsService.Save(ctx, ports.NewCreateClaimRequest(did, schemaURL, credentialSubject2, nil, schemaType, nil, nil, &merklizedRootPosition, ports.ClaimRequestProofs{BJJSignatureProof2021: true, Iden3SparseMerkleTreeProof: true}, nil, false, verifiable.Iden3commRevocationStatusV1, nil, nil, nil))
 	require.NoError(t, err)
 
-	usrDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	usrDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 
-	usrDID2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qFBp1sRF1bFbTybVHHZQRgSWE2nKrdWeAxyZ67PdG")
+	usrDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qFBp1sRF1bFbTybVHHZQRgSWE2nKrdWeAxyZ67PdG")
 	require.NoError(t, err)
 
 	uuid1, err := uuid.Parse("9736cf94-cd42-11ed-9618-debe37e1cbd6")
@@ -2759,7 +2759,7 @@ func TestServer_GetConnections(t *testing.T) {
 			auth: authOk,
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
-					Query: common.ToPointer("did:polygonid:polygon:mumbai:2qKZg1vCMwJeN4F5tyGhyjn8HPqHLJHS5eTWmud1Bj"),
+					Query: common.ToPointer("did:opid:optimism:sepolia:2qKZg1vCMwJeN4F5tyGhyjn8HPqHLJHS5eTWmud1Bj"),
 				},
 			},
 			expected: expected{
@@ -2899,7 +2899,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9 "),
+					Query:       common.ToPointer("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9 "),
 				},
 			},
 			expected: expected{
@@ -2963,7 +2963,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("did:polygonid:polygon:mumbai:2qFVUasb8QZ1XAmD71b3NA8bzQhGs92VQEPgELYnpk nothingValid here"),
+					Query:       common.ToPointer("did:opid:optimism:sepolia:2qFVUasb8QZ1XAmD71b3NA8bzQhGs92VQEPgELYnpk nothingValid here"),
 				},
 			},
 			expected: expected{
@@ -2977,7 +2977,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("did:polygonid:polygon:mumbai:2qFVUasb8QZ1XAmD71b3NA8bzQhGs92VQEPgELYnpk"),
+					Query:       common.ToPointer("did:opid:optimism:sepolia:2qFVUasb8QZ1XAmD71b3NA8bzQhGs92VQEPgELYnpk"),
 				},
 			},
 			expected: expected{
@@ -2991,7 +2991,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("did:polygonid:polygon:mumbai:2qFVUasb8QZ1XAmD71b3NA8bzQhGs92VQEPgELYnpk"),
+					Query:       common.ToPointer("did:opid:optimism:sepolia:2qFVUasb8QZ1XAmD71b3NA8bzQhGs92VQEPgELYnpk"),
 					Page:        common.ToPointer(uint(0)),
 				},
 			},
@@ -3229,7 +3229,7 @@ func validateCredential(t *testing.T, tc Credential, response Credential) {
 
 func TestServer_RevokeCredential(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -3373,7 +3373,7 @@ func TestServer_RevokeCredential(t *testing.T) {
 
 func TestServer_CreateLink(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -3608,7 +3608,7 @@ func TestServer_CreateLink(t *testing.T) {
 
 func TestServer_ActivateLink(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -3766,7 +3766,7 @@ func TestServer_ActivateLink(t *testing.T) {
 // as it is really verbose to do it here.
 func TestServer_GetLink(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -3863,7 +3863,7 @@ func TestServer_GetLink(t *testing.T) {
 				httpCode: http.StatusOK,
 				response: GetLink200JSONResponse{
 					Active:               link.Active,
-					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:polygonid:polygon:mumbai:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
+					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:opid:optimism:sepolia:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
 					Expiration:           common.ToPointer(TimeUTC(*link.ValidUntil)),
 					Id:                   link.ID,
 					IssuedClaims:         link.IssuedClaims,
@@ -3886,7 +3886,7 @@ func TestServer_GetLink(t *testing.T) {
 				httpCode: http.StatusOK,
 				response: GetLink200JSONResponse{
 					Active:               linkExpired.Active,
-					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:polygonid:polygon:mumbai:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
+					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:opid:optimism:sepolia:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
 					Expiration:           common.ToPointer(TimeUTC(*linkExpired.ValidUntil)),
 					Id:                   linkExpired.ID,
 					IssuedClaims:         linkExpired.IssuedClaims,
@@ -3951,7 +3951,7 @@ func TestServer_GetLink(t *testing.T) {
 
 func TestServer_GetAllLinks(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -4194,7 +4194,7 @@ func TestServer_GetAllLinks(t *testing.T) {
 
 func TestServer_DeleteLink(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -4318,7 +4318,7 @@ func TestServer_DeleteLink(t *testing.T) {
 
 func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -4439,7 +4439,7 @@ func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 
 func TestServer_CreateLinkQRCode(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -4601,7 +4601,7 @@ func TestServer_CreateLinkQRCode(t *testing.T) {
 
 func TestServer_GetLinkQRCode(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -4658,7 +4658,7 @@ func TestServer_GetLinkQRCode(t *testing.T) {
 	handler := getHandler(ctx, server)
 
 	sessionID := uuid.New()
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qP8KN3KRwBi37jB2ENXrWxhTo3pefaU5u5BFPbjYo")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qP8KN3KRwBi37jB2ENXrWxhTo3pefaU5u5BFPbjYo")
 	assert.NoError(t, err)
 	qrcode := &linkState.QRCodeMessage{
 		ID:       uuid.New().String(),
@@ -4797,7 +4797,7 @@ func TestServer_GetLinkQRCode(t *testing.T) {
 
 func TestServer_GetStateStatus(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -4826,7 +4826,7 @@ func TestServer_GetStateStatus(t *testing.T) {
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -4955,7 +4955,7 @@ func TestServer_GetStateStatus(t *testing.T) {
 
 func TestServer_GetStateTransactions(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -5050,7 +5050,7 @@ func TestServer_GetStateTransactions(t *testing.T) {
 
 func TestServer_GetRevocationStatus(t *testing.T) {
 	const (
-		method     = "polygonid"
+		method     = "opid"
 		blockchain = "polygon"
 		network    = "mumbai"
 		BJJ        = "BJJ"
@@ -5088,7 +5088,7 @@ func TestServer_GetRevocationStatus(t *testing.T) {
 	server := NewServer(&cfg, NewIdentityMock(), claimsService, NewSchemaMock(), connectionsService, NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
