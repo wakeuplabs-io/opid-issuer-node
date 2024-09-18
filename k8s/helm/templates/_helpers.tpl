@@ -72,7 +72,7 @@ Define contract address
 {{- if eq .Values.mainnet true }}
 {{ .Values.apiIssuerNode.configMap.issuerEthereumContractAddressMain }}
 {{- else }}
-{{ .Values.apiIssuerNode.configMap.issuerEthereumContractAddressAmoy }}
+{{ .Values.apiIssuerNode.configMap.issuerEthereumContractAddressSepolia }}
 {{- end }}
 {{- end }}
 
@@ -83,7 +83,7 @@ Define ethereum resolver prefix
 {{- if eq .Values.mainnet true }}
 {{ .Values.apiIssuerNode.configMap.issuerEthereumResolverPrefixMain }}
 {{- else }}
-{{ .Values.apiIssuerNode.configMap.issuerEthereumResolverPrefixAmoy }}
+{{ .Values.apiIssuerNode.configMap.issuerEthereumResolverPrefixSepolia }}
 {{- end }}
 {{- end }}
 
@@ -94,7 +94,7 @@ Define network
 {{- if eq .Values.mainnet true }}
 {{ .Values.apiUiIssuerNode.configMap.issuerApiIdentityNetworkMain }}
 {{- else }}
-{{ .Values.apiUiIssuerNode.configMap.issuerApiIdentityNetworkAmoy }}
+{{ .Values.apiUiIssuerNode.configMap.issuerApiIdentityNetworkSepolia }}
 {{- end }}
 {{- end }}
 
@@ -127,7 +127,7 @@ Define block explorer
 {{- if eq .Values.mainnet true }}
 {{ .Values.uiIssuerNode.configMap.issuerUiBlockExplorerUrlMain }}
 {{- else }}
-{{ .Values.uiIssuerNode.configMap.issuerUiBlockExplorerUrlAmoy }}
+{{ .Values.uiIssuerNode.configMap.issuerUiBlockExplorerUrlSepolia }}
 {{- end }}
 {{- end }}
 
@@ -138,7 +138,7 @@ Define RHS_CHAIN_ID
 {{- if eq .Values.mainnet true }}
 {{ .Values.apiIssuerNode.configMap.issuerRshChainIDMain  | quote }}
 {{- else }}
-{{ .Values.apiIssuerNode.configMap.issuerRshChainIDAmoy  | quote }}
+{{ .Values.apiIssuerNode.configMap.issuerRshChainIDSepolia  | quote }}
 {{- end }}
 {{- end }}
 
@@ -149,7 +149,7 @@ Define Rhs contract
 {{- if eq .Values.mainnet true }}
 {{ .Values.apiIssuerNode.configMap.issuerRshContractMain | quote }}
 {{- else }}
-{{ .Values.apiIssuerNode.configMap.issuerRshContractAmoy | quote }}
+{{ .Values.apiIssuerNode.configMap.issuerRshContractSepolia | quote }}
 {{- end }}
 {{- end }}
 

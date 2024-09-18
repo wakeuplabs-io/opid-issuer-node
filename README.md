@@ -1,7 +1,7 @@
 # Privado ID Issuer Node
 
-[![Checks](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/checks.yml/badge.svg)](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/checks.yml)
-[![golangci-lint](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/golangci-lint.yml)
+[![Checks](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/checks.yml/badge.svg)](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/checks.yml)
+[![golangci-lint](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/golangci-lint.yml)
 
 Streamline the **Verifiable Credentials issuance** process with the user-friendly API and UI of the Issuer Node within the Privado ID ecosystem. The on-premise (self-hosted) Issuer Node, seamlessly integrated with a robust suite of tools including the mobile Wallet, Schema Builder, and Credential Marketplace, guarantees a frictionless experience for effortlessly issuing and verifying credentials.
 

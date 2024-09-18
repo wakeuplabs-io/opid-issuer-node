@@ -1099,7 +1099,7 @@ func TestServer_RevokeConnectionCredentials(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	userDID, err := w3c.ParseDID("did:opidgon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:polygon:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -1589,7 +1589,7 @@ func TestServer_GetCredential(t *testing.T) {
 			expected: expected{
 				response: Credential{
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:opidgon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 						"birthday":     19960424,
 						"documentType": 2,
 					},
