@@ -10,11 +10,16 @@ import (
 )
 
 const (
-	DIDMethodOptimismID    core.DIDMethod  = "opid"
-	DIDMethodOptimismByte  byte            = 0b00000011
-	Optimism               core.Blockchain = "optimism"
-	OptimismChainID                        = 10
-	OptimismSepoliaChainID                 = 11155420
+	// DIDMethodOptimismID Optimism DID method
+	DIDMethodOptimismID core.DIDMethod = "opid"
+	// DIDMethodOptimismByte Optimism DID method byte
+	DIDMethodOptimismByte byte = 0b00000011
+	// Optimism blockchain identifier
+	Optimism core.Blockchain = "optimism"
+	// OptimismChainId Optimism mainnet chain id
+	OptimismChainID = 10
+	// OptimismSepoliaChainID Optimism sepolia chain id
+	OptimismSepoliaChainID = 11155420
 )
 
 // RegisterCustomDIDMethods registers custom DID methods
