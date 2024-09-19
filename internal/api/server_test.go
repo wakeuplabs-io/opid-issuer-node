@@ -359,7 +359,7 @@ func TestServer_RevokeClaim(t *testing.T) {
 		{
 			name:  "should get an error",
 			auth:  authOk,
-			did:   "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
+			did:   "did:opid:optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
 			nonce: nonce,
 			expected: expected{
 				httpCode: 500,

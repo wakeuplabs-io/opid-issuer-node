@@ -66,7 +66,7 @@ func (f *Fixture) NewClaim(t *testing.T, identity string) *domain.Claim {
 		SchemaHash:      "ca938857241db9451ea329256b9c06e5",
 		SchemaURL:       "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/auth.json-ld",
 		SchemaType:      "AuthBJJCredential",
-		OtherIdentifier: "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		OtherIdentifier: "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		Expiration:      0,
 		Version:         0,
 		RevNonce:        revNonce,
@@ -80,7 +80,7 @@ func (f *Fixture) NewClaim(t *testing.T, identity string) *domain.Claim {
 		Type:         []string{"VerifiableCredential", "KYCAgeCredential"},
 		IssuanceDate: common.ToPointer(time.Now().UTC()),
 		CredentialSubject: map[string]interface{}{
-			"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+			"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 			"birthday":     19960424,
 			"documentType": 2,
 			"type":         "KYCAgeCredential",

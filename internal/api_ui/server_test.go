@@ -2388,10 +2388,10 @@ func TestServer_GetConnection(t *testing.T) {
 	claim := fixture.NewClaim(t, did.String())
 	fixture.CreateClaim(t, claim)
 
-	usrDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	usrDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 
-	usrDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qFBp1sRF1bFbTybVHHZQRgSWE2nKrdWeAxyZ67PdG")
+	usrDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:472eaSZh4SUQ9jccp2KTQvgiDVWHQFpCPjeyRUD6FW")
 	require.NoError(t, err)
 
 	connID := fixture.CreateConnection(t, &domain.Connection{
@@ -2465,7 +2465,7 @@ func TestServer_GetConnection(t *testing.T) {
 					Credentials: []Credential{
 						{
 							CredentialSubject: map[string]interface{}{
-								"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+								"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 								"birthday":     19960424,
 								"documentType": 2,
 							},
@@ -2794,7 +2794,7 @@ func TestServer_GetConnections(t *testing.T) {
 			auth: authOk,
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
-					Query: common.ToPointer("Z7gcmEoP2KppvFPCZqyzyb5tK9T6Ge"),
+					Query: common.ToPointer("1G1EPxoMUzjGeYLHHC1ADzdjdnsge"),
 				},
 			},
 			expected: expected{
@@ -2875,7 +2875,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("5HFANQ"),
+					Query:       common.ToPointer("jdnsge"),
 				},
 			},
 			expected: expected{
@@ -2899,7 +2899,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9 "),
+					Query:       common.ToPointer("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHH "),
 				},
 			},
 			expected: expected{
@@ -2923,7 +2923,7 @@ func TestServer_GetConnections(t *testing.T) {
 			request: GetConnectionsRequestObject{
 				Params: GetConnectionsParams{
 					Credentials: common.ToPointer(true),
-					Query:       common.ToPointer("CZqyzyb5tK9T6Ge  credential"),
+					Query:       common.ToPointer("MUzjGeYLHHC1ADz  credential"),
 				},
 			},
 			expected: expected{

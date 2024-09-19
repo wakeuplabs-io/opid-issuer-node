@@ -3,6 +3,7 @@ package services
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	"github.com/google/uuid"
 	"github.com/iden3/go-iden3-core/v2/w3c"
@@ -88,6 +89,7 @@ func (c *connection) GetByUserID(ctx context.Context, issuerDID w3c.DID, userID 
 
 func (c *connection) GetAllByIssuerID(ctx context.Context, issuerDID w3c.DID, filter *ports.NewGetAllConnectionsRequest) ([]domain.Connection, uint, error) {
 	conns, count, err := c.connRepo.GetAllWithCredentialsByIssuerID(ctx, c.storage.Pgx, issuerDID, filter)
+	fmt.Println("GetAllByIssuerID", conns, count, err)
 	if filter.WithCredentials {
 		for i := range conns {
 			claims, err := c.claimsRepo.GetClaimsOfAConnection(ctx, c.storage.Pgx, issuerDID, conns[i].UserDID)

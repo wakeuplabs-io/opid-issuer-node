@@ -262,7 +262,7 @@ paths:
           name: subject
           schema:
             type: string
-          description: Filter per subject. Example - did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ
+          description: Filter per subject. Example - did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge
         - in: query
           name: revoked
           schema:
