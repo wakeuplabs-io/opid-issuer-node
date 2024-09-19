@@ -131,7 +131,7 @@ func TestServer_GetAuthenticationConnection(t *testing.T) {
 	qrService := services.NewQrStoreService(cachex)
 	connectionsService := services.NewConnection(connectionRepository, claimsRepository, storage)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), NewSchemaMock(), connectionsService, NewLinkMock(), qrService, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qKDJmySKNi4GD4vYdqfLb37MSTSijg77NoRZaKfDX")
 	require.NoError(t, err)
@@ -243,7 +243,7 @@ func TestServer_AuthQRCode(t *testing.T) {
 	rhsFactory := reverse_hash.NewFactory(cfg.CredentialStatus.RHS.URL, nil, commonEth.HexToAddress(cfg.CredentialStatus.OnchainTreeStore.SupportedTreeStoreContract), reverse_hash.DefaultRHSTimeOut)
 	identityService := services.NewIdentity(&KMSMock{}, identityRepo, mtRepo, identityStateRepo, mtService, qrService, claimsRepo, revocationRepository, connectionsRepository, storage, nil, sessionRepository, pubsub.NewMock(), cfg.CredentialStatus, rhsFactory, revocationStatusResolver)
 	server := NewServer(&cfg, identityService, NewClaimsMock(), NewSchemaMock(), NewConnectionsMock(), NewLinkMock(), qrService, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -369,7 +369,7 @@ func TestServer_GetSchema(t *testing.T) {
 	ctx := context.Background()
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -489,7 +489,7 @@ func TestServer_GetSchemas(t *testing.T) {
 
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -612,7 +612,7 @@ func TestServer_ImportSchema(t *testing.T) {
 	ctx := context.Background()
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -709,7 +709,7 @@ func TestServer_ImportSchemaIPFS(t *testing.T) {
 	ctx := context.Background()
 	schemaSrv := services.NewSchema(repositories.NewSchema(*storage), schemaLoader)
 	server := NewServer(&cfg, NewIdentityMock(), NewClaimsMock(), schemaSrv, NewConnectionsMock(), NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
-	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 	server.cfg.APIUI.IssuerDID = *issuerDID
 	server.cfg.APIUI.ServerURL = "https://testing.env"
@@ -1245,7 +1245,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1266,7 +1266,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "ipfs://QmQVeb5dkz5ekDqBrYVVxBFQZoCbzamnmMUn9B8twCEgDL",
 				Type:             "testNewType",
 				CredentialSubject: map[string]any{
-					"id":             "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":             "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"testNewTypeInt": 1,
 				},
 				Expiration:     common.ToPointer(time.Now()),
@@ -1285,7 +1285,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1303,7 +1303,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "wrong url",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1322,7 +1322,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "http://www.wrong.url/cannot/get/the/credential",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -1513,7 +1513,7 @@ func TestServer_GetCredential(t *testing.T) {
 	server := NewServer(&cfg, NewIdentityMock(), claimsService, NewSchemaMock(), connectionsService, NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 
 	credentialSubject := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -1589,7 +1589,7 @@ func TestServer_GetCredential(t *testing.T) {
 			expected: expected{
 				response: Credential{
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 						"birthday":     19960424,
 						"documentType": 2,
 					},
@@ -1617,7 +1617,7 @@ func TestServer_GetCredential(t *testing.T) {
 			expected: expected{
 				response: Credential{
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 						"birthday":     19960424,
 						"documentType": 2,
 					},
@@ -1645,7 +1645,7 @@ func TestServer_GetCredential(t *testing.T) {
 			expected: expected{
 				response: Credential{
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 						"birthday":     19960424,
 						"documentType": 2,
 					},
@@ -1731,7 +1731,7 @@ func TestServer_GetCredentials(t *testing.T) {
 	server := NewServer(&cfg, NewIdentityMock(), claimsService, NewSchemaMock(), connectionsService, NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 
 	credentialSubject := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -2211,7 +2211,7 @@ func TestServer_GetCredentialQrCode(t *testing.T) {
 	handler := getHandler(ctx, server)
 
 	credentialSubject := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -2595,12 +2595,12 @@ func TestServer_GetConnections(t *testing.T) {
 	fixture.CreateSchema(t, ctx, s)
 
 	credentialSubject := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
 	credentialSubject2 := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960423,
 		"documentType": 2,
 	}
@@ -2611,10 +2611,10 @@ func TestServer_GetConnections(t *testing.T) {
 	_, err = claimsService.Save(ctx, ports.NewCreateClaimRequest(did, schemaURL, credentialSubject2, nil, schemaType, nil, nil, &merklizedRootPosition, ports.ClaimRequestProofs{BJJSignatureProof2021: true, Iden3SparseMerkleTreeProof: true}, nil, false, verifiable.Iden3commRevocationStatusV1, nil, nil, nil))
 	require.NoError(t, err)
 
-	usrDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	usrDID, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 
-	usrDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qFBp1sRF1bFbTybVHHZQRgSWE2nKrdWeAxyZ67PdG")
+	usrDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:472eaSZh4SUQ9jccp2KTQvgiDVWHQFpCPjeyRUD6FW")
 	require.NoError(t, err)
 
 	uuid1, err := uuid.Parse("9736cf94-cd42-11ed-9618-debe37e1cbd6")
@@ -4826,7 +4826,7 @@ func TestServer_GetStateStatus(t *testing.T) {
 	connectionsService := services.NewConnection(connectionsRepository, claimsRepo, storage)
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	credentialSubject := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -5088,7 +5088,7 @@ func TestServer_GetRevocationStatus(t *testing.T) {
 	server := NewServer(&cfg, NewIdentityMock(), claimsService, NewSchemaMock(), connectionsService, NewLinkMock(), nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 
 	credentialSubject := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960424,
 		"documentType": 2,
 	}

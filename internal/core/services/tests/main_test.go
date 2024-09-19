@@ -8,6 +8,7 @@ import (
 	"github.com/hashicorp/vault/api"
 
 	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/core/services"
 	"github.com/wakeup-labs/issuer-node/internal/db"
 	"github.com/wakeup-labs/issuer-node/internal/db/tests"
 	"github.com/wakeup-labs/issuer-node/internal/kms"
@@ -98,6 +99,13 @@ func TestMain(m *testing.M) {
 			URL: "http://localhost:3001",
 		},
 	}
+
+	// register opid code
+	if err := services.RegisterOptimismIdMethod(ctx); err != nil {
+		log.Error(ctx, "failed to register OptimismIdMethod", "err", err)
+		os.Exit(1)
+	}
+
 	m.Run()
 }
 

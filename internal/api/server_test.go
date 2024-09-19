@@ -270,7 +270,7 @@ func TestServer_RevokeClaim(t *testing.T) {
 	accountService := services.NewAccountService(cfg.Ethereum, keyStore)
 	server := NewServer(&cfg, identityService, accountService, claimsService, nil, NewPublisherMock(), NewPackageManagerMock(), nil)
 
-	idStr := "did:opid:optimism:sepolia:2qM77fA6NGGWL9QEeb1dv2VA6wz5svcohgv61LZ7wB"
+	idStr := "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -359,7 +359,7 @@ func TestServer_RevokeClaim(t *testing.T) {
 		{
 			name:  "should get an error",
 			auth:  authOk,
-			did:   "did:opid:optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:   "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 			nonce: nonce,
 			expected: expected{
 				httpCode: 500,
@@ -464,7 +464,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -484,7 +484,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -508,7 +508,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -531,7 +531,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -554,7 +554,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "ipfs://QmQVeb5dkz5ekDqBrYVVxBFQZoCbzamnmMUn9B8twCEgDL",
 				Type:             "testNewType",
 				CredentialSubject: map[string]any{
-					"id":             "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":             "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"testNewTypeInt": 1234,
 				},
 				Expiration: common.ToPointer(time.Now().Unix()),
@@ -573,7 +573,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "ipfs://QmQVeb5dkz5ekDqBrYVVxBFQZoCbzamnmMUn9B8twCEgDL",
 				Type:             "testNewType",
 				CredentialSubject: map[string]any{
-					"id":             "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":             "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"testNewTypeInt": 1234,
 				},
 				Expiration: common.ToPointer(time.Now().Unix()),
@@ -596,7 +596,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "wrong url",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -615,7 +615,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "http://www.wrong.url/cannot/get/the/credential",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -634,7 +634,7 @@ func TestServer_CreateClaim(t *testing.T) {
 				CredentialSchema: "http://www.wrong.url/cannot/get/the/credential",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -849,7 +849,7 @@ func TestServer_GetClaimQrCode(t *testing.T) {
 		{
 			name:  "should get an error wrong did invalid format",
 			auth:  authOk,
-			did:   ":optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:   ":optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 			claim: claim.ID,
 			expected: expected{
 				response: GetClaimQrCode400JSONResponse{N400JSONResponse{
@@ -1012,7 +1012,7 @@ func TestServer_GetClaim(t *testing.T) {
 		{
 			name:    "should get an error wrong did invalid format",
 			auth:    authOk,
-			did:     ":optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:     ":optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 			claimID: claim.ID,
 			expected: expected{
 				httpCode: http.StatusBadRequest,
@@ -1040,7 +1040,7 @@ func TestServer_GetClaim(t *testing.T) {
 						RevocationNonce: uint64(claim.RevNonce),
 					},
 					CredentialSubject: map[string]interface{}{
-						"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+						"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 						"birthday":     float64(19960424),
 						"documentType": float64(2),
 						"type":         "KYCAgeCredential",
@@ -1162,7 +1162,7 @@ func TestServer_GetClaims(t *testing.T) {
 		{
 			name: "No auth header",
 			auth: authWrong,
-			did:  ":optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:  ":optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 			expected: expected{
 				httpCode: http.StatusUnauthorized,
 			},
@@ -1170,7 +1170,7 @@ func TestServer_GetClaims(t *testing.T) {
 		{
 			name: "should get an error wrong did invalid format",
 			auth: authOk,
-			did:  ":optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:  ":optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 			expected: expected{
 				httpCode: http.StatusBadRequest,
 				response: GetClaims400JSONResponse{N400JSONResponse{
@@ -1221,7 +1221,7 @@ func TestServer_GetClaims(t *testing.T) {
 							RevocationNonce: uint64(claim.RevNonce),
 						},
 						CredentialSubject: map[string]interface{}{
-							"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+							"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 							"birthday":     float64(19960424),
 							"documentType": float64(2),
 							"type":         "KYCAgeCredential",
@@ -1261,7 +1261,7 @@ func TestServer_GetClaims(t *testing.T) {
 							RevocationNonce: uint64(claim.RevNonce),
 						},
 						CredentialSubject: map[string]interface{}{
-							"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+							"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 							"birthday":     float64(19960424),
 							"documentType": float64(2),
 							"type":         "KYCAgeCredential",
@@ -1302,7 +1302,7 @@ func TestServer_GetClaims(t *testing.T) {
 							RevocationNonce: uint64(claim.RevNonce),
 						},
 						CredentialSubject: map[string]interface{}{
-							"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+							"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 							"birthday":     float64(19960424),
 							"documentType": float64(2),
 							"type":         "KYCAgeCredential",
@@ -1355,7 +1355,7 @@ func TestServer_GetClaims(t *testing.T) {
 							RevocationNonce: uint64(claim.RevNonce),
 						},
 						CredentialSubject: map[string]interface{}{
-							"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+							"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 							"birthday":     float64(19960424),
 							"documentType": float64(2),
 							"type":         "KYCAgeCredential",
@@ -1395,7 +1395,7 @@ func TestServer_GetClaims(t *testing.T) {
 							RevocationNonce: uint64(claim.RevNonce),
 						},
 						CredentialSubject: map[string]interface{}{
-							"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+							"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 							"birthday":     float64(19960424),
 							"documentType": float64(2),
 							"type":         "KYCAgeCredential",
@@ -1483,7 +1483,7 @@ func TestServer_GetRevocationStatus(t *testing.T) {
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	did, _ := w3c.ParseDID(identity.Identifier)
 	credentialSubject := map[string]any{
-		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
