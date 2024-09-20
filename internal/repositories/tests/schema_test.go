@@ -30,7 +30,7 @@ func TestGetSchema(t *testing.T) {
 	i := &big.Int{}
 	i.SetInt64(rand.Int63())
 
-	did, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	did, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 
 	schema1 := &domain.Schema{
@@ -70,7 +70,7 @@ func TestCreateSchema(t *testing.T) {
 	i := &big.Int{}
 	i.SetInt64(rand.Int63())
 
-	did, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	did, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 
 	schema1 := &domain.Schema{
@@ -104,7 +104,7 @@ func TestGetSchemaWithNullAttributes(t *testing.T) {
 	i := &big.Int{}
 	i.SetInt64(rand.Int63())
 
-	did, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	did, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 
 	schema1 := &domain.Schema{ //  no description
@@ -141,7 +141,7 @@ func TestGetAllFullTextSearch(t *testing.T) {
 	defer teardown()
 
 	store := repositories.NewSchema(*storage)
-	did, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	did, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 	insertSchemaGetAllData(t, ctx, *did, store)
 

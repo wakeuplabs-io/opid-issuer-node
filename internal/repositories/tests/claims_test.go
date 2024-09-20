@@ -25,7 +25,7 @@ import (
 func TestRevoke(t *testing.T) {
 	// given
 	claimsRepo := repositories.NewClaims()
-	idStr := "did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
+	idStr := "did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -197,7 +197,7 @@ func TestRevokeNonce(t *testing.T) {
 func TestGetAllByConnectionAndIssuerID(t *testing.T) {
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
@@ -267,9 +267,9 @@ func TestGetAllByIssuerID(t *testing.T) {
 	ctx := context.Background()
 
 	fixture := tests.NewFixture(storage)
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:iden3:tJUieNy7sk5PhitERHg1tgM8v1qhsDSEHVJSUF9rJ")
+	userDID, err := w3c.ParseDID("did:opid:tJUieNy7sk5PhitERHg1tgM8v1qhsDSEHVJSUF9rJ")
 	require.NoError(t, err)
 
 	vc := &verifiable.W3CCredential{

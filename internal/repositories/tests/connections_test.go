@@ -115,7 +115,7 @@ func TestDelete(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
@@ -147,7 +147,7 @@ func TestConnectionsGetAllByIssuerID(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
@@ -327,7 +327,7 @@ func TestDeleteConnectionCredentials(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
@@ -368,7 +368,7 @@ func TestGetByUserID(t *testing.T) {
 	connectionsRepo := repositories.NewConnections()
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)

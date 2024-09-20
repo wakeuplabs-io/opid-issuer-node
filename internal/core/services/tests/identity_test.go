@@ -238,7 +238,7 @@ func Test_identity_GetByDID(t *testing.T) {
 	did, err := w3c.ParseDID(identity.Identifier)
 	assert.NoError(t, err)
 
-	did2, err := w3c.ParseDID("did:iden3:eth:sepolia:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
+	did2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
 	assert.NoError(t, err)
 
 	type testConfig struct {

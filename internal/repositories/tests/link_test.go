@@ -158,7 +158,7 @@ func TestGetLinkById(t *testing.T) {
 func TestGetAll(t *testing.T) {
 	ctx := context.Background()
 	fixture := tests.NewFixture(storage)
-	didStr := "did:iden3:tLZ7NJdCek9j79a1Pmxci3seELHctfGibcrnjjftQ"
+	didStr := "did:opid:tLZ7NJdCek9j79a1Pmxci3seELHctfGibcrnjjftQ"
 	schemaStore := repositories.NewSchema(*storage)
 	_, err := storage.Pgx.Exec(ctx, "INSERT INTO identities (identifier, keytype) VALUES ($1, $2)", didStr, "BJJ")
 	require.NoError(t, err)

@@ -12,7 +12,7 @@ import (
 
 func TestMtSave(t *testing.T) {
 	// given
-	idStr := "did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
+	idStr := "did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
 	repo := repositories.NewIdentityMerkleTreeRepository()
 
 	// when and then

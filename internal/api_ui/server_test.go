@@ -977,7 +977,7 @@ func TestServer_DeleteConnectionCredentials(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
@@ -1397,7 +1397,7 @@ func TestServer_DeleteCredential(t *testing.T) {
 
 	fixture := tests.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
 
 	cred := fixture.NewClaim(t, issuerDID.String())
@@ -1917,7 +1917,7 @@ func TestServer_GetCredentials(t *testing.T) {
 			name:   "Get all from non existing did. Expecting empty list",
 			auth:   authOk,
 			status: common.ToPointer("all"),
-			did:    common.ToPointer("did:iden3:tJU7z1dbKyKYLiaopZ5tN6Zjsspq7QhYayiR31RFa"),
+			did:    common.ToPointer("did:opid:tJU7z1dbKyKYLiaopZ5tN6Zjsspq7QhYayiR31RFa"),
 			expected: expected{
 				httpCode:         http.StatusOK,
 				total:            0,
