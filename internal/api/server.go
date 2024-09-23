@@ -18,17 +18,17 @@ import (
 	"github.com/iden3/iden3comm/v2/packers"
 	"github.com/iden3/iden3comm/v2/protocol"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/core/services"
-	"github.com/polygonid/sh-id-platform/internal/gateways"
-	"github.com/polygonid/sh-id-platform/internal/health"
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
-	"github.com/polygonid/sh-id-platform/pkg/schema"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/core/services"
+	"github.com/wakeup-labs/issuer-node/internal/gateways"
+	"github.com/wakeup-labs/issuer-node/internal/health"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/pkg/schema"
 )
 
 // Server implements StrictServerInterface and holds the implementation of all API controllers
@@ -119,7 +119,7 @@ func (s *Server) CreateIdentity(ctx context.Context, request CreateIdentityReque
 				message = `Issuer Node cannot connect with Vault. Please check the value of ISSUER_KEY_STORE_TOKEN variable.`
 			}
 
-			log.Info(ctx, message+". More information in this link: https://devs.polygonid.com/docs/issuer/vault-auth")
+			log.Info(ctx, message+". More information in this link: https://docs.privado.id/docs/issuer/vault-auth/")
 			return CreateIdentity403JSONResponse{
 				N403JSONResponse{
 					Message: message,
@@ -369,7 +369,7 @@ func (s *Server) GetClaims(ctx context.Context, request GetClaimsRequestObject) 
 }
 
 // GetClaimQrCode returns a GetClaimQrCodeResponseObject that can be used with any QR generator to create a QR and
-// scan it with polygon wallet to accept the claim
+// scan it with id wallet to accept the claim
 // TODO: this should be converted to a QR link
 func (s *Server) GetClaimQrCode(ctx context.Context, request GetClaimQrCodeRequestObject) (GetClaimQrCodeResponseObject, error) {
 	if request.Identifier == "" {
@@ -695,7 +695,7 @@ func documentation(w http.ResponseWriter, _ *http.Request) {
 }
 
 func favicon(w http.ResponseWriter, _ *http.Request) {
-	writeFile("api/polygon.png", "image/png", w)
+	writeFile("api/optimism.png", "image/png", w)
 }
 
 func swagger(w http.ResponseWriter, _ *http.Request) {

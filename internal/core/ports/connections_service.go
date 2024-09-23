@@ -6,9 +6,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/iden3/go-iden3-core/v2/w3c"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/sqltools"
-	"github.com/polygonid/sh-id-platform/pkg/pagination"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/sqltools"
+	"github.com/wakeup-labs/issuer-node/pkg/pagination"
 )
 
 // NewGetAllConnectionsRequest struct

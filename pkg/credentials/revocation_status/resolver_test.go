@@ -8,11 +8,11 @@ import (
 	"github.com/iden3/go-schema-processor/v2/verifiable"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/config"
 )
 
 func TestRevocationStatusResolver_GetCredentialRevocationStatus(t *testing.T) {
-	const did = "did:polygonid:polygon:mumbai:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG"
+	const did = "did:opid:optimism:sepolia:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG"
 	didW3c, err := w3c.ParseDID(did)
 	require.NoError(t, err)
 
@@ -113,7 +113,7 @@ func TestRevocationStatusResolver_GetCredentialRevocationStatus(t *testing.T) {
 				err: nil,
 				CredentialStatus: &verifiable.CredentialStatus{
 					Type:            verifiable.Iden3OnchainSparseMerkleTreeProof2023,
-					ID:              "did:polygonid:polygon:mumbai:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG/credentialStatus?revocationNonce=12345&contractAddress=80001:0x0000000000000000000000000000001234567890&state=issuer-state",
+					ID:              "did:opid:optimism:sepolia:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG/credentialStatus?revocationNonce=12345&contractAddress=80001:0x0000000000000000000000000000001234567890&state=issuer-state",
 					RevocationNonce: 12345,
 				},
 			},
@@ -142,7 +142,7 @@ func TestRevocationStatusResolver_GetCredentialRevocationStatus(t *testing.T) {
 				err: nil,
 				CredentialStatus: &verifiable.CredentialStatus{
 					Type:            verifiable.Iden3OnchainSparseMerkleTreeProof2023,
-					ID:              "did:polygonid:polygon:mumbai:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG/credentialStatus?revocationNonce=12345&contractAddress=80001:0x0000000000000000000000000000001234567890&state=issuer-state",
+					ID:              "did:opid:optimism:sepolia:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG/credentialStatus?revocationNonce=12345&contractAddress=80001:0x0000000000000000000000000000001234567890&state=issuer-state",
 					RevocationNonce: 12345,
 				},
 			},

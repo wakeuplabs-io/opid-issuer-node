@@ -6,15 +6,15 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/db/tests"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/db/tests"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
 )
 
 func TestGetIdentities(t *testing.T) {
 	fixture := tests.NewFixture(storage)
-	idStr1 := "did:polygonid:polygon:mumbai:2qGqLpDT2VyqFq1NmfRkB9gwLxBhMRuazv2ZgHfjUw"
-	idStr2 := "did:polygonid:polygon:mumbai:2qNR5sUiiSt5v6bnKQZyjCu2n9uNbKD34cZkSkgwUq"
+	idStr1 := "did:opid:optimism:sepolia:2qGqLpDT2VyqFq1NmfRkB9gwLxBhMRuazv2ZgHfjUw"
+	idStr2 := "did:opid:optimism:sepolia:2qNR5sUiiSt5v6bnKQZyjCu2n9uNbKD34cZkSkgwUq"
 
 	identity1 := &domain.Identity{
 		Identifier: idStr1,

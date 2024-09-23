@@ -15,7 +15,7 @@ import (
 	"github.com/iden3/go-iden3-core/v2/w3c"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/providers"
+	"github.com/wakeup-labs/issuer-node/internal/providers"
 )
 
 func TestVaultPluginBJJProvider_Ethereum(t *testing.T) {
@@ -112,7 +112,7 @@ func randString(t *testing.T, ln int) string {
 
 func randomDID(t *testing.T) w3c.DID {
 	t.Helper()
-	typ, err := core.BuildDIDType(core.DIDMethodIden3, core.Polygon, core.Mumbai)
+	typ, err := core.BuildDIDType(core.DIDMethodIden3, core.Ethereum, core.Sepolia)
 	var genesis [27]byte
 	require.NoError(t, err)
 	_, err = rand.Read(genesis[:])

@@ -25,7 +25,7 @@ Welcome to Issuer Node! We're thrilled to have you here. Before you get started,
 
 To set up the project locally, follow the [README](./README.md#quick-start-installation) instructions.
 
-For an advanced setup, visit our [extended documentation](https://devs.polygonid.com/docs/issuer/issuer-configuration).
+For an advanced setup, visit our [extended documentation](https://docs.privado.id/docs/issuer/issuer-configuration/).
 
 ## Issue Tracker Guidelines
 

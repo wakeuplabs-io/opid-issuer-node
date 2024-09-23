@@ -18,9 +18,9 @@ import (
 	"github.com/iden3/go-iden3-core/v2/w3c"
 	"github.com/spf13/viper"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/providers"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/providers"
 )
 
 const (
@@ -90,7 +90,7 @@ type Ethereum struct {
 	RPCResponseTimeout        time.Duration `tip:"RPC Response timeout"`
 	WaitReceiptCycleTime      time.Duration `tip:"Wait Receipt Cycle Time"`
 	WaitBlockCycleTime        time.Duration `tip:"Wait Block Cycle Time"`
-	ResolverPrefix            string        `tip:"blockchain:network e.g polygon:amoy"`
+	ResolverPrefix            string        `tip:"blockchain:network e.g optimism:sepolia"`
 	InternalTransferAmountWei int64         `tip:"Internal transfer amount in wei"`
 	TransferAccountKeyPath    string        `tip:"Transfer account key path"`
 }
@@ -679,18 +679,18 @@ func checkEnvVars(ctx context.Context, cfg *Configuration) {
 	}
 
 	if cfg.APIUI.IdentityMethod == "" {
-		log.Info(ctx, "ISSUER_API_IDENTITY_METHOD value is missing and the server set up it as polygonid")
-		cfg.APIUI.IdentityMethod = "polygonid"
+		log.Info(ctx, "ISSUER_API_IDENTITY_METHOD value is missing and the server set up it as opid")
+		cfg.APIUI.IdentityMethod = "opid"
 	}
 
 	if cfg.APIUI.IdentityBlockchain == "" {
-		log.Info(ctx, "ISSUER_API_IDENTITY_BLOCKCHAIN value is missing and the server set up it as polygon")
-		cfg.APIUI.IdentityBlockchain = "polygon"
+		log.Info(ctx, "ISSUER_API_IDENTITY_BLOCKCHAIN value is missing and the server set up it as optimism")
+		cfg.APIUI.IdentityBlockchain = "optimism"
 	}
 
 	if cfg.APIUI.IdentityNetwork == "" {
-		log.Info(ctx, "ISSUER_API_IDENTITY_NETWORK value is missing and the server set up it as amoy")
-		cfg.APIUI.IdentityNetwork = "amoy"
+		log.Info(ctx, "ISSUER_API_IDENTITY_NETWORK value is missing and the server set up it as sepolia")
+		cfg.APIUI.IdentityNetwork = "sepolia"
 	}
 }
 

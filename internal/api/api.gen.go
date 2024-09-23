@@ -14,7 +14,7 @@ import (
 	uuid "github.com/google/uuid"
 	"github.com/oapi-codegen/runtime"
 	strictnethttp "github.com/oapi-codegen/runtime/strictmiddleware/nethttp"
-	timeapi "github.com/polygonid/sh-id-platform/internal/timeapi"
+	timeapi "github.com/wakeup-labs/issuer-node/internal/timeapi"
 )
 
 const (
@@ -287,7 +287,7 @@ type GetClaimsParams struct {
 	// SchemaHash Filter per schema hash. Example - c9b2370371b7fa8b3dab2a5ba81b6838
 	SchemaHash *string `form:"schemaHash,omitempty" json:"schemaHash,omitempty"`
 
-	// Subject Filter per subject. Example - did:polygonid:polygon:amoy:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ
+	// Subject Filter per subject. Example - did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge
 	Subject *string `form:"subject,omitempty" json:"subject,omitempty"`
 
 	// Revoked Filter per claims revoked or not - Example - true.

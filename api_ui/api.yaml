@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Polygon ID - Issuer - UI API
+  title: Privado ID - Issuer - UI API
   description: |
     Documentation for the Issuer - UI API
   version: "1"
@@ -330,7 +330,7 @@ paths:
           name: did
           schema:
             type: string
-            example: did:polygonid:polygon:amoy:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
+            example: did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
         - in: query
           name: status
           schema:
@@ -1085,7 +1085,7 @@ components:
               example: [ ]
         from:
           type: string
-          example: did:polygonid:polygon:amoy:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
+          example: did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
 
     QrCodeLinkShortResponse:
       type: object
@@ -1095,7 +1095,7 @@ components:
       properties:
         qrCodeLink:
           type: string
-          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.polygonid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
+          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.opid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
         sessionID:
           $ref: '#/components/schemas/UUIDString'
 
@@ -1108,7 +1108,7 @@ components:
       properties:
         qrCodeLink:
           type: string
-          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.polygonid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
+          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.opid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
         schemaType:
           type: string
           example: "vaccinationCertificate"
@@ -1158,7 +1158,7 @@ components:
           type: string
         qrCodeLink:
           type: string
-          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.polygonid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
+          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.opid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
         sessionID:
           type: string
           example: ab5d5dbf-aaaa-bbbb-b983-f48afea64e05
@@ -1185,7 +1185,7 @@ components:
       properties:
         qrCode:
           type: string
-          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.polygonid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
+          example: iden3comm://?request_uri=https%3A%2F%2Fissuer-demo.opid.me%2Fapi%2Fqr-store%3Fid%3Df780a169-8959-4380-9461-f7200e2ed3f4
         status:
           type: string
           example: done | pending | pendingPublish
@@ -1283,10 +1283,10 @@ components:
           example:
             birthday: 19960424
             documentType: 2
-            id: "did:polygonid:polygon:amoy:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"
+            id: "did:opid:optimism:sepolia:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"
         userID:
           type: string
-          example: did:polygonid:polygon:amoy:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
+          example: did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
         refreshService:
           $ref: '#/components/schemas/RefreshService'
         displayMethod:
@@ -1493,11 +1493,11 @@ components:
         userID:
           type: string
           x-omitempty: false
-          example: did:polygonid:polygon:amoy:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
+          example: did:opid:optimism:sepolia:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
         issuerID:
           type: string
           x-omitempty: false
-          example: did:polygonid:polygon:amoy:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
+          example: did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
         createdAt:
           $ref: '#/components/schemas/TimeUTC'
         credentials:
@@ -1790,7 +1790,7 @@ components:
       x-go-type: timeapi.Time
       x-go-type-import:
         name: timeapi
-        path: github.com/polygonid/sh-id-platform/internal/timeapi
+        path: github.com/wakeup-labs/issuer-node/internal/timeapi
       example: '2023-10-26T10:59:08Z'
       x-omitempty: false
 

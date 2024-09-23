@@ -1,7 +1,7 @@
 # Privado ID Issuer Node
 
-[![Checks](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/checks.yml/badge.svg)](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/checks.yml)
-[![golangci-lint](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/golangci-lint.yml)
+[![Checks](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/checks.yml/badge.svg)](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/checks.yml)
+[![golangci-lint](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/golangci-lint.yml)
 
 Streamline the **Verifiable Credentials issuance** process with the user-friendly API and UI of the Issuer Node within the Privado ID ecosystem. The on-premise (self-hosted) Issuer Node, seamlessly integrated with a robust suite of tools including the mobile Wallet, Schema Builder, and Credential Marketplace, guarantees a frictionless experience for effortlessly issuing and verifying credentials.
 
@@ -35,7 +35,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
 
 ## Quick Start Installation
 > [!NOTE]
-> The provided installation guide is **non-production** ready. For production deployments please refer to  [Standalone Mode Guide](https://devs.polygonid.com/docs/issuer/setup-issuer-core/).
+> The provided installation guide is **non-production** ready. For production deployments please refer to  [Standalone Mode Guide](https://docs.privado.id/docs/issuer/setup-issuer-core/).
 >
 > There is no compatibility with Windows environments at this time. While using WSL should be ok, it's not officially supported.
 
@@ -45,7 +45,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
 - [Docker Engine](https://docs.docker.com/engine/) `1.27+`
 - Makefile toolchain `GNU Make 3.81`
 - Publicly accessible URL - The issuer node API must be publicly reachable. Please make sure you properly configure your proxy or use a tool like [Localtunnel](https://theboroer.github.io/localtunnel-www/) for testing purposes.
-- Polygon Amoy or Main RPC - You can get one in any of the providers of this list
+- Optimism Sepolia or Main RPC - You can get one in any of the providers of this list
     - [Chainstack](https://chainstack.com/)
     - [Ankr](https://ankr.com/)
     - [QuickNode](https://quicknode.com/)
@@ -57,7 +57,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
 In this section we will cover the installation of the Issuer Node API.
 
 > [!NOTE]
-> This Quick Installation Guide is prepared for Polygon Amoy (Testnet) both for the state contract and issuer dids. If you want to deploy the node with Polygon Main configuration, please visit our [advanced Issuer Node configuration guide](https://devs.polygonid.com/docs/issuer/issuer-configuration/)).
+> This Quick Installation Guide is prepared for Optimism Sepolia (Testnet) both for the state contract and issuer dids. If you want to deploy the node with Main configuration, please visit our [advanced Issuer Node configuration guide](https://docs.privado.id/docs/issuer/issuer-configuration/).
 
 
 #### Deploy Issuer Node Infrastructure
@@ -87,7 +87,7 @@ In this section we will cover the installation of the Issuer Node API.
     make add-vault-token
     ```
 
-5. Write the private key in the vault. This step is needed in order to be able to transit the issuer's state. To perform that action the given account has to be funded. For Amoy network you can request some testing Matic [here](https://www.alchemy.com/faucets/polygon-amoy).
+5. Write the private key in the vault. This step is needed in order to be able to transit the issuer's state. To perform that action the given account has to be funded. For Sepolia network you can request some testing Matic [here](https://www.alchemy.com/faucets/optimism-sepolia).
 
     ```bash
     make private_key=<YOUR_WALLET_PRIVATE_KEY> add-private-key
@@ -123,7 +123,7 @@ make private_key=<YOUR_WALLET_PRIVATE_KEY> add-private-key    // Stores the priv
 ----
 #### Run Issuer Node API
 
-The issuer node is extensively configurable, for a detailed list of the configuration, please visit our [detailed configuration guide](https://devs.polygonid.com/docs/issuer/issuer-configuration/).
+The issuer node is extensively configurable, for a detailed list of the configuration, please visit our [detailed configuration guide](https://docs.privado.id/docs/issuer/issuer-configuration/).
 
 1. Fill the .env-issuer config file with the proper variables:
 
@@ -213,23 +213,21 @@ make restart-ui
 
 ## Quick Start Demo
 
-This [Quick Start Demo](https://devs.polygonid.com/docs/quick-start-demo/) will walk you through the process of **issuing** and **verifying** your **first credential**.
+This [Quick Start Demo](https://docs.privado.id/docs/quick-start-demo/) will walk you through the process of **issuing** and **verifying** your **first credential**.
 
 ## Documentation
 
-* [Issuer Node resources](https://devs.polygonid.com/docs/category/issuer/)
-* [Privado ID core concepts](https://devs.polygonid.com/docs/introduction/)
+* [Issuer Node resources](https://docs.privado.id/docs/category/issuer/)
+* [Privado ID core concepts](https://docs.privado.id/docs/introduction/)
 
 ## Tools
 > [!WARNING]
 > **Demo Issuer** and **Verifier Demo** are for **testing** purposes **only**.
 
 
-* [Schema Builder](https://schema-builder.polygonid.me/) - Create your custom schemas to issue VC.
+* [Schema Builder](https://tools.privado.id/) - Create your custom schemas to issue VC.
 * [Demo Issuer UI](https://user-ui:password-ui@issuer-ui.polygonid.me/) - Test our Issuer Node UI.
 * [Verifier Demo](https://verifier-demo.polygonid.me/) - Verify your VCs.
-* [Polygon ID Android Mobile App](https://play.google.com/store/apps/details?id=com.polygonid.wallet&hl=en&gl=US)
-* [Polygon ID IOS Mobile App](https://apps.apple.com/us/app/polygon-id/id1629870183)
 * [Marketplace](https://marketplace.polygonid.me/) - Explore credentials submitted by trusted issuers.
 
 ## License

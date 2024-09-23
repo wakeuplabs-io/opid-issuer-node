@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: {{ .Values.vaultIssuerNode.service.name }}
   labels: 
-    {{ include "polygon-id-issuer.staticLabel" . }}
-    {{- include "polygon-id-issuer.labels" . | nindent 4 }}
+    {{ include "optimism-id-issuer.staticLabel" . }}
+    {{- include "optimism-id-issuer.labels" . | nindent 4 }}
 spec:
   selector:
-    {{- include "polygon-id-issuer.vaultIssuerNode.Labels" . | nindent 4 }}
-    {{- include "polygon-id-issuer.selectorLabels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.vaultIssuerNode.Labels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.selectorLabels" . | nindent 4 }}
   {{- with .Values.vaultIssuerNode.service.ports }}
   ports: 
     {{-  toYaml . | nindent 2 }}

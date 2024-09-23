@@ -1,11 +1,11 @@
 # Overview
 
 This is a helm chart for deploying Privado ID issuer node on Kubernetes.
-To learn more about Privado ID issuer, see [this](https://0xpolygonid.github.io/tutorials/issuer/issuer-overview).
+To learn more about Privado ID issuer, see [this](https://docs.privado.id/docs/issuer/issuer-overview).
 
 ## Architecture
 
-![Architecture diagram](resources/polygon-id-issuer-k8s-app-architecture.png)
+![Architecture diagram](resources/optimism-id-issuer-k8s-app-architecture.png)
 
 # Installation
 
@@ -24,18 +24,18 @@ To set up the app, you need to configure the following environment variables, bu
 If you don't use ingress, you need to provide a public IP. If you use ingress, you need to provide a domain name.
 
 ```shell
-export APP_INSTANCE_NAME=polygon-id-issuer              # Sample name for the application
+export APP_INSTANCE_NAME=privado-id-issuer              # Sample name for the application
 export NAMESPACE=default                                # Namespace where you want to deploy the application
 export APP_DOMAIN=app.example.com                       # Domain for the API UI. To use this INGRESS_ENABLED must be true
 export UI_DOMAIN=ui.example.com                         # Domain for the UI. To use this INGRESS_ENABLED must be true
 export API_DOMAIN=api.example.com                       # Domain for the API.To use this INGRESS_ENABLED must be true
 export PRIVATE_KEY='YOUR PRIVATE KEY'                   # Private key of the wallet (Metamask private key wallet).
 export PUBLIC_IP='YOUR PUBLIC IP'                       # Provide the PUBLIC IP if you have any otherwise leave this field.
-export MAINNET=false                                    # Specify if the network is main, if this value is false issuer node will use amoy
+export MAINNET=false                                    # Specify if the network is main, if this value is false issuer node will use sepolia
 export UIPASSWORD="my ui password"                      # Password for user: ui-user. This password is used when the user visit the ui.
 export UI_INSECURE=true                                         # Set as true if the ui doesn't require basic auth. If this value true UIPASSWORD can be blank
 export ISSUERNAME="My Issuer"                           # Issuer Name. This value is shown in the UI
-export ISSUER_ETHERUM_URL="https://polygon-amoy.XXXX" # Blockchain RPC.
+export ISSUER_ETHERUM_URL="https://optimism-sepolia.XXXX" # Blockchain RPC.
 export INGRESS_ENABLED=true                             # If this value is false you must provide a STATIC_IP
 export VAULT_PWD=password                               # Vault password.
 export RHS_MODE=None                                    # Reverse Hash Service mode. Options: None, OnChain, OffChain

@@ -3,7 +3,7 @@ package api_ui
 import (
 	"context"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/common"
 )
 
 // GetConfig - Get configuration

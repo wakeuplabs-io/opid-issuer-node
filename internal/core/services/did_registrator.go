@@ -5,8 +5,8 @@ import (
 
 	core "github.com/iden3/go-iden3-core/v2"
 
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 const (

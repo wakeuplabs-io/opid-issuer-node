@@ -21,7 +21,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ .Values.postgresIssuerNode.pvc.postgres }}
   labels:
-  {{- include "polygon-id-issuer.labels" . | nindent 4 }} 
+  {{- include "optimism-id-issuer.labels" . | nindent 4 }} 
 spec:
   storageClassName: manual
   accessModes:
