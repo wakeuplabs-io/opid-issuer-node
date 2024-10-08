@@ -1,4 +1,4 @@
-name: Deploy Issuer Node Backend to Demo AWS Environment
+name: Deploy Issuer Node Backend to AWS Environment
 
 on:
   workflow_run:
@@ -8,7 +8,7 @@ on:
       - completed
 
 env:
-  ECR_REPOSITORY: issuer_node_backend_demo
+  ECR_REPOSITORY: issuer_node_backend
 
 jobs:
   build-backend:
