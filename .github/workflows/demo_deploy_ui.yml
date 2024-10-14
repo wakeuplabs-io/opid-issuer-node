@@ -1,4 +1,4 @@
-name: Deploy Issuer Node UI to Demo AWS Environment
+name: Deploy Issuer Node UI to AWS Environment
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  ECR_REPOSITORY: issuer_node_ui_demo
+  ECR_REPOSITORY: issuer_node_ui
 
 jobs:
   deploy:
@@ -43,7 +43,7 @@ jobs:
         env:
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}
         run: |
-          docker build -t opid/issuernode_ui:${{ env.IMAGE_TAG }} .
+          docker build -t wakeuplabs/issuernode_ui:${{ env.IMAGE_TAG }} .
 
 
       - name: Tag and push image
@@ -52,8 +52,8 @@ jobs:
           ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}
         run: |
-          docker tag opid/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+          docker tag wakeuplabs/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
           docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
-          docker tag opid/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
+          docker tag wakeuplabs/issuernode_ui:${{ env.IMAGE_TAG }} ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
           docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest

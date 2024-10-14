@@ -1,4 +1,4 @@
-import { Avatar, Card, Col, Grid, Image, Row, Space, Tabs, TabsProps, Typography } from "antd";
+import { Avatar, Card, Col, Grid, Row, Space, Tabs, TabsProps, Typography } from "antd";
 import { QRCodeSVG } from "qrcode.react";
 import { ReactNode } from "react";
 
