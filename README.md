@@ -226,9 +226,9 @@ This [Quick Start Demo](https://docs.privado.id/docs/quick-start-demo/) will wal
 
 
 * [Schema Builder](https://tools.privado.id/) - Create your custom schemas to issue VC.
-* [Demo Issuer UI](https://user-ui:password-ui@issuer-ui.polygonid.me/) - Test our Issuer Node UI.
+* [Demo Issuer UI](http://ui.34.54.152.126.nip.io/) - Test our Issuer Node UI.
 * [Verifier Demo](https://verifier-demo.polygonid.me/) - Verify your VCs.
-* [Marketplace](https://marketplace.polygonid.me/) - Explore credentials submitted by trusted issuers.
+* [Marketplace](https://marketplace.privado.id/) - Explore credentials submitted by trusted issuers.
 
 ## License
 
