@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Privado ID - Issuer
+  title: OPID - Issuer
   description: |
     Documentation for the Issuer
   version: "1"
