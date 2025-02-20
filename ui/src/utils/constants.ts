@@ -63,8 +63,6 @@ export const DEBOUNCE_INPUT_TIMEOUT = 500;
 
 export const DOTS_DROPDOWN_WIDTH = 60;
 
-export const FEEDBACK_URL = "https://forms.gle/W8xuqY3UjPnY5Nj16";
-
 export const IMAGE_PLACEHOLDER_PATH = "/images/image-preview.png";
 
 export const POLLING_INTERVAL = 10000;
@@ -75,7 +73,7 @@ export const SIDER_WIDTH = 320;
 
 export const TOAST_NOTIFICATION_TIMEOUT = 6;
 
-export const DOCS_URL = "https://docs.privado.id";
+export const DOCS_URL = "https://github.com/wakeuplabs-io/opid-documentation/tree/main";
 
 export const IPFS_PUBLIC_GATEWAY_CHECKER_URL = "https://ipfs.github.io/public-gateway-checker";
 

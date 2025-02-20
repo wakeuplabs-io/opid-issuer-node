@@ -75,7 +75,7 @@ run-arm:
 
 .PHONY: run-ui
 run-ui: add-host-url-swagger
-	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" $(DOCKER_COMPOSE_CMD) up -d api-ui ui notifications pending_publisher
+	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" $(DOCKER_COMPOSE_CMD) up -d api-ui ui notifications pending_publisher --build
 
 .PHONY: run-ui-arm
 run-ui-arm: add-host-url-swagger

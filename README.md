@@ -34,6 +34,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
   - [License](#license)
 
 ## Quick Start Installation
+
 > [!NOTE]
 > The provided installation guide is **non-production** ready. For production deployments please refer to  [Standalone Mode Guide](https://docs.privado.id/docs/issuer/setup-issuer-core/).
 >

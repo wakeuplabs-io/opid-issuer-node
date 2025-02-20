@@ -69,7 +69,8 @@ export const theme: ThemeConfig = {
     Button: {
       colorBgContainerDisabled: successBg,
       colorPrimaryBg: primaryColor,
-      colorPrimaryHover: "#74F526",
+      colorPrimaryHover: "white",
+      colorPrimaryTextHover: primaryColor,
       controlHeight: 40,
       defaultHoverBorderColor: primaryColor,
       defaultHoverColor: primaryColor,
