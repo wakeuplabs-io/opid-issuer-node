@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.redisIssuerNode.service.name }}
+  labels: 
+    {{ include "optimism-id-issuer.staticLabel" . }}
+    {{- include "optimism-id-issuer.labels" . | nindent 4 }}
+spec:
+  selector:
+    {{- include "optimism-id-issuer.redisIssuerNode.Labels" . | nindent 4 }}
+    {{- include "optimism-id-issuer.selectorLabels" . | nindent 4 }}
+  {{- with .Values.redisIssuerNode.service.ports }}
+  ports: 
+    {{-  toYaml . | nindent 2 }}
+  {{- end }}

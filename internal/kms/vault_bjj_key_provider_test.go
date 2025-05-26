@@ -34,12 +34,12 @@ func TestVaultBJJKeyProvider_PublicKey(t *testing.T) {
 		},
 		{
 			title: "key with identity in path",
-			keyID: "keys/did:opid:optimism:sepolia:x2Uw18ATvY7mEsgfrrDipBmQQdPWAao4NmF56wGvp/BJJ:0980061591BCF8851dbf220bd9acba37d609010f4fb76b729e54f18f6bdc9784",
+			keyID: "keys/did:iden3:polygon:mumbai:x2Uw18ATvY7mEsgfrrDipBmQQdPWAao4NmF56wGvp/BJJ:0980061591BCF8851dbf220bd9acba37d609010f4fb76b729e54f18f6bdc9784",
 			want:  dec("0980061591bcf8851dbf220bd9acba37d609010f4fb76b729e54f18f6bdc9784"),
 		},
 		{
 			title:   "incorrect path",
-			keyID:   "keys/did:opid:optimism:sepolia:x2Uw18ATvY7mEsgfrrDipBmQQdPWAao4NmF56wGvp/BJ0980061591BCF8851dbf220bd9acba37d609010f4fb76b729e54f18f6bdc9784",
+			keyID:   "keys/did:iden3:polygon:mumbai:x2Uw18ATvY7mEsgfrrDipBmQQdPWAao4NmF56wGvp/BJ0980061591BCF8851dbf220bd9acba37d609010f4fb76b729e54f18f6bdc9784",
 			wantErr: "unable to get public key from key ID",
 		},
 	}

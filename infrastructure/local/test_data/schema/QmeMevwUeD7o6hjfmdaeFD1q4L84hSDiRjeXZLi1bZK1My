@@ -11,10 +11,10 @@
         "@context": {
           "@propagate": true,
           "@protected": true,
-          "optimism-vocab": "urn:uuid:0a8092e3-7100-4068-ba67-fae502cc6e7b#",
+          "polygon-vocab": "urn:uuid:0a8092e3-7100-4068-ba67-fae502cc6e7b#",
           "xsd": "http://www.w3.org/2001/XMLSchema#",
           "testNewTypeInt": {
-            "@id": "optimism-vocab:testNewTypeInt",
+            "@id": "polygon-vocab:testNewTypeInt",
             "@type": "xsd:integer"
           }
         },

@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -15,7 +16,7 @@ import (
 	"github.com/iden3/go-schema-processor/v2/verifiable"
 	"github.com/jackc/pgtype"
 
-	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/polygonid/sh-id-platform/internal/common"
 )
 
 // CoreClaim is an alias for the core.Claim struct
@@ -61,9 +62,17 @@ func FromClaimer(claim *core.Claim, schemaURL, schemaType string) (*Claim, error
 	case nil:
 		otherDID, errIn := core.ParseDIDFromID(id)
 		if errIn != nil {
-			return nil, fmt.Errorf("ID is not DID: %w", err)
+			// Special handling for opid method
+			if strings.Contains(errIn.Error(), "unknown method type") &&
+				id[0] == byte(0b00000011) { // DIDMethodOptimismByte
+				// Build the DID manually for opid method
+				otherIdentifier = fmt.Sprintf("did:opid:optimism:sepolia:%s", id.String())
+			} else {
+				return nil, fmt.Errorf("ID is not DID: %w", errIn)
+			}
+		} else {
+			otherIdentifier = otherDID.String()
 		}
-		otherIdentifier = otherDID.String()
 
 	default:
 		return nil, fmt.Errorf("can't get ID: %w", err)

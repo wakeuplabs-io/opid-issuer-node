@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/wakeup-labs/issuer-node/pkg/cache"
+	"github.com/polygonid/sh-id-platform/internal/cache"
 )
 
 type spyLoader struct {

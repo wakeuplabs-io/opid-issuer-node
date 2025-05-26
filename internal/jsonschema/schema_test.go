@@ -6,13 +6,13 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/wakeup-labs/issuer-node/internal/loader"
+	"github.com/polygonid/sh-id-platform/internal/loader"
 )
 
 func TestValidateCredentialSubject(t *testing.T) {
 	const ipfsGatewayURL = "http://127.0.0.1:8080"
 	ctx := context.Background()
-	ld := loader.NewDocumentLoader(ipfsGatewayURL)
+	ld := loader.NewDocumentLoader(ipfsGatewayURL, false)
 
 	type config struct {
 		name              string
@@ -172,7 +172,7 @@ func TestValidateCredentialSubject(t *testing.T) {
 			schemaURL:  "ipfs://QmcoHYA1K1xiFPHTUbDtVkV6HoKRCentZetfv4yLbrjwfY",
 			schemaType: "TestDefaultValues",
 			credentialSubject: map[string]interface{}{
-				"id":      "did:opid:optimism:sepolia:2qLPX9XnujT2xhuiPMHrqXTUD96UCV87CtThRUZFQm",
+				"id":      "did:polygonid:polygon:mumbai:2qLPX9XnujT2xhuiPMHrqXTUD96UCV87CtThRUZFQm",
 				"integer": 100,
 				"boolean": false,
 				"string":  "foo",

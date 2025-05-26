@@ -4,9 +4,7 @@ import (
 	"context"
 
 	core "github.com/iden3/go-iden3-core/v2"
-
-	"github.com/wakeup-labs/issuer-node/internal/config"
-	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/polygonid/sh-id-platform/internal/log"
 )
 
 const (
@@ -25,23 +23,6 @@ const (
 	// OptimismNetworkFlagSepolia Optimism sepolia network flag
 	OptimismNetworkFlagSepolia = 0b1000_0000 | 0b0000_0010
 )
-
-// RegisterCustomDIDMethods registers custom DID methods
-func RegisterCustomDIDMethods(ctx context.Context, customsDis []config.CustomDIDMethods) error {
-	for _, cdid := range customsDis {
-		params := core.DIDMethodNetworkParams{
-			Method:      DIDMethodOptimismID,
-			Blockchain:  core.Blockchain(cdid.Blockchain),
-			Network:     core.NetworkID(cdid.Network),
-			NetworkFlag: cdid.NetworkFlag,
-		}
-		if err := core.RegisterDIDMethodNetwork(params, core.WithChainID(cdid.ChainID)); err != nil {
-			log.Error(ctx, "cannot register custom DID method", "err", err, "customDID", cdid)
-			return err
-		}
-	}
-	return nil
-}
 
 // RegisterOptimismIdMethod registers Optimism DID method
 func RegisterOptimismIdMethod(ctx context.Context) error {

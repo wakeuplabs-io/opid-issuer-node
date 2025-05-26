@@ -9,56 +9,56 @@
         "@context": {
           "@propagate": true,
           "@protected": true,
-          "optimism-vocab": "urn:uuid:d9cc0292-5fb2-448a-87ac-c9812f30f4af#",
+          "polygon-vocab": "urn:uuid:d9cc0292-5fb2-448a-87ac-c9812f30f4af#",
           "xsd": "http://www.w3.org/2001/XMLSchema#",
           "integer": {
-            "@id": "optimism-vocab:integer",
+            "@id": "polygon-vocab:integer",
             "@type": "xsd:integer"
           },
           "boolean": {
-            "@id": "optimism-vocab:boolean",
+            "@id": "polygon-vocab:boolean",
             "@type": "xsd:boolean"
           },
           "string": {
-            "@id": "optimism-vocab:string",
+            "@id": "polygon-vocab:string",
             "@type": "xsd:string"
           },
           "number": {
-            "@id": "optimism-vocab:number",
+            "@id": "polygon-vocab:number",
             "@type": "xsd:double"
           },
           "object": {
             "@context": {
               "string": {
-                "@id": "optimism-vocab:string",
+                "@id": "polygon-vocab:string",
                 "@type": "xsd:string"
               },
               "date": {
-                "@id": "optimism-vocab:date",
+                "@id": "polygon-vocab:date",
                 "@type": "xsd:string"
               },
               "time": {
-                "@id": "optimism-vocab:time",
+                "@id": "polygon-vocab:time",
                 "@type": "xsd:string"
               },
               "boolean": {
-                "@id": "optimism-vocab:boolean",
+                "@id": "polygon-vocab:boolean",
                 "@type": "xsd:boolean"
               },
               "number": {
-                "@id": "optimism-vocab:number",
+                "@id": "polygon-vocab:number",
                 "@type": "xsd:double"
               },
               "date-time": {
-                "@id": "optimism-vocab:date-time",
+                "@id": "polygon-vocab:date-time",
                 "@type": "xsd:datetime"
               },
               "integer": {
-                "@id": "optimism-vocab:integer",
+                "@id": "polygon-vocab:integer",
                 "@type": "xsd:integer"
               }
             },
-            "@id": "optimism-vocab:object"
+            "@id": "polygon-vocab:object"
           }
         },
         "@id": "urn:uuid:e0c8843f-95f6-471a-afd3-9deb5a3d1389"

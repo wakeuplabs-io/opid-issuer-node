@@ -13,13 +13,13 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"github.com/piprate/json-gold/ld"
 
-	"github.com/wakeup-labs/issuer-node/internal/common"
-	"github.com/wakeup-labs/issuer-node/internal/loader"
+	"github.com/polygonid/sh-id-platform/internal/common"
+	"github.com/polygonid/sh-id-platform/internal/loader"
 )
 
 const (
-	fakeUserDID   = "did:opid:optimism:sepolia:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"
-	fakeIssuerDID = "did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5"
+	fakeUserDID   = "did:polygonid:polygon:mumbai:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"
+	fakeIssuerDID = "did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5"
 )
 
 // Attributes is a list of Attribute entities

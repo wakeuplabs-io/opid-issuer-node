@@ -29,16 +29,16 @@ func TestGetDIDFromQuery(t *testing.T) {
 			expect: "did:",
 		},
 		{
-			input:  "did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
-			expect: "did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
+			input:  "did:polygonid:polygon:mumbai:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
+			expect: "did:polygonid:polygon:mumbai:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
 		},
 		{
-			input:  "peter tango did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe cash",
-			expect: "did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
+			input:  "peter tango did:polygonid:polygon:mumbai:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe cash",
+			expect: "did:polygonid:polygon:mumbai:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
 		},
 		{
-			input:  "two dids only first did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe did:opid:optimism:sepolia:2qNevtQ3kDbgMuV4mLGnHM7nmeHRtACJaq8etV1mC1 cash",
-			expect: "did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
+			input:  "two dids only first did:polygonid:polygon:mumbai:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe did:polygonid:polygon:mumbai:2qNevtQ3kDbgMuV4mLGnHM7nmeHRtACJaq8etV1mC1 cash",
+			expect: "did:polygonid:polygon:mumbai:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe",
 		},
 	} {
 		t.Run(tc.input, func(t *testing.T) {

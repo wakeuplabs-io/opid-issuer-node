@@ -1,0 +1,51 @@
+{{- if .Values.ingressEnabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  labels:
+    {{- include "optimism-id-issuer.staticLabel" . | nindent 4 }}
+    {{- include "optimism-id-issuer.labels" . | nindent 4 }}
+  annotations:
+    {{- if and .Values.publicIP (ne .Values.publicIP "nil") }}
+    kubernetes.io/ingress.global-static-ip-name: {{ .Values.publicIP }}
+    {{- end }}
+    networking.gke.io/managed-certificates: managed-cert
+    kubernetes.io/ingress.class: "gce"
+spec:
+  rules:
+  - host: {{ .Values.uidomain }}
+    http:
+      paths:
+        {{- range .Values.ingress.uihost.paths }}
+        - path: {{ .path }}
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .serviceName }}
+              port:
+                number: {{ .servicePort }}
+        {{- end }}
+
+  - host: {{ .Values.apidomain }}
+    http:
+      paths:
+        {{- range .Values.ingress.apihost.paths }}
+        - path: {{ .path }}
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .serviceName }}
+              port:
+                number: {{ .servicePort }}
+        {{- end }}
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert
+spec:
+  domains:
+    - {{ .Values.uidomain }}
+    - {{ .Values.apidomain }}
+{{- end }}

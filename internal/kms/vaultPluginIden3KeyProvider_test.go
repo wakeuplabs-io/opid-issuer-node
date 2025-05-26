@@ -15,7 +15,7 @@ import (
 	"github.com/iden3/go-iden3-core/v2/w3c"
 	"github.com/stretchr/testify/require"
 
-	"github.com/wakeup-labs/issuer-node/internal/providers"
+	"github.com/polygonid/sh-id-platform/internal/providers"
 )
 
 func TestVaultPluginBJJProvider_Ethereum(t *testing.T) {
@@ -112,7 +112,7 @@ func randString(t *testing.T, ln int) string {
 
 func randomDID(t *testing.T) w3c.DID {
 	t.Helper()
-	typ, err := core.BuildDIDType(core.DIDMethodIden3, core.Ethereum, core.Sepolia)
+	typ, err := core.BuildDIDType(core.DIDMethodIden3, core.Polygon, core.Mumbai)
 	var genesis [27]byte
 	require.NoError(t, err)
 	_, err = rand.Read(genesis[:])
@@ -126,13 +126,10 @@ func randomDID(t *testing.T) w3c.DID {
 func setupPluginBJJProvider(t *testing.T) (vaultCli *api.Client, mountPath string) {
 	t.Helper()
 	var err error
-	vaultCli, err = providers.VaultClient(context.Background(), providers.Config{
-		Address:             cfg.Address,
-		UserPassAuthEnabled: cfg.UserPassEnabled,
-		Pass:                cfg.UserPassPassword,
-	})
+	config := vaultTest()
+	vaultCli, err = providers.VaultClient(context.Background(), config)
 	require.NoError(t, err)
-	mountPath = cfg.PluginIden3MountPath
+	mountPath = config.MountPath
 	return
 }
 

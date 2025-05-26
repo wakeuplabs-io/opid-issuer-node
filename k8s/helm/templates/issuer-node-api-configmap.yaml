@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.apiIssuerNode.configMap.issuerName }}
+  labels:
+    {{- include "optimism-id-issuer.staticLabel" . | nindent 4 }}
+    {{- include "optimism-id-issuer.labels" . | nindent 4 }}
+data:
+  ISSUER_SERVER_URL: {{ include "helpers.api-server-url" . | nindent 4 }}
+  ISSUER_SERVER_PORT: {{ .Values.apiIssuerNode.configMap.issuerServerPort | quote }}
+  ISSUER_KMS_BJJ_PROVIDER: {{ .Values.apiIssuerNode.configMap.issuerKMSBJJProvider | quote }}
+  ISSUER_KMS_ETH_PROVIDER: {{ .Values.apiIssuerNode.configMap.issuerKMSETHProvider | quote }}
+  ISSUER_NATIVE_PROOF_GENERATION_ENABLED: {{ .Values.apiIssuerNode.configMap.issuerNativeProofGenerationEnabled | quote }}
+  ISSUER_PUBLISH_KEY_PATH: {{ .Values.apiIssuerNode.configMap.issuerPublishKeyPath }}
+  ISSUER_ONCHAIN_CHECK_STATUS_FREQUENCY: {{ .Values.apiIssuerNode.configMap.issuerOnchainCheckStatusFrequency }}
+  ISSUER_ONCHAIN_PUBLISH_STATE_FREQUENCY: {{ .Values.apiIssuerNode.configMap.issuerOnchainPublishStateFrequency }}
+  ISSUER_LOG_LEVEL: {{ .Values.apiIssuerNode.configMap.issuerLogLevel | quote }}
+  ISSUER_LOG_MODE: {{ .Values.apiIssuerNode.configMap.issuerLogMode | quote }}
+  ISSUER_API_AUTH_PASSWORD: {{ .Values.apiIssuerNode.configMap.issuerApiAuthPassword }}
+  ISSUER_API_AUTH_USER: {{ .Values.apiIssuerNode.configMap.issuerApiAuthUser }}
+  ISSUER_KEY_STORE_PLUGIN_IDEN3_MOUNT_PATH: {{ .Values.apiIssuerNode.configMap.issuerKeyStorePluginIden3MountPath }}
+  ISSUER_REVERSE_HASH_SERVICE_ENABLED: {{ .Values.apiIssuerNode.configMap.issuerReverseHashServiceEnabled | quote }}
+  ISSUER_CIRCUIT_PATH: {{ .Values.apiIssuerNode.configMap.issuerCircuitPath | quote}}
+  ISSUER_REDIS_URL: {{ .Values.apiIssuerNode.configMap.issuerRedisUrl }}
+  ISSUER_CACHE_URL: {{ .Values.apiIssuerNode.configMap.issuerRedisUrl }}
+  ISSUER_DB_NAME: {{ .Values.apiIssuerNode.configMap.issuerDbName  }}
+  ISSUER_DB_PASSWORD: {{ .Values.apiIssuerNode.configMap.issuerDbPassword }}
+  ISSUER_DB_PORT: {{ .Values.apiIssuerNode.configMap.issuerDbPort | quote }}
+  ISSUER_DB_USER: {{ .Values.apiIssuerNode.configMap.issuerDbUser }}
+  ISSUER_KEY_STORE_PORT: {{ .Values.apiIssuerNode.configMap.issuerKeyStorePort | quote }}
+  ISSUER_VAULT_USERPASS_AUTH_ENABLED: {{ .Values.apiIssuerNode.configMap.issuerVaultUserpassAuthEnabled | quote }}
+  ISSUER_VAULT_USERPASS_AUTH_PASSWORD: {{ .Values.vaultpwd | quote }}
+  ISSUER_CREDENTIAL_STATUS_PUBLISHING_KEY_PATH : {{ .Values.apiIssuerNode.configMap.issuerCredentialStatusPublishingKeyPath | quote }}
+  ISSUER_RESOLVER_PATH : ""
+  ISSUER_RESOLVER_FILE : {{ .Values.issuerResolverFile | quote }}
+  ISSUER_IPFS_GATEWAY_URL: {{ .Values.apiIssuerNode.configMap.issuerIpfsGatewayUrl | quote }}

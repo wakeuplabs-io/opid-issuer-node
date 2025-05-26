@@ -6,8 +6,8 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"github.com/wakeup-labs/issuer-node/internal/db/schema"
-	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/polygonid/sh-id-platform/internal/db/schema"
+	"github.com/polygonid/sh-id-platform/internal/log"
 
 	_ "github.com/lib/pq"
 )
@@ -34,6 +34,5 @@ func main() {
 		log.Error(ctx, "error migrating database", "err", err)
 		return
 	}
-
 	log.Info(ctx, "migration done!")
 }

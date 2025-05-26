@@ -10,8 +10,8 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/wakeup-labs/issuer-node/internal/log"
-	"github.com/wakeup-labs/issuer-node/internal/providers"
+	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/polygonid/sh-id-platform/internal/providers"
 )
 
 type vaultKey struct {

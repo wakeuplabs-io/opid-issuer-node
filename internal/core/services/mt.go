@@ -11,9 +11,9 @@ import (
 	"github.com/mr-tron/base58"
 	"github.com/pkg/errors"
 
-	"github.com/wakeup-labs/issuer-node/internal/core/domain"
-	"github.com/wakeup-labs/issuer-node/internal/core/ports"
-	"github.com/wakeup-labs/issuer-node/internal/db"
+	"github.com/polygonid/sh-id-platform/internal/core/domain"
+	"github.com/polygonid/sh-id-platform/internal/core/ports"
+	"github.com/polygonid/sh-id-platform/internal/db"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/polygonid/sh-id-platform/internal/common"
 )
 
 func TestLink_Status(t *testing.T) {

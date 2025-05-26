@@ -8,7 +8,7 @@ import (
 
 	"github.com/pressly/goose/v3"
 
-	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/polygonid/sh-id-platform/internal/log"
 )
 
 //go:embed migrations/*.sql

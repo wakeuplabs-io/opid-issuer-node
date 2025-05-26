@@ -7,7 +7,7 @@ import (
 
 	"github.com/iden3/go-schema-processor/loaders"
 
-	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/polygonid/sh-id-platform/internal/log"
 )
 
 // IPFS loader
