@@ -4,11 +4,10 @@ import { generatePath, useNavigate } from "react-router-dom";
 import IconCreditCardPlus from "src/assets/icons/credit-card-plus.svg?react";
 import IconUpload from "src/assets/icons/upload-01.svg?react";
 import { SchemasTable } from "src/components/schemas/SchemasTable";
-import { Explainer } from "src/components/shared/Explainer";
 import { SiderLayoutContent } from "src/components/shared/SiderLayoutContent";
 import { useEnvContext } from "src/contexts/Env";
 import { ROUTES } from "src/routes";
-import { IMPORT_SCHEMA, ISSUE_CREDENTIAL, SCHEMAS, SCHEMAS_DOCS_URL } from "src/utils/constants";
+import { IMPORT_SCHEMA, ISSUE_CREDENTIAL, SCHEMAS } from "src/utils/constants";
 
 export function Schemas() {
   const navigate = useNavigate();
@@ -62,14 +61,6 @@ export function Schemas() {
       <Divider />
 
       <Space direction="vertical" size="large">
-        <Explainer
-          CTA={{ label: "Learn more", url: SCHEMAS_DOCS_URL }}
-          description="Learn about schema types, attributes, naming conventions, data types and more."
-          image="/images/illustration-explainer.svg"
-          localStorageKey="explainerSchemas"
-          title="Credential schemas explained"
-        />
-
         <SchemasTable />
       </Space>
     </SiderLayoutContent>

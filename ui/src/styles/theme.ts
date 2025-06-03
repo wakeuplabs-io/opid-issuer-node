@@ -110,7 +110,8 @@ export const theme: ThemeConfig = {
     Radio: {
       buttonCheckedBg: bgLight,
       colorPrimary: primaryColor,
-      colorPrimaryHover: primaryColor,
+      colorPrimaryHover: "white",
+      colorPrimaryTextHover: primaryColor,
       controlHeight: 40,
       size: 20,
       wrapperMarginInlineEnd: 0,

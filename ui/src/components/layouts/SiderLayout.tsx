@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import IconMenu from "src/assets/icons/menu-01.svg?react";
-import { FeedbackLink } from "src/components/shared/FeedbackLink";
 import { LogoLink } from "src/components/shared/LogoLink";
 import { SiderMenu } from "src/components/shared/SiderMenu";
 import { SIDER_WIDTH } from "src/utils/constants";
@@ -47,8 +46,6 @@ export function SiderLayout() {
       <Layout.Content style={lg ? { marginLeft: SIDER_WIDTH } : { marginLeft: 0, marginTop: 64 }}>
         <Outlet />
       </Layout.Content>
-
-      <FeedbackLink />
 
       {!collapsed && !lg && <Row className="background-sider" onClick={() => setCollapsed(true)} />}
     </Layout>
