@@ -8,10 +8,10 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/iden3/iden3comm/v2"
 
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/health"
-	"github.com/polygonid/sh-id-platform/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/health"
+	"github.com/wakeup-labs/issuer-node/internal/network"
 )
 
 // Server implements StrictServerInterface and holds the implementation of all API controllers
@@ -68,7 +68,7 @@ func documentation(w http.ResponseWriter, _ *http.Request) {
 }
 
 func favicon(w http.ResponseWriter, _ *http.Request) {
-	writeFile("api/privadoid.png", "image/png", w)
+	writeFile("api/optimism.png", "image/png", w)
 }
 
 func swagger(w http.ResponseWriter, _ *http.Request) {

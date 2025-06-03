@@ -17,16 +17,16 @@ import (
 	rstypes "github.com/iden3/go-rapidsnark/types"
 	"github.com/jackc/pgx/v4"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/event"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/db"
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/network"
-	"github.com/polygonid/sh-id-platform/internal/pubsub"
-	"github.com/polygonid/sh-id-platform/internal/syncttlmap"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/event"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/db"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/pubsub"
+	"github.com/wakeup-labs/issuer-node/internal/syncttlmap"
 )
 
 type jobIDType string

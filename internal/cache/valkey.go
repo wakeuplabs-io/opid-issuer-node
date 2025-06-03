@@ -7,7 +7,7 @@ import (
 
 	"github.com/valkey-io/valkey-go"
 
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 type valKeyCache struct {

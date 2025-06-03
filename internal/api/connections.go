@@ -12,11 +12,11 @@ import (
 	jsonSuite "github.com/iden3/go-schema-processor/v2/json"
 	"github.com/iden3/go-schema-processor/verifiable"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/core/services"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/sqltools"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/core/services"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/sqltools"
 )
 
 // GetConnections returns the list of connections of a determined issuer

@@ -10,9 +10,9 @@ import (
 	proofEth "github.com/iden3/merkletree-proof/eth"
 	proofHttp "github.com/iden3/merkletree-proof/http"
 
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/network"
 )
 
 // RHSMode is a mode of RHS

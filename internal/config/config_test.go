@@ -124,7 +124,7 @@ func TestLoad(t *testing.T) {
 	assert.Equal(t, 3001, cfg.ServerPort)
 	assert.Equal(t, "pbkey", cfg.PublishingKeyPath)
 	assert.Equal(t, time.Duration(60000000000), cfg.OnChainCheckStatusFrequency)
-	assert.Equal(t, "postgres://polygonid:polygonid@localhost:5432/platformid?sslmode=disable", cfg.Database.URL)
+	assert.Equal(t, "postgres://opid:opid@localhost:5432/platformid?sslmode=disable", cfg.Database.URL)
 	assert.Equal(t, -4, cfg.Log.Level)
 	assert.Equal(t, 1, cfg.Log.Mode)
 	assert.Equal(t, "user-issuer", cfg.HTTPBasicAuth.User)
@@ -234,7 +234,7 @@ func initVariables(t *testing.T) envVarsT {
 		"ISSUER_PUBLISH_KEY_PATH":                     "pbkey",
 		"ISSUER_ONCHAIN_PUBLISH_STATE_FREQUENCY":      "1m",
 		"ISSUER_ONCHAIN_CHECK_STATUS_FREQUENCY":       "1m",
-		"ISSUER_DATABASE_URL":                         "postgres://polygonid:polygonid@localhost:5432/platformid?sslmode=disable",
+		"ISSUER_DATABASE_URL":                         "postgres://opid:opid@localhost:5432/platformid?sslmode=disable",
 		"ISSUER_LOG_LEVEL":                            "-4",
 		"ISSUER_LOG_MODE":                             "1",
 		"ISSUER_API_AUTH_USER":                        "user-issuer",

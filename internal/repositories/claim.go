@@ -17,9 +17,9 @@ import (
 	"github.com/labstack/gommon/log"
 	"github.com/lib/pq"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/db"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/db"
 )
 
 const duplicateViolationErrorCode = "23505"

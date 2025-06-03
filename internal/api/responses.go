@@ -5,11 +5,11 @@ import (
 
 	"github.com/iden3/go-schema-processor/v2/verifiable"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/pagination"
-	"github.com/polygonid/sh-id-platform/internal/schema"
-	"github.com/polygonid/sh-id-platform/internal/timeapi"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/pagination"
+	"github.com/wakeup-labs/issuer-node/internal/schema"
+	"github.com/wakeup-labs/issuer-node/internal/timeapi"
 )
 
 // CustomQrContentResponse is a wrapper to return any content as an api response.

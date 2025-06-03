@@ -3,10 +3,10 @@ package gateways
 import (
 	"context"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/eth"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/eth"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/network"
 )
 
 func getEthClient(ctx context.Context, identity *domain.Identity, resolver network.Resolver) (*eth.Client, error) {

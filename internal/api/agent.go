@@ -3,8 +3,8 @@ package api
 import (
 	"context"
 
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 // Agent is the controller to fetch credentials from mobile

@@ -14,18 +14,18 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/db/tests"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/db/tests"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
 )
 
 func TestServer_CreateIdentity(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		ETH        = "ETH"
 	)
@@ -133,7 +133,7 @@ func TestServer_CreateIdentity(t *testing.T) {
 			},
 			expected: expected{
 				httpCode: 400,
-				message:  common.ToPointer("error getting reverse hash service settings: rhsSettings not found for polygon:mynetwork"),
+				message:  common.ToPointer("error getting reverse hash service settings: rhsSettings not found for optimism:mynetwork"),
 			},
 		},
 		{
@@ -276,8 +276,8 @@ func TestServer_GetIdentities(t *testing.T) {
 	server := newTestServer(t, nil)
 	handler := getHandler(context.Background(), server)
 
-	identity1 := &domain.Identity{Identifier: "did:polygonid:polygon:mumbai:2qE1ZT16aqEWhh9mX9aqM2pe2ZwV995dTkReeKwCaQ"}
-	identity2 := &domain.Identity{Identifier: "did:polygonid:polygon:mumbai:2qMHFTHn2SC3XkBEJrR4eH4Yk8jRGg5bzYYG1ZGECa"}
+	identity1 := &domain.Identity{Identifier: "did:opid:optimism:sepolia:2qE1ZT16aqEWhh9mX9aqM2pe2ZwV995dTkReeKwCaQ"}
+	identity2 := &domain.Identity{Identifier: "did:opid:optimism:sepolia:2qMHFTHn2SC3XkBEJrR4eH4Yk8jRGg5bzYYG1ZGECa"}
 	fixture := repositories.NewFixture(storage)
 	fixture.CreateIdentity(t, identity1)
 	fixture.CreateIdentity(t, identity2)
@@ -331,9 +331,9 @@ func TestServer_GetIdentityDetails(t *testing.T) {
 	handler := getHandler(context.Background(), server)
 
 	identity, err := server.identityService.Create(ctx, cfg.ServerUrl, &ports.DIDCreationOptions{
-		Method:               "polygonid",
-		Blockchain:           "polygon",
-		Network:              "amoy",
+		Method:               "opid",
+		Blockchain:           "optimism",
+		Network:              "sepolia",
 		KeyType:              "BJJ",
 		DisplayName:          common.ToPointer("my display name"),
 		AuthCredentialStatus: verifiable.Iden3commRevocationStatusV1,
@@ -369,7 +369,7 @@ func TestServer_GetIdentityDetails(t *testing.T) {
 		{
 			name: "identity not found",
 			auth: authOk,
-			did:  "did:polygonid:polygon:amoy:2qE1ZT16aqEWhh9mX9aqM2pe2ZwV995dTkReeKwCaQ",
+			did:  "did:opid:optimism:sepolia:2qE1ZT16aqEWhh9mX9aqM2pe2ZwV995dTkReeKwCaQ",
 			expected: expected{
 				httpCode: http.StatusBadRequest,
 			},
@@ -420,7 +420,7 @@ func TestServer_UpdateIdentity(t *testing.T) {
 	server := newTestServer(t, nil)
 	handler := getHandler(context.Background(), server)
 
-	identity := &domain.Identity{Identifier: "did:polygonid:polygon:amoy:2qQ8S2VKdQv7xYgzCn7KW2xgzUWrTRQjoZDYavJHBq"}
+	identity := &domain.Identity{Identifier: "did:opid:optimism:sepolia:2qQ8S2VKdQv7xYgzCn7KW2xgzUWrTRQjoZDYavJHBq"}
 	fixture := repositories.NewFixture(storage)
 	fixture.CreateIdentity(t, identity)
 

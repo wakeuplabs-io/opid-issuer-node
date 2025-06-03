@@ -15,14 +15,14 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	networkPkg "github.com/polygonid/sh-id-platform/internal/network"
-	"github.com/polygonid/sh-id-platform/internal/pubsub"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
-	"github.com/polygonid/sh-id-platform/internal/reversehash"
-	"github.com/polygonid/sh-id-platform/internal/revocationstatus"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	networkPkg "github.com/wakeup-labs/issuer-node/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/pubsub"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/reversehash"
+	"github.com/wakeup-labs/issuer-node/internal/revocationstatus"
 )
 
 func Test_link_issueClaim(t *testing.T) {
@@ -55,10 +55,10 @@ func Test_link_issueClaim(t *testing.T) {
 	)
 
 	claimsService := NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, docLoader, storage, cfg.ServerUrl, pubsub.NewMock(), ipfsGateway, revocationStatusResolver, mediaTypeManager, cfg.UniversalLinks)
-	identity, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
+	identity, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
 	assert.NoError(t, err)
 
-	identity2, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
+	identity2, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
 	assert.NoError(t, err)
 
 	schemaUrl := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
@@ -71,7 +71,7 @@ func Test_link_issueClaim(t *testing.T) {
 	did2, err := w3c.ParseDID(identity2.Identifier)
 	require.NoError(t, err)
 
-	userDID1, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	userDID1, err := w3c.ParseDID("did:opid:optimism:sepolia:476e4HH6dJ87f1G1EPxoMUzjGeYLHHC1ADzdjdnsge")
 	require.NoError(t, err)
 
 	credentialSubject := map[string]any{

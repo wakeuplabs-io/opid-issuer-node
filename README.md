@@ -1,7 +1,7 @@
 # Privado ID Issuer Node
 
-[![Checks](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/checks.yml/badge.svg)](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/checks.yml)
-[![golangci-lint](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/0xPolygonID/sh-id-platform/actions/workflows/golangci-lint.yml)
+[![Checks](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/checks.yml/badge.svg)](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/checks.yml)
+[![golangci-lint](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/wakeuplabs-io/issuer-node/actions/workflows/golangci-lint.yml)
 
 Streamline the **Verifiable Credentials issuance** process with the user-friendly API and UI of the Issuer Node within the Privado ID ecosystem. The on-premise (self-hosted) Issuer Node, seamlessly integrated with a robust suite of tools including the mobile Wallet, Schema Builder, and Credential Marketplace, guarantees a frictionless experience for effortlessly issuing and verifying credentials.
 
@@ -47,7 +47,7 @@ Streamline the **Verifiable Credentials issuance** process with the user-friendl
 - [Docker Engine](https://docs.docker.com/engine/) `1.27+`
 - Makefile toolchain `GNU Make 3.81`
 - Publicly accessible URL - The issuer node API must be publicly reachable. Please make sure you properly configure your proxy or use a tool like [Localtunnel](https://theboroer.github.io/localtunnel-www/) for testing purposes.
-- Polygon Amoy or Main RPC - You can get one in any of the providers of this list
+- Optimism Sepolia or Main RPC - You can get one in any of the providers of this list
     - [Chainstack](https://chainstack.com/)
     - [Ankr](https://ankr.com/)
     - [QuickNode](https://quicknode.com/)
@@ -111,7 +111,7 @@ then visit:
 
 ### Install and run Issuer Node API and UI - docker compose and build from source.
 > [!NOTE]
-> This Quick Installation Guide is prepared for Polygon Amoy (Testnet) both for the state contract and issuer dids.
+> This Quick Installation Guide is prepared for Optimism Sepolia (Testnet) both for the state contract and issuer dids. If you want to deploy the node with Main configuration, please visit our [advanced Issuer Node configuration guide](https://docs.privado.id/docs/issuer/issuer-configuration/).
 
 In this section we will see how to install the issuer node api and the UI along with the necessary infrastructure in 
 the most basic way, without too much customization.

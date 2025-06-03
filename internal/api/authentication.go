@@ -6,8 +6,8 @@ import (
 
 	"github.com/iden3/go-iden3-core/v2/w3c"
 
-	"github.com/polygonid/sh-id-platform/internal/core/services"
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/core/services"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 // AuthCallback receives the authentication information of a holder

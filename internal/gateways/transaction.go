@@ -6,9 +6,9 @@ import (
 
 	"github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/network"
 )
 
 // ETHClient defines interface for ethereum client

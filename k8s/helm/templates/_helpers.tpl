@@ -80,7 +80,7 @@ Define block explorer
 {{- if eq .Values.mainnet true }}
 {{ .Values.uiIssuerNode.configMap.issuerUiBlockExplorerUrlMain }}
 {{- else }}
-{{ .Values.uiIssuerNode.configMap.issuerUiBlockExplorerUrlAmoy }}
+{{ .Values.uiIssuerNode.configMap.issuerUiBlockExplorerUrlSepolia }}
 {{- end }}
 {{- end }}
 

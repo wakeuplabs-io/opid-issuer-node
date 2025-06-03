@@ -18,17 +18,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/db/tests"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/db/tests"
 )
 
 func TestServer_CreateLink(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -36,7 +36,7 @@ func TestServer_CreateLink(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
@@ -230,9 +230,9 @@ func TestServer_CreateLink(t *testing.T) {
 
 func TestServer_ActivateLink(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -240,7 +240,7 @@ func TestServer_ActivateLink(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
@@ -358,9 +358,9 @@ func TestServer_ActivateLink(t *testing.T) {
 // as it is really verbose to do it here.
 func TestServer_GetLink(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -368,7 +368,7 @@ func TestServer_GetLink(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
@@ -425,7 +425,7 @@ func TestServer_GetLink(t *testing.T) {
 				httpCode: http.StatusOK,
 				response: GetLink200JSONResponse{
 					Active:               link.Active,
-					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:polygonid:polygon:mumbai:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
+					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:opid:optimism:sepolia:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
 					Expiration:           common.ToPointer(TimeUTC(*link.ValidUntil)),
 					Id:                   link.ID,
 					IssuedClaims:         link.IssuedClaims,
@@ -448,7 +448,7 @@ func TestServer_GetLink(t *testing.T) {
 				httpCode: http.StatusOK,
 				response: GetLink200JSONResponse{
 					Active:               linkExpired.Active,
-					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:polygonid:polygon:mumbai:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
+					CredentialSubject:    CredentialSubject{"birthday": 19791109, "documentType": 12, "type": schemaType, "id": "did:opid:optimism:sepolia:2qDDDKmo436EZGCBAvkqZjADYoNRJszkG7UymZeCHQ"},
 					Expiration:           common.ToPointer(TimeUTC(*linkExpired.ValidUntil)),
 					Id:                   linkExpired.ID,
 					IssuedClaims:         linkExpired.IssuedClaims,
@@ -514,9 +514,9 @@ func TestServer_GetLink(t *testing.T) {
 
 func TestServer_GetAllLinks(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		sUrl       = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -524,7 +524,7 @@ func TestServer_GetAllLinks(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
@@ -727,9 +727,9 @@ func TestServer_GetAllLinks(t *testing.T) {
 
 func TestServer_DeleteLink(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -737,7 +737,7 @@ func TestServer_DeleteLink(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
@@ -821,9 +821,9 @@ func TestServer_DeleteLink(t *testing.T) {
 
 func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -831,9 +831,9 @@ func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
-	iden2, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden2, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
@@ -910,9 +910,9 @@ func TestServer_DeleteLinkForDifferentDID(t *testing.T) {
 
 func TestServer_CreateLinkOffer(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		uri        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -920,7 +920,7 @@ func TestServer_CreateLinkOffer(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)

@@ -11,12 +11,12 @@ import (
 	"github.com/iden3/iden3comm/v2"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	networkPkg "github.com/polygonid/sh-id-platform/internal/network"
-	"github.com/polygonid/sh-id-platform/internal/providers"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	networkPkg "github.com/wakeup-labs/issuer-node/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/providers"
 )
 
 var cfgForTesting config.Configuration

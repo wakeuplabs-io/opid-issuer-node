@@ -7,14 +7,13 @@ import (
 	"github.com/iden3/go-iden3-core/v2/w3c"
 	"github.com/iden3/go-schema-processor/v2/verifiable"
 	"github.com/stretchr/testify/require"
-
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/network"
 )
 
 func TestRevocationStatusResolver_GetCredentialRevocationStatus(t *testing.T) {
-	const did = "did:polygonid:polygon:amoy:2qSuD8ZDpsAG3s8WJjwzqhMsqGLz8RUG1BHVUe3Gwu"
+	const did = "did:opid:optimism:sepolia:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG"
 	didW3c, err := w3c.ParseDID(did)
 	require.NoError(t, err)
 
@@ -99,7 +98,7 @@ func TestRevocationStatusResolver_GetCredentialRevocationStatus(t *testing.T) {
 				err: nil,
 				CredentialStatus: &verifiable.CredentialStatus{
 					Type:            verifiable.Iden3OnchainSparseMerkleTreeProof2023,
-					ID:              "did:polygonid:polygon:amoy:2qSuD8ZDpsAG3s8WJjwzqhMsqGLz8RUG1BHVUe3Gwu/credentialStatus?revocationNonce=12345&contractAddress=80002:0x3d3763eC0a50CE1AdF83d0b5D99FBE0e3fEB43fb&state=issuer-state",
+					ID:              "did:opid:optimism:sepolia:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG/credentialStatus?revocationNonce=12345&contractAddress=80001:0x0000000000000000000000000000001234567890&state=issuer-state",
 					RevocationNonce: 12345,
 				},
 			},
@@ -122,7 +121,7 @@ func TestRevocationStatusResolver_GetCredentialRevocationStatus(t *testing.T) {
 				err: nil,
 				CredentialStatus: &verifiable.CredentialStatus{
 					Type:            verifiable.Iden3OnchainSparseMerkleTreeProof2023,
-					ID:              "did:polygonid:polygon:amoy:2qSuD8ZDpsAG3s8WJjwzqhMsqGLz8RUG1BHVUe3Gwu/credentialStatus?revocationNonce=12345&contractAddress=80002:0x3d3763eC0a50CE1AdF83d0b5D99FBE0e3fEB43fb&state=issuer-state",
+					ID:              "did:opid:optimism:sepolia:2qFbNk3Vz7Uy3ryq6zjwkC7p7RbLTfRpMsy6axjxeG/credentialStatus?revocationNonce=12345&contractAddress=80001:0x0000000000000000000000000000001234567890&state=issuer-state",
 					RevocationNonce: 12345,
 				},
 			},

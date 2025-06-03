@@ -3,8 +3,8 @@
     "type": "object",
     "$metadata": {
       "uris": {
-        "jsonLdContext": "https://raw.githubusercontent.com/0xPolygonID/issuer-node/main/docs/examples/schemas/json-ld/exampleInteger.json-ld",
-        "jsonSchema": "https://raw.githubusercontent.com/0xPolygonID/issuer-node/main/docs/examples/schemas/json/exampleInteger.json"
+        "jsonLdContext": "https://raw.githubusercontent.com/wakeuplabs-io/issuer-node/main/docs/examples/schemas/json-ld/exampleInteger.json-ld",
+        "jsonSchema": "https://raw.githubusercontent.com/wakeuplabs-io/issuer-node/main/docs/examples/schemas/json/exampleInteger.json"
       }
     },
     "required": [

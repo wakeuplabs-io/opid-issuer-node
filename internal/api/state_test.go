@@ -14,21 +14,21 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
 )
 
 func TestServer_GetStateStatus(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
 
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -57,7 +57,7 @@ func TestServer_GetStateStatus(t *testing.T) {
 	handlerWithMTPClaim := getHandler(ctx, serverWithMTPClaim)
 
 	serverWithRevokedClaim := newTestServer(t, nil)
-	idenWithRevokedClaim, err := serverWithRevokedClaim.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	idenWithRevokedClaim, err := serverWithRevokedClaim.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	didWithRevokedClaim, err := w3c.ParseDID(idenWithRevokedClaim.Identifier)
 	require.NoError(t, err)
@@ -144,15 +144,15 @@ func TestServer_GetStateStatus(t *testing.T) {
 
 func TestServer_GetStateTransactions(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
 
 	server := newTestServer(t, nil)
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	didWithoutTxs, err := w3c.ParseDID(iden.Identifier)
@@ -160,7 +160,7 @@ func TestServer_GetStateTransactions(t *testing.T) {
 
 	handler := getHandler(ctx, server)
 
-	didWithTxs, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	didWithTxs, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 
 	didWithTxsW3c, err := w3c.ParseDID(didWithTxs.Identifier)

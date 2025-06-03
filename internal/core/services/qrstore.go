@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/polygonid/sh-id-platform/internal/cache"
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/cache"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 // DefaultQRBodyTTL is the default time to live for a QRcode body

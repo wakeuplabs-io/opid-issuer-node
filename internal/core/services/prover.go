@@ -8,11 +8,11 @@ import (
 
 	"github.com/iden3/go-rapidsnark/types"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	client "github.com/polygonid/sh-id-platform/internal/http"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/pkg/loaders"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	client "github.com/wakeup-labs/issuer-node/internal/http"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/pkg/loaders"
 )
 
 // ProverConfig represents prover server config

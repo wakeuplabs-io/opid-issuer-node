@@ -682,7 +682,7 @@ paths:
           name: credentialSubject
           schema:
             type: string
-            example: did:polygonid:polygon:amoy:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
+            example: did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
         - in: query
           name: status
           schema:
@@ -1354,15 +1354,15 @@ components:
             method:
               type: string
               x-omitempty: false
-              example: "polygonid"
+              example: "opid"
             blockchain:
               type: string
               x-omitempty: false
-              example: "polygon"
+              example: "optimism"
             network:
               type: string
               x-omitempty: false
-              example: "amoy"
+              example: "sepolia"
             type:
               type: string
               x-omitempty: false
@@ -1561,7 +1561,7 @@ components:
         identifier:
           type: string
           x-omitempty: false
-          example: did:polygonid:polygon:amoy:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
+          example: did:opid:optimism:sepolia:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
         credentialStatusType:
           type: string
           x-omitempty: true
@@ -1570,15 +1570,15 @@ components:
         method:
           type: string
           x-omitempty: false
-          example: "polygonid"
+          example: "opid"
         blockchain:
           type: string
           x-omitempty: false
-          example: "polygon"
+          example: "optimism"
         network:
           type: string
           x-omitempty: false
-          example: "amoy"
+          example: "sepolia"
         displayName:
           type: string
           x-omitempty: false
@@ -1600,11 +1600,11 @@ components:
         userID:
           type: string
           x-omitempty: false
-          example: did:polygonid:polygon:amoy:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
+          example: did:opid:optimism:sepolia:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
         issuerID:
           type: string
           x-omitempty: false
-          example: did:polygonid:polygon:amoy:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
+          example: did:opid:optimism:sepolia:2qFpPHotk6oyaX1fcrpQFT4BMnmg8YszUwxYtaoGoe
         createdAt:
           $ref: '#/components/schemas/TimeUTC'
         credentials:
@@ -1990,7 +1990,7 @@ components:
       x-go-type: timeapi.Time
       x-go-type-import:
         name: timeapi
-        path: github.com/polygonid/sh-id-platform/internal/timeapi
+        path: github.com/wakeup-labs/issuer-node/internal/timeapi
       example: '2023-10-26T10:59:08Z'
       x-omitempty: false
 
@@ -2186,7 +2186,7 @@ components:
       properties:
         userDID:
           type: string
-          example: did:polygonid:polygon:amoy:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
+          example: did:opid:optimism:sepolia:2qMZrfBsXuGFTwSqkqYki78zF3pe1vtXoqH4yRLsfs
         userDoc:
           type: object
           format: byte
@@ -2203,7 +2203,7 @@ components:
       properties:
         blockchain:
           type: string
-          example: "polygon"
+          example: "optimism"
         networks:
           type: array
           items:
@@ -2217,7 +2217,7 @@ components:
       properties:
         name:
           type: string
-          example: "amoy"
+          example: "sepolia"
         credentialStatus:
           type: array
           items:

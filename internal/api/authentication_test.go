@@ -17,10 +17,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/services"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/services"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
 )
 
 func TestServer_AuthCallback(t *testing.T) {
@@ -74,9 +74,9 @@ func TestServer_AuthCallback(t *testing.T) {
 
 func TestServer_GetAuthenticationConnection(t *testing.T) {
 	server := newTestServer(t, nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qKDJmySKNi4GD4vYdqfLb37MSTSijg77NoRZaKfDX")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qKDJmySKNi4GD4vYdqfLb37MSTSijg77NoRZaKfDX")
 	require.NoError(t, err)
 	handler := getHandler(context.Background(), server)
 
@@ -172,11 +172,11 @@ func TestServer_GetAuthenticationConnection(t *testing.T) {
 
 func TestServer_AuthQRCode(t *testing.T) {
 	server := newTestServer(t, nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	handler := getHandler(context.Background(), server)
 
-	did, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	did, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 
 	type expected struct {

@@ -16,21 +16,21 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/network"
-	"github.com/polygonid/sh-id-platform/internal/pubsub"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
-	"github.com/polygonid/sh-id-platform/internal/reversehash"
-	"github.com/polygonid/sh-id-platform/internal/revocationstatus"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/pubsub"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/reversehash"
+	"github.com/wakeup-labs/issuer-node/internal/revocationstatus"
 )
 
 const (
-	method     = "polygonid"
-	blockchain = "polygon"
-	net        = "amoy"
+	method     = "opid"
+	blockchain = "optimism"
+	net        = "sepolia"
 	BJJ        = "BJJ"
 	ETH        = "ETH"
 )
@@ -125,7 +125,7 @@ func Test_identity_CreateIdentityWithRHSNone(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -152,7 +152,7 @@ func Test_identity_CreateIdentityWithRHSNone(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -189,7 +189,7 @@ func Test_identity_CreateIdentityWithRHSNone(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock, rhsPublisherOnChainMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -217,7 +217,7 @@ func Test_identity_CreateIdentityWithRHSNone(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -259,7 +259,7 @@ func Test_identity_CreateIdentityWithRHSOffChain(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -286,7 +286,7 @@ func Test_identity_CreateIdentityWithRHSOffChain(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -323,7 +323,7 @@ func Test_identity_CreateIdentityWithRHSOffChain(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock, rhsPublisherOnChainMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -351,7 +351,7 @@ func Test_identity_CreateIdentityWithRHSOffChain(t *testing.T) {
 
 		rhsPublishers = append(rhsPublishers, rhsPublisherReverseHashServiceMock)
 		rhsFactoryMock := reversehash.NewMockFactory(t)
-		rhsFactoryMock.On("BuildPublishers", mock.Anything, "polygon:amoy", &kms.KeyID{
+		rhsFactoryMock.On("BuildPublishers", mock.Anything, "optimism:sepolia", &kms.KeyID{
 			Type: kms.KeyTypeEthereum,
 			ID:   "pbkey",
 		}).Return(rhsPublishers, nil)
@@ -400,12 +400,12 @@ func Test_identity_UpdateState(t *testing.T) {
 
 	claimsService := NewClaim(claimsRepo, identityService, nil, mtService, identityStateRepo, docLoader, storage, cfg.ServerUrl, pubsub.NewMock(), ipfsGateway, revocationStatusResolver, mediaTypeManager, cfg.UniversalLinks)
 
-	identity, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
+	identity, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
 	require.NoError(t, err)
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	did, err := w3c.ParseDID(identity.Identifier)
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:amoy:2qSuD8ZDpsAG3s8WJjwzqhMsqGLz8RUG1BHVUe3Gwu",
+		"id":           "did:opid:optimism:sepolia:2qSuD8ZDpsAG3s8WJjwzqhMsqGLz8RUG1BHVUe3Gwu",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -582,13 +582,13 @@ func Test_identity_GetByDID(t *testing.T) {
 	rhsFactory := reversehash.NewFactory(*networkResolver, reversehash.DefaultRHSTimeOut)
 	revocationStatusResolver := revocationstatus.NewRevocationStatusResolver(*networkResolver)
 	identityService := NewIdentity(keyStore, identityRepo, mtRepo, identityStateRepo, mtService, nil, claimsRepo, revocationRepository, connectionsRepository, storage, nil, nil, pubsub.NewMock(), *networkResolver, rhsFactory, revocationStatusResolver)
-	identity, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
+	identity, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
 	assert.NoError(t, err)
 
 	did, err := w3c.ParseDID(identity.Identifier)
 	assert.NoError(t, err)
 
-	did2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
+	did2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
 	assert.NoError(t, err)
 
 	type testConfig struct {
@@ -639,13 +639,13 @@ func Test_identity_GetLatestStateByID(t *testing.T) {
 	rhsFactory := reversehash.NewFactory(*networkResolver, reversehash.DefaultRHSTimeOut)
 	revocationStatusResolver := revocationstatus.NewRevocationStatusResolver(*networkResolver)
 	identityService := NewIdentity(keyStore, identityRepo, mtRepo, identityStateRepo, mtService, nil, claimsRepo, revocationRepository, connectionsRepository, storage, nil, nil, pubsub.NewMock(), *networkResolver, rhsFactory, revocationStatusResolver)
-	identity, err := identityService.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
+	identity, err := identityService.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: net, KeyType: BJJ})
 	assert.NoError(t, err)
 
 	did, err := w3c.ParseDID(identity.Identifier)
 	assert.NoError(t, err)
 
-	did2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
+	did2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qD6cqGpLX2dibdFuKfrPxGiybi3wKa8RbR4onw49H")
 	assert.NoError(t, err)
 
 	type shouldReturnErr struct {

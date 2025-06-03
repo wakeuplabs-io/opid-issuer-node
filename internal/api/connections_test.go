@@ -17,17 +17,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
 )
 
 func TestServer_CreateConnection(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -35,12 +35,12 @@ func TestServer_CreateConnection(t *testing.T) {
 
 	handler := getHandler(ctx, server)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	issuerDID, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	const serviceContext = "https://www.w3.org/ns/did/v1"
@@ -204,9 +204,9 @@ func TestServer_CreateConnection(t *testing.T) {
 
 func TestServer_DeleteConnection(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -214,17 +214,17 @@ func TestServer_DeleteConnection(t *testing.T) {
 
 	handler := getHandler(ctx, server)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	issuerDID, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
 
 	fixture := repositories.NewFixture(storage)
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
-	userDID2, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R64")
+	userDID2, err := w3c.ParseDID("did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R64")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -354,9 +354,9 @@ func TestServer_DeleteConnectionCredentials(t *testing.T) {
 
 	fixture := repositories.NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -436,23 +436,23 @@ func TestServer_DeleteConnectionCredentials(t *testing.T) {
 
 func TestServer_RevokeConnectionCredentials(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 	handler := getHandler(context.Background(), server)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	issuerDID, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
 
 	fixture := repositories.NewFixture(storage)
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	conn := fixture.CreateConnection(t, &domain.Connection{
@@ -532,9 +532,9 @@ func TestServer_RevokeConnectionCredentials(t *testing.T) {
 
 func TestServer_GetConnectionsDefaultSort(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -542,7 +542,7 @@ func TestServer_GetConnectionsDefaultSort(t *testing.T) {
 
 	handler := getHandler(ctx, server)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	issuerDID, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)
@@ -680,18 +680,18 @@ func TestServer_GetConnectionsDefaultSort(t *testing.T) {
 func createConnections(t *testing.T, issuerDID *w3c.DID, fixture *repositories.Fixture) []GetConnectionResponse {
 	t.Helper()
 	usersDIDs := []string{
-		"did:polygonid:polygon:amoy:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R64",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R65",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R66",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R67",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R68",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R69",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R70",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R71",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R72",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R73",
-		"did:polygonid:polygon:amoy:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R74",
+		"did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R64",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R65",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R66",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R67",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R68",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R69",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R70",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R71",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R72",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R73",
+		"did:opid:optimism:sepolia:2qNytPv6dKKhfqopjBdXJU1vSVb3Lbgcidved32R74",
 	}
 	connections := make([]GetConnectionResponse, len(usersDIDs))
 	for i, userDID := range usersDIDs {

@@ -1,11 +1,11 @@
 # Overview
 
 This is a helm chart for deploying Privado ID issuer node on Kubernetes.
-To learn more about Privado ID issuer, see [this](https://0xpolygonid.github.io/tutorials/issuer/issuer-overview).
+To learn more about Privado ID issuer, see [this](https://docs.privado.id/docs/issuer/issuer-overview).
 
 ## Architecture
 
-![Architecture diagram](resources/polygon-id-issuer-k8s-app-architecture.png)
+![Architecture diagram](resources/optimism-id-issuer-k8s-app-architecture.png)
 
 # Installation
 
@@ -33,7 +33,7 @@ To set up the app, you need to configure the following environment variables.
 The ISSUER_RESOLVER_FILE is a base64 encoded string of the resolver file. You can take a look at the resolver file [here](../../resolvers_settings_sample.yaml)
 
 ```shell
-export APP_INSTANCE_NAME=polygon-id-issuer              # Sample name for the application
+export APP_INSTANCE_NAME=privado-id-issuer              # Sample name for the application
 export NAMESPACE=default                                # Namespace where you want to deploy the application
 export INGRESS_ENABLED=true                             # Set as true if you want to deploy with ingress enabled, false to use NodePorts
 export UI_DOMAIN=ui.example.com                         # Domain for the UI.

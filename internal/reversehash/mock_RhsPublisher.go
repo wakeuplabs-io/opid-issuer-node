@@ -7,7 +7,7 @@ import (
 
 	merkletree_proof "github.com/iden3/merkletree-proof"
 
-	domain "github.com/polygonid/sh-id-platform/internal/core/domain"
+	domain "github.com/wakeup-labs/issuer-node/internal/core/domain"
 
 	mock "github.com/stretchr/testify/mock"
 )

@@ -4,8 +4,7 @@ import (
 	ethcommon "github.com/ethereum/go-ethereum/common"
 	"github.com/iden3/go-iden3-core/v2/w3c"
 	"github.com/iden3/go-schema-processor/v2/verifiable"
-
-	"github.com/polygonid/sh-id-platform/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/network"
 )
 
 type iden3OnChainSparseMerkleTreeProof2023Resolver struct{}

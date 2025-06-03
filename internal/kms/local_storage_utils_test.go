@@ -54,7 +54,7 @@ func TestSearchByIdentityInFile_ReturnsKeyIDsOnMatch(t *testing.T) {
 	//nolint:errcheck
 	defer os.Remove(tmpFile.Name())
 
-	identity := "did:polygonid:polygon:amoy:2qQ68JkRcf3ybQNvgRV9BP6qLgBrXmUezqBi4wsEuV"
+	identity := "did:opid:optimism:sepolia:2qQ68JkRcf3ybQNvgRV9BP6qLgBrXmUezqBi4wsEuV"
 	fileContent := []localStorageBJJKeyProviderFileContent{
 		{KeyPath: identity + "/ETH:0347fe70a2a9b752e8012d72851c35a13a1423bcdac4bde6ec036e1ea9317b36ac", KeyType: ethereum, PrivateKey: "0xABC123"},
 		{KeyPath: "keys/" + identity + "/BJJ:cecf34ed27074e121f1e8a8cc75954ab2b28506258b87b3c9a20e33461f4b12a", KeyType: babyjubjub, PrivateKey: "0xDEF456"},
@@ -86,7 +86,7 @@ func TestSearchByIdentityInFile_ReturnsKeyIDsOnMatch(t *testing.T) {
 func TestSearchByIdentityInFile_ReturnsErrorOnFileReadFailure(t *testing.T) {
 	ls := NewLocalStorageFileManager("/path/to/nonexistent/file")
 	ctx := context.Background()
-	did, err := w3c.ParseDID("did:polygonid:polygon:amoy:2qQ68JkRcf3ybQNvgRV9BP6qLgBrXmUezqBi4wsEuV")
+	did, err := w3c.ParseDID("did:opid:optimism:sepolia:2qQ68JkRcf3ybQNvgRV9BP6qLgBrXmUezqBi4wsEuV")
 	require.NoError(t, err)
 	_, err = ls.searchByIdentityInFile(ctx, *did, KeyTypeEthereum)
 	assert.Error(t, err)
@@ -110,7 +110,7 @@ func TestSearchByIdentityInFile_ReturnsEmptySliceWhenNoMatch(t *testing.T) {
 	ls := NewLocalStorageFileManager(tmpFile.Name())
 	ctx := context.Background()
 
-	did, err := w3c.ParseDID("did:polygonid:polygon:amoy:2qQ68JkRcf3ybQNvgRV9BP6qLgBrXmUezqBi4wsEuV")
+	did, err := w3c.ParseDID("did:opid:optimism:sepolia:2qQ68JkRcf3ybQNvgRV9BP6qLgBrXmUezqBi4wsEuV")
 	require.NoError(t, err)
 
 	keyIDs, err := ls.searchByIdentityInFile(ctx, *did, KeyTypeEthereum)

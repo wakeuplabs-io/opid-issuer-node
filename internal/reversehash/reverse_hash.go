@@ -8,8 +8,8 @@ import (
 	"github.com/iden3/go-merkletree-sql/v2"
 	proof "github.com/iden3/merkletree-proof"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 // DefaultRHSTimeOut - default timeout for reverse hash service requests.

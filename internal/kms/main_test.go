@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/providers"
+	"github.com/wakeup-labs/issuer-node/internal/providers"
 )
 
 var cfg providers.Config

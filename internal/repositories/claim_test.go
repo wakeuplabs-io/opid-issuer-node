@@ -14,17 +14,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/db"
-	"github.com/polygonid/sh-id-platform/internal/sqltools"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/db"
+	"github.com/wakeup-labs/issuer-node/internal/sqltools"
 )
 
 func TestSaveClaim(t *testing.T) {
 	ctx := context.Background()
 	claimsRepo := NewClaim()
-	idStr := "did:polygonid:polygon:amoy:2qWcgX6ts9RnL9gP7bQP7BjVCuY92Xpwj9wzBzQGdc"
+	idStr := "did:opid:optimism:sepolia:2qWcgX6ts9RnL9gP7bQP7BjVCuY92Xpwj9wzBzQGdc"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -102,7 +102,7 @@ func TestSaveClaim(t *testing.T) {
 func TestRevoke(t *testing.T) {
 	// given
 	claimsRepo := NewClaim()
-	idStr := "did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
+	idStr := "did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -133,7 +133,7 @@ func TestRevoke(t *testing.T) {
 
 func TestGetByRevocationNonce(t *testing.T) {
 	fixture := NewFixture(storage)
-	idStr := "did:polygonid:polygon:mumbai:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW"
+	idStr := "did:opid:optimism:sepolia:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -223,7 +223,7 @@ func TestGetByRevocationNonce(t *testing.T) {
 	})
 
 	t.Run("should not get revocation wrong did", func(t *testing.T) {
-		did, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qFAer2CpbpNhMCkiMCrQbUf4vXnEKPhrQmqVfnaeY")
+		did, err := w3c.ParseDID("did:opid:optimism:sepolia:2qFAer2CpbpNhMCkiMCrQbUf4vXnEKPhrQmqVfnaeY")
 		assert.NoError(t, err)
 		r, err := claimsRepo.GetByRevocationNonce(context.Background(), storage.Pgx, did, 1)
 		assert.Error(t, err)
@@ -231,7 +231,7 @@ func TestGetByRevocationNonce(t *testing.T) {
 	})
 
 	t.Run("should get two claims", func(t *testing.T) {
-		did, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW")
+		did, err := w3c.ParseDID("did:opid:optimism:sepolia:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW")
 		assert.NoError(t, err)
 		claims, err := claimsRepo.GetByRevocationNonce(context.Background(), storage.Pgx, did, 100)
 		assert.NoError(t, err)
@@ -242,7 +242,7 @@ func TestGetByRevocationNonce(t *testing.T) {
 func TestRevokeNonce(t *testing.T) {
 	// given
 	claimsRepo := NewClaim()
-	idStr := "did:polygonid:polygon:mumbai:2qNWrZ4Z7iZPvDusp32sWXGMHvAL9RoTqgPEEXvS9q"
+	idStr := "did:opid:optimism:sepolia:2qNWrZ4Z7iZPvDusp32sWXGMHvAL9RoTqgPEEXvS9q"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -274,9 +274,9 @@ func TestRevokeNonce(t *testing.T) {
 func TestGetAllByConnectionAndIssuerID(t *testing.T) {
 	fixture := NewFixture(storage)
 
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qH7XAwYQzCp9VfhpNgeLtK2iCehDDrfMWUCEg5ig5")
 	require.NoError(t, err)
 
 	_ = fixture.CreateClaim(t, &domain.Claim{
@@ -344,9 +344,9 @@ func TestGetAllByIssuerID(t *testing.T) {
 	ctx := context.Background()
 
 	fixture := NewFixture(storage)
-	issuerDID, err := w3c.ParseDID("did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:iden3:tJUieNy7sk5PhitERHg1tgM8v1qhsDSEHVJSUF9rJ")
+	userDID, err := w3c.ParseDID("did:opid:tJUieNy7sk5PhitERHg1tgM8v1qhsDSEHVJSUF9rJ")
 	require.NoError(t, err)
 
 	vc := &verifiable.W3CCredential{
@@ -357,7 +357,7 @@ func TestGetAllByIssuerID(t *testing.T) {
 		},
 	}
 	jsonB := &pgtype.JSONB{}
-	require.NoError(t, jsonB.Set(`{"type": "BJJSignature2021", "coreClaim": "c9b2370371b7fa8b3dab2a5ba81b68382a00000000000000000000000000000002129c52957a73ea89144dc455d28e074cd7e23ae3e5bf86d4aa56d20cd60e0074da1e21d2c4d8fc28e2e3809ed51c333d68ef4dffd31508176ab84863e8fc1a0000000000000000000000000000000000000000000000000000000000000000682561f1000000006f0535010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "signature": "fb179bc43ca2c8ce4eb97549d847415bcb759f4d7c8bb3aa008700716abb2b06853349d75571fdc3018023cce9d1e6756eb102b4b44a17555d49fc8371af1300", "issuerData": {"id": "did:polygonid:polygon:mumbai:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr", "mtp": {"siblings": [], "existence": true}, "state": {"value": "e6a67b3bcca7e424f657f41ddaae87f772f502de49d1cfe7f9abd11a4822611d", "claimsTreeRoot": "8375a237f1597b74b17f33cce0638e93a7be9175028836ae9f54f08dd2976a2f"}, "authCoreClaim": "cca3371a6cb1b715004407e325bd993c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f5287a7ac420b7c2b1b7aa28446c52df4dda6f7e4a127fbd1272d78853c4e01a3359f10f7fef6a358b83740146445dc55f143109bf1f6a090edf7d7c7b8e651c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "credentialStatus": {"id": "https://aeb5-2a0c-5a84-e10a-5200-71e6-4d79-d127-c4dd.eu.ngrok.io/v1/did%3Apolygonid%3Apolygon%3Amumbai%3A2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr/claims/revocation/status/0", "type": "SparseMerkleTreeProof", "revocationNonce": 0}}}`))
+	require.NoError(t, jsonB.Set(`{"type": "BJJSignature2021", "coreClaim": "c9b2370371b7fa8b3dab2a5ba81b68382a00000000000000000000000000000002129c52957a73ea89144dc455d28e074cd7e23ae3e5bf86d4aa56d20cd60e0074da1e21d2c4d8fc28e2e3809ed51c333d68ef4dffd31508176ab84863e8fc1a0000000000000000000000000000000000000000000000000000000000000000682561f1000000006f0535010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "signature": "fb179bc43ca2c8ce4eb97549d847415bcb759f4d7c8bb3aa008700716abb2b06853349d75571fdc3018023cce9d1e6756eb102b4b44a17555d49fc8371af1300", "issuerData": {"id": "did:opid:optimism:sepolia:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr", "mtp": {"siblings": [], "existence": true}, "state": {"value": "e6a67b3bcca7e424f657f41ddaae87f772f502de49d1cfe7f9abd11a4822611d", "claimsTreeRoot": "8375a237f1597b74b17f33cce0638e93a7be9175028836ae9f54f08dd2976a2f"}, "authCoreClaim": "cca3371a6cb1b715004407e325bd993c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f5287a7ac420b7c2b1b7aa28446c52df4dda6f7e4a127fbd1272d78853c4e01a3359f10f7fef6a358b83740146445dc55f143109bf1f6a090edf7d7c7b8e651c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "credentialStatus": {"id": "https://aeb5-2a0c-5a84-e10a-5200-71e6-4d79-d127-c4dd.eu.ngrok.io/v1/did%3Aopid%3Aoptimism%3Asepolia%3A2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr/claims/revocation/status/0", "type": "SparseMerkleTreeProof", "revocationNonce": 0}}}`))
 	c := &domain.Claim{
 		ID:              uuid.New(),
 		Identifier:      common.ToPointer(issuerDID.String()),
@@ -429,13 +429,13 @@ func TestGetAllByIssuerID(t *testing.T) {
 func TestGetAllByIssuerIDPagination(t *testing.T) {
 	ctx := context.Background()
 	fixture := NewFixture(storage)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qMFKi3ou8Sd5oeHt3NquUKnPUqDMD84yvpm4pt8Hi")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qMFKi3ou8Sd5oeHt3NquUKnPUqDMD84yvpm4pt8Hi")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qPnPzctLT3jEzW3aZg2yAGEeeBW6izu5znWULdNRy")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qPnPzctLT3jEzW3aZg2yAGEeeBW6izu5znWULdNRy")
 	require.NoError(t, err)
 
 	jsonB := &pgtype.JSONB{}
-	require.NoError(t, jsonB.Set(`{"type": "BJJSignature2021", "coreClaim": "c9b2370371b7fa8b3dab2a5ba81b68382a00000000000000000000000000000002129c52957a73ea89144dc455d28e074cd7e23ae3e5bf86d4aa56d20cd60e0074da1e21d2c4d8fc28e2e3809ed51c333d68ef4dffd31508176ab84863e8fc1a0000000000000000000000000000000000000000000000000000000000000000682561f1000000006f0535010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "signature": "fb179bc43ca2c8ce4eb97549d847415bcb759f4d7c8bb3aa008700716abb2b06853349d75571fdc3018023cce9d1e6756eb102b4b44a17555d49fc8371af1300", "issuerData": {"id": "did:polygonid:polygon:mumbai:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr", "mtp": {"siblings": [], "existence": true}, "state": {"value": "e6a67b3bcca7e424f657f41ddaae87f772f502de49d1cfe7f9abd11a4822611d", "claimsTreeRoot": "8375a237f1597b74b17f33cce0638e93a7be9175028836ae9f54f08dd2976a2f"}, "authCoreClaim": "cca3371a6cb1b715004407e325bd993c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f5287a7ac420b7c2b1b7aa28446c52df4dda6f7e4a127fbd1272d78853c4e01a3359f10f7fef6a358b83740146445dc55f143109bf1f6a090edf7d7c7b8e651c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "credentialStatus": {"id": "https://aeb5-2a0c-5a84-e10a-5200-71e6-4d79-d127-c4dd.eu.ngrok.io/v1/did%3Apolygonid%3Apolygon%3Amumbai%3A2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr/claims/revocation/status/0", "type": "SparseMerkleTreeProof", "revocationNonce": 0}}}`))
+	require.NoError(t, jsonB.Set(`{"type": "BJJSignature2021", "coreClaim": "c9b2370371b7fa8b3dab2a5ba81b68382a00000000000000000000000000000002129c52957a73ea89144dc455d28e074cd7e23ae3e5bf86d4aa56d20cd60e0074da1e21d2c4d8fc28e2e3809ed51c333d68ef4dffd31508176ab84863e8fc1a0000000000000000000000000000000000000000000000000000000000000000682561f1000000006f0535010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "signature": "fb179bc43ca2c8ce4eb97549d847415bcb759f4d7c8bb3aa008700716abb2b06853349d75571fdc3018023cce9d1e6756eb102b4b44a17555d49fc8371af1300", "issuerData": {"id": "did:opid:optimism:sepolia:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr", "mtp": {"siblings": [], "existence": true}, "state": {"value": "e6a67b3bcca7e424f657f41ddaae87f772f502de49d1cfe7f9abd11a4822611d", "claimsTreeRoot": "8375a237f1597b74b17f33cce0638e93a7be9175028836ae9f54f08dd2976a2f"}, "authCoreClaim": "cca3371a6cb1b715004407e325bd993c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f5287a7ac420b7c2b1b7aa28446c52df4dda6f7e4a127fbd1272d78853c4e01a3359f10f7fef6a358b83740146445dc55f143109bf1f6a090edf7d7c7b8e651c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "credentialStatus": {"id": "https://aeb5-2a0c-5a84-e10a-5200-71e6-4d79-d127-c4dd.eu.ngrok.io/v1/did%3Aopid%3Aoptimism%3Asepolia%3A2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr/claims/revocation/status/0", "type": "SparseMerkleTreeProof", "revocationNonce": 0}}}`))
 
 	createdAt := time.Now().Add(-24 * time.Hour)
 	for i := 0; i < 100; i++ {
@@ -580,13 +580,13 @@ func TestGetAllByIssuerIDPagination(t *testing.T) {
 func TestGetAllByIssuerIDOrderBy(t *testing.T) {
 	ctx := context.Background()
 	fixture := NewFixture(storage)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qDxX9177nxpRK3q2zFbr3cr4mdGXqJH83uUJ921qd")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qDxX9177nxpRK3q2zFbr3cr4mdGXqJH83uUJ921qd")
 	require.NoError(t, err)
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:main:2q2LTxUzBz9BwarePv9yBdUV8eXZK1ffxVKBGAnt2o")
+	userDID, err := w3c.ParseDID("did:opid:optimism:main:2q2LTxUzBz9BwarePv9yBdUV8eXZK1ffxVKBGAnt2o")
 	require.NoError(t, err)
 
 	jsonB := &pgtype.JSONB{}
-	require.NoError(t, jsonB.Set(`{"type": "BJJSignature2021", "coreClaim": "c9b2370371b7fa8b3dab2a5ba81b68382a00000000000000000000000000000002129c52957a73ea89144dc455d28e074cd7e23ae3e5bf86d4aa56d20cd60e0074da1e21d2c4d8fc28e2e3809ed51c333d68ef4dffd31508176ab84863e8fc1a0000000000000000000000000000000000000000000000000000000000000000682561f1000000006f0535010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "signature": "fb179bc43ca2c8ce4eb97549d847415bcb759f4d7c8bb3aa008700716abb2b06853349d75571fdc3018023cce9d1e6756eb102b4b44a17555d49fc8371af1300", "issuerData": {"id": "did:polygonid:polygon:mumbai:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr", "mtp": {"siblings": [], "existence": true}, "state": {"value": "e6a67b3bcca7e424f657f41ddaae87f772f502de49d1cfe7f9abd11a4822611d", "claimsTreeRoot": "8375a237f1597b74b17f33cce0638e93a7be9175028836ae9f54f08dd2976a2f"}, "authCoreClaim": "cca3371a6cb1b715004407e325bd993c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f5287a7ac420b7c2b1b7aa28446c52df4dda6f7e4a127fbd1272d78853c4e01a3359f10f7fef6a358b83740146445dc55f143109bf1f6a090edf7d7c7b8e651c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "credentialStatus": {"id": "https://aeb5-2a0c-5a84-e10a-5200-71e6-4d79-d127-c4dd.eu.ngrok.io/v1/did%3Apolygonid%3Apolygon%3Amumbai%3A2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr/claims/revocation/status/0", "type": "SparseMerkleTreeProof", "revocationNonce": 0}}}`))
+	require.NoError(t, jsonB.Set(`{"type": "BJJSignature2021", "coreClaim": "c9b2370371b7fa8b3dab2a5ba81b68382a00000000000000000000000000000002129c52957a73ea89144dc455d28e074cd7e23ae3e5bf86d4aa56d20cd60e0074da1e21d2c4d8fc28e2e3809ed51c333d68ef4dffd31508176ab84863e8fc1a0000000000000000000000000000000000000000000000000000000000000000682561f1000000006f0535010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "signature": "fb179bc43ca2c8ce4eb97549d847415bcb759f4d7c8bb3aa008700716abb2b06853349d75571fdc3018023cce9d1e6756eb102b4b44a17555d49fc8371af1300", "issuerData": {"id": "did:opid:optimism:sepolia:2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr", "mtp": {"siblings": [], "existence": true}, "state": {"value": "e6a67b3bcca7e424f657f41ddaae87f772f502de49d1cfe7f9abd11a4822611d", "claimsTreeRoot": "8375a237f1597b74b17f33cce0638e93a7be9175028836ae9f54f08dd2976a2f"}, "authCoreClaim": "cca3371a6cb1b715004407e325bd993c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f5287a7ac420b7c2b1b7aa28446c52df4dda6f7e4a127fbd1272d78853c4e01a3359f10f7fef6a358b83740146445dc55f143109bf1f6a090edf7d7c7b8e651c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", "credentialStatus": {"id": "https://aeb5-2a0c-5a84-e10a-5200-71e6-4d79-d127-c4dd.eu.ngrok.io/v1/did%3Aopid%3Aoptimism%3Asepolia%3A2qL68in3FNbimFK6gka8hPZz475z31nqPJdqBeTsQr/claims/revocation/status/0", "type": "SparseMerkleTreeProof", "revocationNonce": 0}}}`))
 
 	createdAt := time.Now().Add(-24 * time.Hour)
 	for i := 0; i < 100; i++ {
@@ -665,7 +665,7 @@ func TestGetAllByIssuerIDOrderBy(t *testing.T) {
 func TestGetClaimsIssuedForUserID(t *testing.T) {
 	ctx := context.Background()
 	fixture := NewFixture(storage)
-	didStr := "did:polygonid:polygon:mumbai:2qKLWeRi6Tk23SmFpRKHvKFf2MmrocJYxwAD1MwhYw"
+	didStr := "did:opid:optimism:sepolia:2qKLWeRi6Tk23SmFpRKHvKFf2MmrocJYxwAD1MwhYw"
 	schemaStore := NewSchema(*storage)
 	_, err := storage.Pgx.Exec(ctx, "INSERT INTO identities (identifier, keytype) VALUES ($1, $2)", didStr, "BJJ")
 	require.NoError(t, err)
@@ -689,10 +689,10 @@ func TestGetClaimsIssuedForUserID(t *testing.T) {
 	idClaim, _ := uuid.NewUUID()
 	HIndex := uuid.New().String()
 
-	userDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qP8KN3KRwBi37jB2ENXrWxhTo3pefaU5u5BFPbjYo")
+	userDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qP8KN3KRwBi37jB2ENXrWxhTo3pefaU5u5BFPbjYo")
 	require.NoError(t, err)
 
-	userDIDWithCeroClaims, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qHLU5GYftBHunAEh5PrBifeJiEVujh9Ybzukh7Nhy")
+	userDIDWithCeroClaims, err := w3c.ParseDID("did:opid:optimism:sepolia:2qHLU5GYftBHunAEh5PrBifeJiEVujh9Ybzukh7Nhy")
 	require.NoError(t, err)
 
 	idClaimInserted := fixture.CreateClaim(t, &domain.Claim{
@@ -744,7 +744,7 @@ func TestGetClaimsIssuedForUserID(t *testing.T) {
 
 func TestGeRevoked(t *testing.T) {
 	fixture := NewFixture(storage)
-	idStr := "did:polygonid:polygon:amoy:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW"
+	idStr := "did:opid:optimism:sepolia:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}

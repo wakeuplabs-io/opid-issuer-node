@@ -15,23 +15,23 @@ import (
 	"github.com/piprate/json-gold/ld"
 	"github.com/stretchr/testify/require"
 
-	cache2 "github.com/polygonid/sh-id-platform/internal/cache"
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/core/services"
-	"github.com/polygonid/sh-id-platform/internal/db"
-	"github.com/polygonid/sh-id-platform/internal/db/tests"
-	"github.com/polygonid/sh-id-platform/internal/errors"
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/loader"
-	"github.com/polygonid/sh-id-platform/internal/log"
-	"github.com/polygonid/sh-id-platform/internal/network"
-	"github.com/polygonid/sh-id-platform/internal/providers"
-	"github.com/polygonid/sh-id-platform/internal/pubsub"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
-	"github.com/polygonid/sh-id-platform/internal/reversehash"
-	"github.com/polygonid/sh-id-platform/internal/revocationstatus"
+	cache2 "github.com/wakeup-labs/issuer-node/internal/cache"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/core/services"
+	"github.com/wakeup-labs/issuer-node/internal/db"
+	"github.com/wakeup-labs/issuer-node/internal/db/tests"
+	"github.com/wakeup-labs/issuer-node/internal/errors"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/loader"
+	"github.com/wakeup-labs/issuer-node/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/network"
+	"github.com/wakeup-labs/issuer-node/internal/providers"
+	"github.com/wakeup-labs/issuer-node/internal/pubsub"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/reversehash"
+	"github.com/wakeup-labs/issuer-node/internal/revocationstatus"
 )
 
 var (
@@ -122,6 +122,13 @@ func TestMain(m *testing.M) {
 	cfg.Ethereum = cfgForTesting.Ethereum
 	cfg.UniversalLinks = config.UniversalLinks{BaseUrl: "https://testing.env"}
 	schemaLoader = loader.NewDocumentLoader(ipfsGatewayURL, false)
+
+	// register opid code
+	if err := services.RegisterOptimismIdMethod(ctx); err != nil {
+		log.Error(ctx, "failed to register OptimismIdMethod", "err", err)
+		os.Exit(1)
+	}
+
 	m.Run()
 }
 

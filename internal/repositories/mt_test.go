@@ -10,7 +10,7 @@ import (
 
 func TestMtSave(t *testing.T) {
 	// given
-	idStr := "did:iden3:polygon:mumbai:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
+	idStr := "did:opid:optimism:sepolia:wyFiV4w71QgWPn6bYLsZoysFay66gKtVa9kfu6yMZ"
 	repo := NewIdentityMerkleTreeRepository()
 
 	// when and then
@@ -23,7 +23,7 @@ func TestMtSave(t *testing.T) {
 
 func TestMtGetByIdentifierAndTypes(t *testing.T) {
 	// given
-	idStr := "did:polygonid:polygon:mumbai:2qF6oxuF6HhD45o5E1yF1gq1vdTAGtTfGqQ7bUaKeC"
+	idStr := "did:opid:optimism:sepolia:2qF6oxuF6HhD45o5E1yF1gq1vdTAGtTfGqQ7bUaKeC"
 	repo := NewIdentityMerkleTreeRepository()
 
 	// when and then
@@ -42,7 +42,7 @@ func TestMtGetByIdentifierAndTypes(t *testing.T) {
 
 	// when and then
 	t.Run("should not get the mt", func(t *testing.T) {
-		did, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW")
+		did, err := w3c.ParseDID("did:opid:optimism:sepolia:2qHtzzxS7uazdumnyZEdf74CNo3MptdW6ytxxwbPMW")
 		assert.NoError(t, err)
 		mts, err := repo.GetByIdentifierAndTypes(context.Background(), storage.Pgx, did, []uint16{0})
 		assert.NoError(t, err)
@@ -53,7 +53,7 @@ func TestMtGetByIdentifierAndTypes(t *testing.T) {
 
 func TestMtGetById(t *testing.T) {
 	// given
-	idStr := "did:polygonid:polygon:mumbai:2qPcZy8C1Nnm9xmkQsZZjRQ11V2YJ6VYULpg4VcxXm"
+	idStr := "did:opid:optimism:sepolia:2qPcZy8C1Nnm9xmkQsZZjRQ11V2YJ6VYULpg4VcxXm"
 	repo := NewIdentityMerkleTreeRepository()
 
 	// when and then

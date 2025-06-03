@@ -49,7 +49,7 @@ linters-settings:
     sections:
       - standard
       - default
-      - prefix(github.com/polygonid/sh-id-platform)
+      - prefix(github.com/wakeup-labs/issuer-node)
       - blank
       - dot
 #  gocritic:

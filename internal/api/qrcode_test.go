@@ -16,16 +16,16 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
 )
 
 func TestServer_GetQrFromStore(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 		url        = "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 		schemaType = "KYCCountryOfResidenceCredential"
@@ -34,7 +34,7 @@ func TestServer_GetQrFromStore(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
 
-	iden, err := server.Services.identity.Create(ctx, "polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did, err := w3c.ParseDID(iden.Identifier)
 	require.NoError(t, err)

@@ -19,10 +19,10 @@ import (
 	"github.com/iden3/go-schema-processor/v2/verifiable"
 	"gopkg.in/yaml.v3"
 
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/eth"
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/eth"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 const (

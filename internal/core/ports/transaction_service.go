@@ -6,7 +6,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
 )
 
 // TransactionService interface

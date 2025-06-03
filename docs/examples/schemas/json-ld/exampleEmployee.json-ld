@@ -6,13 +6,13 @@
         "id": "@id",
         "type": "@type",
         "EmployeeCredential": {
-          "@id": "https://raw.githubusercontent.com/0xPolygonID/issuer-node/main/docs/examples/json-ld/exampleEmployee.json-ld#EmployeeCredential",
+          "@id": "https://raw.githubusercontent.com/wakeuplabs-io/issuer-node/main/docs/examples/json-ld/exampleEmployee.json-ld#EmployeeCredential",
           "@context": {
             "@version": 1.1,
             "@protected": true,
             "id": "@id",
             "type": "@type",
-            "vocab": "https://github.com/0xPolygonID/sh-id-platform/blob/main/docs/examples/schemas/vocab/exampleEmployee.md#",
+            "vocab": "https://github.com/wakeuplabs-io/issuer-node/blob/main/docs/examples/schemas/vocab/exampleEmployee.md#",
             "xsd": "http://www.w3.org/2001/XMLSchema#",
             "hireDate": {
               "@id": "vocab:hireDate",

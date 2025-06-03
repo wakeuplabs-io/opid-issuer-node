@@ -17,7 +17,7 @@ import (
 	protocol "github.com/iden3/iden3comm/v2/protocol"
 	"github.com/oapi-codegen/runtime"
 	strictnethttp "github.com/oapi-codegen/runtime/strictmiddleware/nethttp"
-	timeapi "github.com/polygonid/sh-id-platform/internal/timeapi"
+	timeapi "github.com/wakeup-labs/issuer-node/internal/timeapi"
 )
 
 const (

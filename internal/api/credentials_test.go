@@ -20,19 +20,19 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/core/event"
-	"github.com/polygonid/sh-id-platform/internal/core/ports"
-	"github.com/polygonid/sh-id-platform/internal/db/tests"
-	"github.com/polygonid/sh-id-platform/internal/kms"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/core/event"
+	"github.com/wakeup-labs/issuer-node/internal/core/ports"
+	"github.com/wakeup-labs/issuer-node/internal/db/tests"
+	"github.com/wakeup-labs/issuer-node/internal/kms"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
 )
 
 func TestServer_RevokeClaim(t *testing.T) {
 	server := newTestServer(t, nil)
 
-	idStr := "did:polygonid:polygon:mumbai:2qM77fA6NGGWL9QEeb1dv2VA6wz5svcohgv61LZ7wB"
+	idStr := "did:opid:optimism:sepolia:2qM77fA6NGGWL9QEeb1dv2VA6wz5svcohgv61LZ7wB"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -121,7 +121,7 @@ func TestServer_RevokeClaim(t *testing.T) {
 		{
 			name:  "should get an error",
 			auth:  authOk,
-			did:   "did:polygonid:polygon:mumbai:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:   "did:opid:optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
 			nonce: nonce,
 			expected: expected{
 				httpCode: 500,
@@ -160,9 +160,9 @@ func TestServer_RevokeClaim(t *testing.T) {
 
 func TestServer_CreateCredential(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -170,7 +170,7 @@ func TestServer_CreateCredential(t *testing.T) {
 	server := newTestServer(t, nil)
 	handler := getHandler(ctx, server)
 
-	iden, err := server.Services.identity.Create(ctx, "http://polygon-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
+	iden, err := server.Services.identity.Create(ctx, "http://optimism-test", &ports.DIDCreationOptions{Method: method, Blockchain: blockchain, Network: network, KeyType: BJJ})
 	require.NoError(t, err)
 	did := iden.Identifier
 
@@ -207,7 +207,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -227,7 +227,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -251,7 +251,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -274,7 +274,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -297,7 +297,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "ipfs://QmQVeb5dkz5ekDqBrYVVxBFQZoCbzamnmMUn9B8twCEgDL",
 				Type:             "testNewType",
 				CredentialSubject: map[string]any{
-					"id":             "did:polygonid:polygon:mumbai:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":             "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
 					"testNewTypeInt": 1234,
 				},
 				Expiration: common.ToPointer(time.Now().Unix()),
@@ -316,7 +316,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "ipfs://QmQVeb5dkz5ekDqBrYVVxBFQZoCbzamnmMUn9B8twCEgDL",
 				Type:             "testNewType",
 				CredentialSubject: map[string]any{
-					"id":             "did:polygonid:polygon:mumbai:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":             "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
 					"testNewTypeInt": 1234,
 				},
 				Expiration: common.ToPointer(time.Now().Unix()),
@@ -340,7 +340,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
+					"id":           "did:opid:optimism:sepolia:2qFDkNkWePjd6URt6kGQX14a7wVKhBZt8bpy7HZJZi",
 					"birthday":     19960425,
 					"documentType": 2,
 				},
@@ -366,7 +366,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "wrong url",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -385,7 +385,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "http://www.wrong.url/cannot/get/the/credential",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -404,7 +404,7 @@ func TestServer_CreateCredential(t *testing.T) {
 				CredentialSchema: "http://www.wrong.url/cannot/get/the/credential",
 				Type:             "KYCAgeCredential",
 				CredentialSubject: map[string]any{
-					"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+					"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 					"birthday":     19960424,
 					"documentType": 2,
 				},
@@ -478,7 +478,7 @@ func TestServer_DeleteCredential(t *testing.T) {
 	server := newTestServer(t, nil)
 	ctx := context.Background()
 	handler := getHandler(ctx, server)
-	identity, err := server.Services.identity.Create(ctx, "http://polygon-test", &ports.DIDCreationOptions{Method: core.DIDMethodIden3, Blockchain: core.Polygon, Network: core.Amoy, KeyType: kms.KeyTypeBabyJubJub})
+	identity, err := server.Services.identity.Create(ctx, "http://optimism-test", &ports.DIDCreationOptions{Method: core.DIDMethodIden3, Blockchain: core.Polygon, Network: core.Amoy, KeyType: kms.KeyTypeBabyJubJub})
 	require.NoError(t, err)
 	fixture := repositories.NewFixture(storage)
 	claim := fixture.NewClaim(t, identity.Identifier)
@@ -557,8 +557,8 @@ func TestServer_DeleteCredential(t *testing.T) {
 }
 
 func TestServer_GetCredentialQrCode(t *testing.T) {
-	idStr := "did:polygonid:polygon:mumbai:2qPrv5Yx8s1qAmEnPym68LfT7gTbASGampiGU7TseL"
-	idNoClaims := "did:polygonid:polygon:mumbai:2qGjTUuxZKqKS4Q8UmxHUPw55g15QgEVGnj6Wkq8Vk"
+	idStr := "did:opid:optimism:sepolia:2qPrv5Yx8s1qAmEnPym68LfT7gTbASGampiGU7TseL"
+	idNoClaims := "did:opid:optimism:sepolia:2qGjTUuxZKqKS4Q8UmxHUPw55g15QgEVGnj6Wkq8Vk"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -622,7 +622,7 @@ func TestServer_GetCredentialQrCode(t *testing.T) {
 		{
 			name:  "should get an error wrong did invalid format",
 			auth:  authOk,
-			did:   ":polygon:mumbai:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:   ":optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
 			claim: claim.ID,
 			expected: expected{
 				response: GetCredentialOffer400JSONResponse{N400JSONResponse{
@@ -738,8 +738,8 @@ func TestServer_GetCredentialQrCode(t *testing.T) {
 
 func TestServer_GetCredential(t *testing.T) {
 	server := newTestServer(t, nil)
-	idStr := "did:polygonid:polygon:mumbai:2qLduMv2z7hnuhzkcTWesCUuJKpRVDEThztM4tsJUj"
-	idStrWithoutClaims := "did:polygonid:polygon:mumbai:2qGjTUuxZKqKS4Q8UmxHUPw55g15QgEVGnj6Wkq8Vk"
+	idStr := "did:opid:optimism:sepolia:2qLduMv2z7hnuhzkcTWesCUuJKpRVDEThztM4tsJUj"
+	idStrWithoutClaims := "did:opid:optimism:sepolia:2qGjTUuxZKqKS4Q8UmxHUPw55g15QgEVGnj6Wkq8Vk"
 	identity := &domain.Identity{
 		Identifier: idStr,
 	}
@@ -812,7 +812,7 @@ func TestServer_GetCredential(t *testing.T) {
 		{
 			name:    "should get an error wrong did invalid format",
 			auth:    authOk,
-			did:     ":polygon:mumbai:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
+			did:     ":optimism:sepolia:2qPUUYXa98tQWZKSaRidf2QTDyZicFFxkTWNWjk2HJ",
 			claimID: claim.ID,
 			expected: expected{
 				httpCode: http.StatusBadRequest,
@@ -842,7 +842,7 @@ func TestServer_GetCredential(t *testing.T) {
 							RevocationNonce: uint64(claim.RevNonce),
 						},
 						CredentialSubject: map[string]interface{}{
-							"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+							"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 							"birthday":     float64(19960424),
 							"documentType": float64(2),
 							"type":         "KYCAgeCredential",
@@ -896,9 +896,9 @@ func TestServer_GetCredential(t *testing.T) {
 
 func TestServer_GetCredentials(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -915,7 +915,7 @@ func TestServer_GetCredentials(t *testing.T) {
 	schemaURL := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -1110,7 +1110,7 @@ func TestServer_GetCredentials(t *testing.T) {
 			auth:   authOk,
 			status: common.ToPointer("all"),
 			page:   common.ToPointer(1),
-			did:    common.ToPointer("did:iden3:tJU7z1dbKyKYLiaopZ5tN6Zjsspq7QhYayiR31RFa"),
+			did:    common.ToPointer("did:opid:tJU7z1dbKyKYLiaopZ5tN6Zjsspq7QhYayiR31RFa"),
 			expected: expected{
 				httpCode:         http.StatusOK,
 				total:            0,
@@ -1378,9 +1378,9 @@ func TestServer_GetCredentials(t *testing.T) {
 
 func TestServer_GetRevocationStatus(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -1393,7 +1393,7 @@ func TestServer_GetRevocationStatus(t *testing.T) {
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	did, _ := w3c.ParseDID(identity.Identifier)
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}
@@ -1461,9 +1461,9 @@ func TestServer_GetRevocationStatus(t *testing.T) {
 
 func TestServer_GetRevocationStatusV2(t *testing.T) {
 	const (
-		method     = "polygonid"
-		blockchain = "polygon"
-		network    = "amoy"
+		method     = "opid"
+		blockchain = "optimism"
+		network    = "sepolia"
 		BJJ        = "BJJ"
 	)
 	ctx := context.Background()
@@ -1476,7 +1476,7 @@ func TestServer_GetRevocationStatusV2(t *testing.T) {
 	schema := "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json"
 	did, _ := w3c.ParseDID(identity.Identifier)
 	credentialSubject := map[string]any{
-		"id":           "did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
+		"id":           "did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ",
 		"birthday":     19960424,
 		"documentType": 2,
 	}

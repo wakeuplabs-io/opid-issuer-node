@@ -15,17 +15,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
-	"github.com/polygonid/sh-id-platform/internal/config"
-	"github.com/polygonid/sh-id-platform/internal/core/domain"
-	"github.com/polygonid/sh-id-platform/internal/db/tests"
-	"github.com/polygonid/sh-id-platform/internal/repositories"
+	"github.com/wakeup-labs/issuer-node/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/config"
+	"github.com/wakeup-labs/issuer-node/internal/core/domain"
+	"github.com/wakeup-labs/issuer-node/internal/db/tests"
+	"github.com/wakeup-labs/issuer-node/internal/repositories"
 )
 
 func TestServer_GetSchema(t *testing.T) {
 	ctx := context.Background()
 	server := newTestServer(t, nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.ServerUrl = "https://testing.env"
 	fixture := repositories.NewFixture(storage)
@@ -144,7 +144,7 @@ func TestServer_GetSchemas(t *testing.T) {
 
 	server := newTestServer(t, storage)
 
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.ServerUrl = "https://testing.env"
 	fixture := repositories.NewFixture(storage)
@@ -267,7 +267,7 @@ func TestServer_ImportSchema(t *testing.T) {
 	ctx := context.Background()
 
 	server := newTestServer(t, nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.ServerUrl = "https://testing.env"
 
@@ -363,7 +363,7 @@ func TestServer_ImportSchemaIPFS(t *testing.T) {
 	ctx := context.Background()
 
 	server := newTestServer(t, nil)
-	issuerDID, err := w3c.ParseDID("did:polygonid:polygon:mumbai:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
+	issuerDID, err := w3c.ParseDID("did:opid:optimism:sepolia:2qE1BZ7gcmEoP2KppvFPCZqyzyb5tK9T6Gec5HFANQ")
 	require.NoError(t, err)
 	server.cfg.ServerUrl = "https://testing.env"
 

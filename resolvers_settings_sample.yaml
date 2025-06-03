@@ -1,3 +1,27 @@
+optimism:
+ sepolia:
+   contractAddress: 0x9a1A258702050BcFB938Ad8Ec0996503473216d1
+   networkURL: https://sepolia.optimism.io
+   chainID: 11155420
+   networkFlag: 0b1000_0000
+   method: opid
+   defaultGasLimit: 600000
+   confirmationTimeout: 10s
+   confirmationBlockCount: 5
+   receiptTimeout: 600s
+   minGasPrice: 0
+   maxGasPrice: 1000000
+   rpcResponseTimeout: 5s
+   waitReceiptCycleTime: 30s
+   waitBlockCycleTime: 30s
+   gasLess: false
+   rhsSettings:
+     mode: OffChain
+     contractAddress: 0xa36D2Ed3Dd32B96979D94Ea4cb541059A2029484
+     rhsUrl: https://opid-rhs.wakeuplabs.link
+     chainID: 11155420
+     publishingKey: pbkey
+     
 polygon:
   amoy:
     contractAddress: 0x1a4cC30f2aA0377b0c3bc9848766D90cb4404124

@@ -11,7 +11,7 @@ import (
 	"github.com/iden3/go-iden3-crypto/babyjub"
 	"github.com/iden3/go-iden3-crypto/utils"
 
-	"github.com/polygonid/sh-id-platform/internal/log"
+	"github.com/wakeup-labs/issuer-node/internal/log"
 )
 
 type localStorageBJJKeyProviderFileContent struct {

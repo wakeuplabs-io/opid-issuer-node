@@ -3,7 +3,7 @@ package event
 import (
 	"encoding/json"
 
-	"github.com/polygonid/sh-id-platform/internal/pubsub"
+	"github.com/wakeup-labs/issuer-node/internal/pubsub"
 )
 
 const (

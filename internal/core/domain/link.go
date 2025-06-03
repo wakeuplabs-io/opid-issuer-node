@@ -12,7 +12,7 @@ import (
 	"github.com/iden3/iden3comm/v2/protocol"
 	"github.com/jackc/pgtype"
 
-	"github.com/polygonid/sh-id-platform/internal/common"
+	"github.com/wakeup-labs/issuer-node/internal/common"
 )
 
 const (
