@@ -1,7 +1,7 @@
-issuernode_repository_image: wakeuplabs/issuernode
-issuernode_repository_tag: 1.0.3
+issuernode_repository_image: wakeuplabs/issuernode-api
+issuernode_repository_tag: 1.0.4
 issuernode_ui_repository_image: wakeuplabs/issuernode-ui
-issuernode_ui_repository_tag: 1.0.3
+issuernode_ui_repository_tag: 1.0.4
 
 
 apiIssuerNode:

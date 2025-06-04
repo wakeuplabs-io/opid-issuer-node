@@ -134,7 +134,7 @@ run-ui: build-ui add-host-url-swagger
 # Run all services
 .PHONE: run-all
 run-all: build-api build-ui validate_localstorage_file up add-host-url-swagger
-	COMPOSE_DOCKER_CLI_BUILD=1 $(DOCKER_COMPOSE_CMD) up -d ui api pending_publisher notifications --build
+	COMPOSE_DOCKER_CLI_BUILD=1 $(DOCKER_COMPOSE_CMD) up -d ui api pending_publisher notifications
 
 
 .PHONY: down
