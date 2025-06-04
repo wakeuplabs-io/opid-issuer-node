@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Privado ID - Issuer
+  title: OPID - Issuer
   description: |
     The Issuer Node Core API is ideal for users who need multiple identities and for integrator profiles, who want to 
     create solutions based on Privado ID functionalities and might be interested in having access to low level 

@@ -55,7 +55,7 @@ services:
     command: ./vault/scripts/init.sh
 
   ui:
-    image: privadoid/issuernode-ui
+    image: wakeuplabs/issuernode-ui
     pull_policy: always
     ports:
       - "8088:80"
@@ -72,7 +72,7 @@ services:
       - api
 
   api:
-    image: privadoid/issuernode-api
+    image: wakeuplabs/issuernode-api
     pull_policy: always
     ports:
       - "3001:3001"
@@ -93,7 +93,7 @@ services:
       - redis
 
   notifications:
-    image: privadoid/issuernode-api
+    image: wakeuplabs/issuernode-api
     pull_policy: always
     env_file:
       - ../../.env-issuer
@@ -110,7 +110,7 @@ services:
       - api
 
   pending_publisher:
-    image: privadoid/issuernode-api
+    image: wakeuplabs/issuernode-api
     pull_policy: always
     env_file:
       - ../../.env-issuer
